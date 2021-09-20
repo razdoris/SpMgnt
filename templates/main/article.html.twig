@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="articleContainer">
+        <H1 class="articleTitle">
+            {{ article.title }}
+        </H1>
+        <div class="articleBody">
+            {{ article.content | raw }}
+        </div>
+
+    </div>
+
+{% endblock %}
+
+{% block title %}{{ parent() }} | article: {{ article.id }} {% endblock %}
+

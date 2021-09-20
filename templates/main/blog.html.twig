@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} | blog{% endblock %}
+
+
+{% block pageTitle %}Blog{% endblock %}
+{% block body %}
+    <div class="blogContainer">
+        {% for article in articlesList %}
+            <a class="articleLink" href="{{ path('blog_detail',{id: article.id}) }}">
+                <div class="articlePreview gradiantGroup">
+                    <img class="articlePreviewImage" src="{{ asset('Icons/') ~ article.picture }}"
+                         alt="image d'illustration de l'article"/>
+                    <div class="articlePreviewTitle">{{ article.categorie.label }}</div>
+                    <div class="articlePreviewBody">
+                        <h3>{{ article.title }}</h3>
+                        <P>{{ article.preview }}
+                        </P>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block extraStyle %}
+
+
+{% endblock %}
+

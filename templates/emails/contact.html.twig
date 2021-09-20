@@ -1,0 +1,9 @@
+<h1>Demande de contact</h1>
+
+<p>{{ message.firstName }} {{ message.lastName }} souhaites des informations
+    au sujet de {{ message.subject.subjectText }}</p>
+<h2>la question:</h2>
+<p>{{ message.question | nl2br}}</p>
+<h2>pour le contacter:</h2>
+<p>{{ message.phoneNumber }}</p>
+<p>{{ message.club }}</p><p>{{ message.division }}</p>

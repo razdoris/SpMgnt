@@ -1,0 +1,94 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} | contact{% endblock %}
+
+
+{% block pageTitle %}Nous contacter{% endblock %}
+{% block body %}
+    <div class="contactBody gradiantGroup">
+        {{ form_start(formContactMessage) }}
+        <div class="groupFormContact">
+            <div class="blockFormContact">
+                <div class="labelFormContact">
+                    {{ form_label(formContactMessage.firstName) }}
+                </div>
+                <div class="widgetFromContact">
+                    {{ form_widget(formContactMessage.firstName) }}
+                </div>
+            </div>
+            <div class="blockFormContact">
+                <div class="labelFormContact">
+                    {{ form_label(formContactMessage.lastName) }}
+                </div>
+                <div class="widgetFromContact">
+                    {{ form_widget(formContactMessage.lastName) }}
+                </div>
+            </div>
+        </div>
+        <div class="groupFormContact">
+            <div class="blockFormContact">
+                <div class="labelFormContact">
+                    {{ form_label(formContactMessage.phoneNumber) }}
+                </div>
+                <div class="widgetFromContact">
+                    {{ form_widget(formContactMessage.phoneNumber) }}
+                </div>
+            </div>
+            <div class="blockFormContact">
+                <div class="labelFormContact">
+                    {{ form_label(formContactMessage.mailAddress) }}
+                </div>
+                <div class="widgetFromContact">
+                    {{ form_widget(formContactMessage.mailAddress) }}
+                </div>
+            </div>
+        </div>
+        <div class="groupFormContact">
+            <div class="blockFormContact">
+                <div class="labelFormContact">
+                    {{ form_label(formContactMessage.club) }}
+                </div>
+                <div class="widgetFromContact">
+                    {{ form_widget(formContactMessage.club) }}
+                </div>
+            </div>
+            <div class="blockFormContact">
+                <div class="labelFormContact">
+                    {{ form_label(formContactMessage.division) }}
+                </div>
+                <div class="widgetFromContact">
+                    {{ form_widget(formContactMessage.division) }}
+                </div>
+            </div>
+        </div>
+        <div class="groupFormContact">
+            <div class="blockFormContact">
+                <div class="labelFormContact">
+                    {{ form_label(formContactMessage.subject) }}
+                </div>
+                <div class="widgetFromContact">
+                    {{ form_widget(formContactMessage.subject) }}
+                </div>
+            </div>
+        </div>
+        <div class="groupFormContact">
+            <div class="blockFormContact">
+                <div class="labelFormContact">
+                    {{ form_label(formContactMessage.question) }}
+                </div>
+                <div class="widgetFromContact">
+                    {{ form_widget(formContactMessage.question) }}
+                </div>
+            </div>
+        </div>
+        <div class="buttonFormContact">
+            <button class="button" >Envoyer</button>
+        </div>
+        {{ form_end(formContactMessage) }}
+    </div>
+{% endblock %}
+
+{% block extraStyle %}
+
+
+{% endblock %}

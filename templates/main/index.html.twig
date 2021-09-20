@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} | accueil{% endblock %}
+
+
+{% block pageTitle %}ACCUEIL{% endblock %}
+{% block body %}
+    <div class="mainContainer">
+        {{ include('main/indexChapter/_firstDescription.html.twig') }}
+    </div>
+    <div class="mainContainer">
+        {{ include('main/indexChapter/_secondDescription.html.twig') }}
+    </div>
+    <div class="mainContainer">
+        {{ include('main/indexChapter/_firstDescription.html.twig') }}
+    </div>
+    <div class="mainContainer">
+        {{ include('main/indexChapter/_firstDescription.html.twig') }}
+    </div>
+    <div class="mainContainer">
+        {{ include('main/indexChapter/_firstDescription.html.twig') }}
+    </div>
+{% endblock %}
+
+{% block extraStyle %}
+
+
+{% endblock %}

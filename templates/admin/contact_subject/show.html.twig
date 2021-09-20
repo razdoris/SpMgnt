@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ContactSubject{% endblock %}
+
+{% block body %}
+    <h1>ContactSubject</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ contact_subject.id }}</td>
+            </tr>
+            <tr>
+                <th>SubjectText</th>
+                <td>{{ contact_subject.subjectText }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_contact_subject__index') }}">back to list</a>
+
+    <a href="{{ path('admin_contact_subject__edit', {'id': contact_subject.id}) }}">edit</a>
+
+    {{ include('admin/contact_subject/_delete_form.html.twig') }}
+{% endblock %}

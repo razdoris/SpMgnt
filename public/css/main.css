@@ -1,0 +1,415 @@
+/* Éléments principaux de la page */
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
+
+*
+{
+    margin:0;
+    padding:0;
+}
+
+body
+{
+    font-family				: 'Roboto Condensed', Arial, sans-serif;
+    color					: black;
+    height					: 90vh;
+    width               : 100%;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+/*
+Header CSS
+ */
+
+
+header{
+    display:flex;
+    justify-content: space-between;
+    font-size               : 20px;
+    letter-spacing          : 3px;
+    position				: fixed;
+    height					: 100px;
+    width					: 100%;
+    top						: 0px;
+    left					: 0px;
+    z-index: 100;
+}
+
+header a
+{
+    text-decoration: none;
+    color:black;
+    margin:0;
+    padding:0;
+}
+
+#AppLogo
+{
+    height: 80px;
+    width: 180px;
+    background-color: rgba(255,255,255,.5);
+    border-radius: 50px / 80px;
+}
+
+
+#titleHeader{
+    margin: 10px;
+    height: 80px;
+    width: 180px;
+}
+
+.headerPrincipal
+{
+    position:relative;
+    top:20px;
+    right:20px;
+    text-align:right;
+}
+
+.headerChild
+{
+    border-bottom:2px solid black;
+    border-left:2px solid black;
+    padding: 0 25px;
+    position:relative;
+    right: -20px;
+    top: -10px;
+}
+
+.headerUl, .headerIl
+{
+    list-style: none !important;
+    margin:0 !important;
+    padding:0 !important;;
+}
+
+.hide
+{
+    display:none;
+}
+
+nav{
+
+    display:flex;
+    justify-content: space-between;
+    font-size               : 20px;
+    letter-spacing          : 3px;
+    position				: relative;
+    height					: 30px;
+    width					: 75%;
+    top                     :30px;
+    margin: 10px;
+}
+
+.NavGroupe
+{
+
+}
+
+.linkNav
+{
+    margin: 10px;
+}
+
+
+.flash{
+    padding: 20px;
+    font-weight: bold;
+    font-size: 1.4rem;
+    margin: 10px auto;
+    border-radius: 5px;
+    text-align: center;
+    background-color: rgba(255,255,255,0.5);
+    position: relative;
+    top: 120px;
+    width: 80%;
+}
+.flash-success
+{
+    border: 2px solid green;
+    color: green;
+}
+
+.flash-erreur
+{
+    border: 2px solid red;
+    color: red;
+}
+
+.alert{
+    padding: 20px;
+    font-weight: bold;
+    font-size: 1.4rem;
+    margin: 1rem 0;
+    border-radius: 5px;
+    text-align: center;
+}
+.alert-danger
+{
+    border: 2px solid red;
+    color: red;
+}
+
+
+/*
+
+ */
+
+.container
+{
+    border-radius: 30px;
+    position				: relative;
+    top						: 100px;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.mainContainer
+{
+    margin:20px 2px;
+    border-radius: 30px;
+    background-image: linear-gradient(rgba(255, 255, 255,0.5), rgba(0,0,0,0));
+    padding:20px;
+}
+
+h1
+{
+    text-align: center;
+}
+
+h2{
+    margin-bottom: 20px;
+}
+
+ul
+{
+    text-indent: 20px;
+    margin-left: 30px;
+}
+.descriptionText{
+    display: inline-block;
+    height: min-content;
+    width:40%
+}
+.mainIllustration{
+    display: inline-block;
+    height : 80%;
+    width : 50%;
+    border: 1px solid black;
+}
+
+/*
+css page Nos Actus
+ */
+
+.blogContainer
+{
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.articlePreview
+{
+    display: inline-block;
+    height: 500px;
+    width: 400px;
+    border-radius: 10px;
+    margin: 20px;
+    box-shadow: 10px 5px 20px black;
+    padding: 0;
+    overflow: hidden;
+    text-decoration: none;
+    transition: 300ms linear all;
+    transform-origin: bottom left;
+}
+
+.articlePreview:hover{
+    transform: rotate(-1deg) translateX(-10px) translatey(-15px) scale(1.05);
+}
+
+.articlePreviewTitle
+{
+    position: relative;
+    top:-20px;
+    margin: 0 20px;
+    width:fit-content;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    padding: 1px 5px;
+
+}
+
+.articlePreview a,
+.offerContainer a
+{
+    color: black;
+    text-decoration: none;
+}
+
+.articlePreviewImage,
+.offerImage
+{
+    width: 100%;
+}
+
+
+.articlePreviewBody
+
+{
+    text-align: center;
+    padding: 30px;
+    Margin: 10px;
+}
+
+.articleBody{
+    margin:20px;
+}
+
+
+.offerContainer
+{
+    display: inline-block;
+    height: auto;
+    width: 300px;
+    border-radius: 10px;
+    margin: 20px 5px;
+    padding: 0;
+    text-align: center;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.allOffersContainer
+{
+    margin: auto;
+    width:100%;
+    position: relative;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+
+.offerBody
+{
+    text-align: left !important;
+    height: 220px;
+}
+
+.price
+{
+    color: blue;
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+.offerFooter{
+    padding: 20px;
+}
+
+.offerName
+{
+    color: Black;
+    font-size:35px;
+    font-weight: bolder;
+}
+
+
+.monthOrYear
+{
+    color: grey;
+    font-size:20px;
+    font-weight: bold;
+}
+
+.offerSubTitle
+{
+
+    color: grey;
+    font-size:20px;
+    font-weight: bold;
+}
+
+/*
+css page Faq
+ */
+.faqBody, .contactBody
+{
+    border-radius: 20px;
+    padding: 10px;
+}
+.faqQuestion
+{
+    display: inline-block;
+    margin: 20px;
+}
+
+.gradiantGroup
+{
+    background: linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0.2));
+
+}
+
+/*
+css page contact
+ */
+
+.blockFormContact
+{
+    display: inline-block;
+    margin: 20px;
+}
+
+
+.labelFormContact
+{
+    margin-bottom: 10px;
+}
+
+.widgetFromContact input
+{
+    width: 300px;
+    height: 30px;
+    border: inherit;
+    border-radius: 10px;
+    padding: 5px;
+    box-shadow: 10px 5px 20px gray;
+}
+
+.widgetFromContact select
+{
+    width: 660px;
+    height: 45px;
+    border: inherit;
+    border-radius: 10px;
+    padding: 5px;
+    box-shadow: 10px 5px 20px gray;
+}
+
+.widgetFromContact textarea
+{
+    width: 660px;
+    height: 100px;
+    border: inherit;
+    border-radius: 10px;
+    padding: 5px;
+    box-shadow: 10px 5px 20px gray;
+}
+
+.button{
+    height: 30px;
+    width: 120px;
+    background-color: mediumblue;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.buttonFormContact
+{
+    width: 660px;
+    text-align: right;
+}
