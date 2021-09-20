@@ -21,13 +21,13 @@ class PresentationBlogArticleType extends AbstractType
                 'label'=>'Titre de l\'article'
             ])
             ->add('preview', CKEditorType::class,[
-                'label'=>'resumé de l\'article'
+                'label'=>'Resumé de l\'article'
             ])
             ->add('content', CKEditorType::class, [
                 'label'=>'Contenu de l\'article'
             ])
             ->add('imageFile',VichImageType::class,[
-                'label'=>'image d\'illustration',
+                'label'=>'Image d\'illustration',
                 'required'=>false
             ])
             ->add('categorie', EntityType::class,[

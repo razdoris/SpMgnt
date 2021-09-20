@@ -39,14 +39,6 @@ class MainController extends AbstractController
     }
 
     /**
-     * @Route("/faq", name="faq")
-     */
-    public function faq(): Response
-    {
-        return $this->render('main/faq.html.twig');
-    }
-
-    /**
      * @Route("/contact/{id}", name="contact", requirements={"id"="\d+"})
      */
     public function contact(

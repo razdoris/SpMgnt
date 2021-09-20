@@ -364,12 +364,19 @@ css page contact
 }
 
 
-.labelFormContact
+.blockFormNewArticle
+{
+    margin: 20px;
+}
+
+.labelFormContact,
+.labelFormNewArticle
 {
     margin-bottom: 10px;
 }
 
-.widgetFromContact input
+.widgetFromContact input,
+.widgetFormNewArticle input
 {
     width: 300px;
     height: 30px;
@@ -382,6 +389,17 @@ css page contact
 .widgetFromContact select
 {
     width: 660px;
+    height: 45px;
+    border: inherit;
+    border-radius: 10px;
+    padding: 5px;
+    box-shadow: 10px 5px 20px gray;
+}
+
+
+.widgetFormNewArticle select
+{
+    width: 310px;
     height: 45px;
     border: inherit;
     border-radius: 10px;
@@ -413,4 +431,48 @@ css page contact
 {
     width: 660px;
     text-align: right;
+}
+
+
+#presentation_blog_article_imageFile_file::-webkit-file-upload-button
+{
+    visibility: hidden;
+}
+
+#presentation_blog_article_imageFile_file::before
+{
+    content: 'Select some files';
+    height: 20px;
+    width: 120px;
+    display: inline-block;
+    border-radius: 10px;
+    padding: 8px;
+    outline: none;
+    -webkit-user-select: none;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+}
+
+#presentation_blog_article_imageFile_file:hover::before
+{
+    border-color: black;
+}
+
+
+#presentation_blog_article_imageFile_file:active::before {
+    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+.cke
+{
+    border-radius: 20px;
+    box-shadow: 10px 5px 20px black;
+}
+
+.cke_inner,
+.cke_top,
+.cke_bottom
+{
+    border-radius: 20px;
 }
