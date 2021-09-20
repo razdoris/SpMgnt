@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\PresentationBlogArticle;
 use App\Entity\PresentationBlogCategorie;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -19,10 +20,10 @@ class PresentationBlogArticleType extends AbstractType
             ->add('title', TextType::class, [
                 'label'=>'Titre de l\'article'
             ])
-            ->add('preview', null,[
+            ->add('preview', CKEditorType::class,[
                 'label'=>'resumé de l\'article'
             ])
-            ->add('content', null, [
+            ->add('content', CKEditorType::class, [
                 'label'=>'Contenu de l\'article'
             ])
             ->add('imageFile',VichImageType::class,[
