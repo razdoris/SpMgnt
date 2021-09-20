@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ form_start(formNewArticle) }}
+    <div class="blockFormNewArticle">
+        <div class="labelFormNewArticle">
+            {{ form_label(formNewArticle.title) }}
+        </div>
+        <div class="widgetFormNewArticle">
+            {{ form_widget(formNewArticle.title) }}
+        </div>
+    </div>
+    <div class="blockFormNewArticle">
+        <div class="labelFormNewArticle">
+            {{ form_label(formNewArticle.categorie) }}
+        </div>
+        <div class="widgetFormNewArticle">
+            {{ form_widget(formNewArticle.categorie) }}
+        </div>
+    </div>
+    <div class="blockFormNewArticle">
+        <div class="labelFormNewArticle">
+        {{ form_label(formNewArticle.preview) }}
+        </div>
+        <div class="widgetFormNewArticle">
+            {{ form_widget(formNewArticle.preview) }}
+        </div>
+    </div>
+    <div class="blockFormNewArticle">
+        <div class="labelFormNewArticle">
+            {{ form_label(formNewArticle.content) }}
+        </div>
+        <div class="widgetFormNewArticle">
+            {{ form_widget(formNewArticle.content) }}
+        </div>
+    </div>
+    <div class="blockFormNewArticle">
+        <div class="labelFormNewArticle">
+            {{ form_label(formNewArticle.imageFile) }}
+        </div>
+        <div class="widgetFormNewArticle">
+            {{ form_widget(formNewArticle.imageFile) }}
+        </div>
+    </div>
+    <div class="buttonFormNewArticle">
+        <button class="button" >Enregistrer</button>
+    </div>
+
+    {{ form_end(formNewArticle) }}
+
+{% endblock %}
+
+{% block title %}{{ parent() }} | nouvel article {% endblock %}
+

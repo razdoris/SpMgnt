@@ -240,7 +240,7 @@ css page Nos Actus
 
 }
 
-.articlePreview a,
+.blogContainer a,
 .offerContainer a
 {
     color: black;
@@ -264,6 +264,7 @@ css page Nos Actus
 
 .articleBody{
     margin:20px;
+    color: black;
 }
 
 

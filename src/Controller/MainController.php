@@ -73,8 +73,6 @@ class MainController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid())
         {
-
-            dump($request);
             $eMailSender->sendMailToAdmin($contact);
             $this->addFlash('success', 'Votre email a été envoyé');
             return $this->redirectToRoute('main_contact');
