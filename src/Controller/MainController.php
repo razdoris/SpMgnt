@@ -8,6 +8,7 @@ use App\Form\PresentationContactMessageType;
 use App\Notification\EMailSender;
 use App\Repository\PresentationBlogArticleRepository;
 use App\Repository\PresentationContactSubjectRepository;
+use App\Repository\PresentationFaqQuestionRepository;
 use App\Repository\PresentationOfferDescriptionRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -35,6 +36,19 @@ class MainController extends AbstractController
         return $this->render('main/offre.html.twig',[
             'test'=>$test,
             'offersList'=>$offers->findAll()
+        ]);
+    }
+
+
+    /**
+     * @Route("faq", name="faq")
+     */
+    public function faq(
+        PresentationFaqQuestionRepository $question
+    ): Response
+    {
+        return $this->render('main/faq.html.twig',[
+            'questionList'=>$question->findAll()
         ]);
     }
 
