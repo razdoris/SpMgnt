@@ -12,13 +12,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/blog", name="blog_")
- */
+
 class BlogController extends AbstractController
 {
     /**
-     * @Route("/", name="index")
+     * @Route("/blog/", name="blog_index")
      */
     public function blog(PresentationBlogArticleRepository $articles): Response
     {
@@ -28,7 +26,7 @@ class BlogController extends AbstractController
     }
 
     /**
-     * @Route("/detail/{id}", name="detail", requirements={"id"="\d+"})
+     * @Route("/blog/detail/{id}", name="blog_detail", requirements={"id"="\d+"})
      */
     public function Article(
         PresentationBlogArticleRepository $articles,
@@ -46,7 +44,7 @@ class BlogController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="new")
+     * @Route("admin/blog/new", name="blog_new")
      */
     public function newArticle(
         Request $request,

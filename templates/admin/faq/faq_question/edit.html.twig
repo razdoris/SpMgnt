@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit PresentationFaqQuestion{% endblock %}
+
+{% block body %}
+    <h1>Edit PresentationFaqQuestion</h1>
+
+    {{ include('admin/faq/faq_question/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('admin_faq_faq_question_index') }}">back to list</a>
+
+    {{ include('admin/faq/faq_question/_delete_form.html.twig') }}
+{% endblock %}

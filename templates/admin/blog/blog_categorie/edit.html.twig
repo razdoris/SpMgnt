@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit PresentationBlogCategorie{% endblock %}
+
+{% block body %}
+    <h1>Edit PresentationBlogCategorie</h1>
+
+    {{ include('admin/blog/blog_categorie/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('admin_blog_blog_categorie_index') }}">back to list</a>
+
+    {{ include('admin/blog/blog_categorie/_delete_form.html.twig') }}
+{% endblock %}

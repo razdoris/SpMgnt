@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PresentationBlogCategorie{% endblock %}
+
+{% block body %}
+    <h1>PresentationBlogCategorie</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ presentation_blog_categorie.id }}</td>
+            </tr>
+            <tr>
+                <th>Label</th>
+                <td>{{ presentation_blog_categorie.label }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_blog_blog_categorie_index') }}">back to list</a>
+
+    <a href="{{ path('admin_blog_blog_categorie_edit', {'id': presentation_blog_categorie.id}) }}">edit</a>
+
+    {{ include('admin/blog/blog_categorie/_delete_form.html.twig') }}
+{% endblock %}
