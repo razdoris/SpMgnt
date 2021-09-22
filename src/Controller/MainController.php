@@ -27,18 +27,6 @@ class MainController extends AbstractController
         return $this->render('main/index.html.twig');
     }
 
-    /**
-     * @Route("/offre", name="offre")
-     */
-    public function offre(PresentationOfferDescriptionRepository $offers): Response
-    {
-        $test="205,215,211,1";
-        return $this->render('main/offre.html.twig',[
-            'test'=>$test,
-            'offersList'=>$offers->findAll()
-        ]);
-    }
-
 
     /**
      * @Route("faq", name="faq")

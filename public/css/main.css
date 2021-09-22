@@ -251,6 +251,9 @@ css page Nos Actus
 .offerImage
 {
     width: 100%;
+    height:150px;
+    object-fit: contain;
+    background-color: #FFFFFF;
 }
 
 
@@ -364,57 +367,90 @@ css page contact
 }
 
 
-.blockFormNewArticle
+.blockFormArticle,
+.blockFormOffer
 {
     margin: 20px;
 }
 
-.labelFormContact,
-.labelFormNewArticle
+label
 {
-    margin-bottom: 10px;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
 }
 
-.widgetFromContact input,
-.widgetFormNewArticle input
+input,
+select,
+textarea
 {
-    width: 300px;
-    height: 30px;
     border: inherit;
     border-radius: 10px;
     padding: 5px;
     box-shadow: 10px 5px 20px gray;
+    box-sizing: content-box;
+    width: 300px;
+    height: 30px;
+}
+
+.labelFeatureFormOffer>label
+{
+    font-weight: normal;
+    display: inline-block;
+}
+.labelFeatureFormOffer,
+.widgetFeatureFormOffer,
+.subBlockFormOffer
+{
+    display: inline-block;
+}
+
+.widgetFeatureFormOffer input
+{
+    box-shadow: none;
+    width: 20px;
+    height:20px;
+    position: relative;
+    top:5px;
+    margin: 10px;
+}
+
+.checkboxLineFormOffer
+{
+    display: block;
+
+}
+
+.checkboxGroupFormOffer
+{
+    display: inline-block;
+    width:300px
+}
+
+.subBlockFormOffer .widgetFormOffer input{
+    width: 130px;
+    margin-right: 20px;
 }
 
 .widgetFromContact select
 {
     width: 660px;
-    height: 45px;
-    border: inherit;
-    border-radius: 10px;
-    padding: 5px;
-    box-shadow: 10px 5px 20px gray;
 }
 
 
 .widgetFormNewArticle select
 {
-    width: 310px;
-    height: 45px;
-    border: inherit;
-    border-radius: 10px;
-    padding: 5px;
-    box-shadow: 10px 5px 20px gray;
+    width: 300px;
 }
 
 .widgetFromContact textarea
 {
     width: 660px;
-    height: 100px;
-    border: inherit;
-    border-radius: 10px;
-    padding: 5px;
-    box-shadow: 10px 5px 20px gray;
+}
+
+.required:after
+{
+    content: "*";
 }
 
 .button{

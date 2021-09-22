@@ -12,11 +12,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-
+/**
+ * @Route("/blog", name="blog_")
+ */
 class BlogController extends AbstractController
 {
     /**
-     * @Route("/blog/", name="blog_index")
+     * @Route("/", name="index")
      */
     public function blog(PresentationBlogArticleRepository $articles): Response
     {
@@ -26,7 +28,7 @@ class BlogController extends AbstractController
     }
 
     /**
-     * @Route("/blog/detail/{id}", name="blog_detail", requirements={"id"="\d+"})
+     * @Route("/detail/{id}", name="detail", requirements={"id"="\d+"})
      */
     public function Article(
         PresentationBlogArticleRepository $articles,
@@ -44,11 +46,10 @@ class BlogController extends AbstractController
     }
 
     /**
-     * @Route("/blog/new", name="admin_blog_new")
+     * @Route("/new", name="admin_blog_new")
      */
     public function newArticle(
         Request $request,
-        PresentationBlogArticleRepository $article,
         EntityManagerInterface $entityManager
     ): Response
     {
@@ -74,7 +75,7 @@ class BlogController extends AbstractController
     }
 
     /**
-     * @Route("blog/modify/{id}", name="admin_blog_detail", requirements={"id"="\d+"})
+     * @Route("/modify/{id}", name="admin_blog_detail", requirements={"id"="\d+"})
      */
     public function modifyArticle(
         Request $request,
@@ -105,10 +106,9 @@ class BlogController extends AbstractController
     }
 
     /**
-     * @Route("blog/delete/{id}", name="admin_blog_delete", requirements={"id"="\d+"})
+     * @Route("/delete/{id}", name="admin_blog_delete", requirements={"id"="\d+"})
      */
     public function deleteArticle(
-        Request $request,
         PresentationBlogArticleRepository $articles,
         int $id,
         EntityManagerInterface $entityManager
