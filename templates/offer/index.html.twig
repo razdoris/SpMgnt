@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="allOffersContainer">
+        {% for offer in offersList %}
+            <div class="offerContainer gradiantGroup">
+                <div class="offerHeader">
+                    <h5 class="offerSubTitle">Abonnement:</h5>
+                    <h3 class="offerName">{{ offer.name }}</h3>
+                    {% if offer.imageName is null %}
+                        <img class="offerImage" src="{{ asset('Icons/defaultImage.svg') }}"
+                         alt="image d'illustration de l'article"/>
+                    {% endif %}
+                    {%  if offer.imageName is not null %}
+                    <img class="offerImage" src="{{ asset('images/offer/offerIllustrations/') ~ offer.imageName }}"
+                         alt="image d'illustration de l'article"/>
+                    {% endif %}
+                </div>
+                <div class="offerBody">
+                    <ul>
+                        {% for feature in offer.features %}
+                            <li>{{ feature.featureName }}</li>
+                        {% endfor %}
+
+                    </ul>
+                </div>
+                <div class="offerFooter">
+                    <div class="price">
+                        {{ offer.lowPrice }}€
+                        {% if offer.hightPrice and offer.hightPrice!=offer.lowPrice %}
+                            - {{ offer.hightPrice }}€
+                        {% endif %}
+                    </div>
+                    
+                    <div class="monthOrYear">
+                        par {{ offer.periodicity }}
+                    </div>
+                    <a href="{{ path('main_contact',{id:offer.contactSubject.id}) }}">
+                        <button class="button">Renseignement</button>
+                    </a></div>
+            </div>
+
+        {% endfor %}
+    </div>
+
+{% endblock %}
+
+{% block title %}{{ parent() }} | offre{% endblock %}
+
+{% block pageTitle %}Nos offres{% endblock %}
