@@ -19,6 +19,18 @@ class PresentationOfferDescriptionRepository extends ServiceEntityRepository
         parent::__construct($registry, PresentationOfferDescription::class);
     }
 
+
+    public function findAllOffers()
+    {
+        return $this
+            ->createQueryBuilder('offer')
+            ->leftJoin('offer.contactSubject', 'subject')
+            ->leftJoin('offer.features', 'features')
+            ->select('offer','subject','features')
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return PresentationOfferDescription[] Returns an array of PresentationOfferDescription objects
     //  */

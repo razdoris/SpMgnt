@@ -21,7 +21,7 @@ class OfferController extends AbstractController
      */
     public function index(PresentationOfferDescriptionRepository $offers): Response
     {
-        $offersList=$offers->findAll();
+        $offersList=$offers->findAllOffers();
 
         return $this->render('offer/index.html.twig',[
             'offersList'=>$offersList

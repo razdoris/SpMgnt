@@ -2,14 +2,18 @@
 
 namespace App\Controller;
 
+use App\Entity\PresentationAppliDescription;
 use App\Entity\PresentationContactMessage;
 use App\Entity\PresentationOfferDescription;
+use App\Form\PresentationAppliDescriptionType;
 use App\Form\PresentationContactMessageType;
 use App\Notification\EMailSender;
+use App\Repository\PresentationAppliDescriptionRepository;
 use App\Repository\PresentationBlogArticleRepository;
 use App\Repository\PresentationContactSubjectRepository;
 use App\Repository\PresentationFaqQuestionRepository;
 use App\Repository\PresentationOfferDescriptionRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,9 +26,15 @@ class MainController extends AbstractController
     /**
      * @Route("", name="index")
      */
-    public function index(): Response
+    public function index(
+        PresentationBlogArticleRepository $articles
+    ): Response
     {
-        return $this->render('main/index.html.twig');
+        $articlesList = $articles->findSomeArticles();
+
+        return $this->render('main/index.html.twig',[
+            'articlesList'=> $articlesList
+        ]);
     }
 
 
@@ -58,7 +68,7 @@ class MainController extends AbstractController
         if($id != null){
             $mailSubject = $subject->find($id);
             $form->get('subject')->setData($mailSubject);
-            $form->get('firstName')->setData('test');
+            $form->get('firstName')->setData('accueil');
             return $this->render('main/contact.html.twig',[
                 'formContactMessage' => $form->createView(),
                 'subject'=>$subject
@@ -67,7 +77,7 @@ class MainController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid())
         {
-            $eMailSender->sendMailToAdmin($contact);
+            $eMailSender->sendContactMailToAdmin($contact);
             $this->addFlash('success', 'Votre email a été envoyé');
             return $this->redirectToRoute('main_contact');
         }

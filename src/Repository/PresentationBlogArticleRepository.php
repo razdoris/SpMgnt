@@ -3,7 +3,9 @@
 namespace App\Repository;
 
 use App\Entity\PresentationBlogArticle;
+use App\Entity\PresentationBlogCategorie;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -19,32 +21,55 @@ class PresentationBlogArticleRepository extends ServiceEntityRepository
         parent::__construct($registry, PresentationBlogArticle::class);
     }
 
-    // /**
-    //  * @return PresentationBlogArticle[] Returns an array of PresentationBlogArticle objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function findAllArticles()
     {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+         $query= $this
+             ->createQueryBuilder('article')
+             ->leftJoin('article.categorie','category')
+             ->select('article','category')
+             ->orderBy('article.date', 'desc')
+             ->getQuery()
+             ->getResult();
 
-    /*
-    public function findOneBySomeField($value): ?PresentationBlogArticle
-    {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        return $query;
     }
-    */
+
+
+    public function findSimilarArticles(PresentationBlogArticle $article)
+    {
+
+        $idArt = $article->getId();
+        $idCat=$article->getCategorie()->getId();
+
+         $query = $this
+             ->createQueryBuilder('article')
+             ->leftJoin('article.categorie','category')
+             ->select('article','category')
+             ->where('category.id = :idCat')
+             ->setParameter('idCat',$idCat)
+             ->andWhere('article.id != :idArt')
+             ->setParameter('idArt',$idArt)
+             ->orderBy('article.date', 'desc')
+             ->setMaxResults(4)
+             ->getQuery();
+
+
+        $paginator = new Paginator($query);
+         return $paginator;
+    }
+
+    public function findSomeArticles()
+    {
+
+        $query= $this
+            ->createQueryBuilder('article')
+            ->leftJoin('article.categorie','category')
+            ->select('article','category')
+            ->orderBy('article.date', 'desc')
+            ->setMaxResults(6)
+            ->getQuery()
+            ->getResult();
+
+        return $query;
+    }
 }

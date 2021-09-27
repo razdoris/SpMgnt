@@ -10,8 +10,7 @@
                     {% if offer.imageName is null %}
                         <img class="offerImage" src="{{ asset('Icons/defaultImage.svg') }}"
                          alt="image d'illustration de l'article"/>
-                    {% endif %}
-                    {%  if offer.imageName is not null %}
+                    {% else %}
                     <img class="offerImage" src="{{ asset('images/offer/offerIllustrations/') ~ offer.imageName }}"
                          alt="image d'illustration de l'article"/>
                     {% endif %}
@@ -35,7 +34,7 @@
                         par {{ offer.periodicity }}
                     </div>
                     <a href="{{ path('main_contact',{id:offer.contactSubject.id}) }}">
-                        <button class="button">Renseignement</button>
+                        <button class="button center">Renseignement</button>
                     </a></div>
             </div>
 

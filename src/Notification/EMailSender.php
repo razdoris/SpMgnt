@@ -21,7 +21,7 @@ class EMailSender
         $this->mailer = $mailer;
     }
 
-    public function sendMailToAdmin(PresentationContactMessage $messageMail): void{
+    public function sendContactMailToAdmin(PresentationContactMessage $messageMail): void{
 
         $email = (new TemplatedEmail())
             ->from('noreply@spmgnt.fr')

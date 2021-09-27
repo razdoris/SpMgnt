@@ -9,8 +9,13 @@
         {% for article in articlesList %}
             <a class="articleLink" href="{{ path('blog_detail',{id: article.id}) }}">
                 <div class="articlePreview gradiantGroup">
-                    <img class="articlePreviewImage" src="{{ asset('images/blog/articleIllustrations/') ~ article.imageName }}"
-                         alt="image d'illustration de l'article"/>
+                    {% if article.imageName is null %}
+                        <img class="offerImage" src="{{ asset('Icons/defaultImage.svg') }}"
+                             alt="image d'illustration de l'article"/>
+                    {% else %}
+                        <img class="articlePreviewImage" src="{{ asset('images/blog/articleIllustrations/') ~ article.imageName }}"
+                             alt="image d'illustration de l'article"/>
+                    {% endif %}
                     <div class="articlePreviewTitle">{{ article.categorie.label }}</div>
                     <div class="articlePreviewBody">
                         <h3>{{ article.title }}</h3>

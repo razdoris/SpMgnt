@@ -11,9 +11,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/admin/offer/offer/featur")
+ * @Route("/admin/offer/feature")
  */
-class OfferFeaturController extends AbstractController
+class OfferFeatureController extends AbstractController
 {
     /**
      * @Route("/", name="admin_offer_offer_featur_index", methods={"GET"})

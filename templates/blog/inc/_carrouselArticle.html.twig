@@ -1,0 +1,25 @@
+
+<ul class="caroussel">
+    {% for article in articlesList %}
+        <li class="carousselItem">
+            <a class="carousselArticleLink" href="{{ path('blog_detail',{id: article.id}) }}">
+                <div class="carousselArticlePreview gradiantGroup">
+                    {% if article.imageName is null %}
+                        <img class="carousselArticlePreviewImage" src="{{ asset('Icons/defaultImage.svg') }}"
+                             alt="image d'illustration de l'article"/>
+                    {% else %}
+                        <img class="carousselArticlePreviewImage"
+                             src="{{ asset('images/blog/articleIllustrations/') ~ article.imageName }}"
+                             alt="image d'illustration de l'article"/>
+                    {% endif %}
+                    <div class="carousselArticlePreviewTitle">{{ article.categorie.label }}</div>
+                    <div class="carousselArticlePreviewBody">
+                        <h3>{{ article.title }}</h3>
+                        <P>{{ article.preview|raw }}
+                        </P>
+                    </div>
+                </div>
+            </a>
+        </li>
+    {% endfor %}
+</ul>

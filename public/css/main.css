@@ -15,12 +15,14 @@ body
     width               : 100%;
 }
 
+
+
+
+
 ::-webkit-scrollbar {
-    display: none;
+   display: none;
 }
-/*
-Header CSS
- */
+
 
 
 header{
@@ -72,9 +74,8 @@ header a
     border-bottom:2px solid black;
     border-left:2px solid black;
     padding: 0 25px;
-    position:relative;
-    right: -20px;
-    top: -10px;
+    position:absolute;
+    right: 0px;
 }
 
 .headerUl, .headerIl
@@ -176,6 +177,7 @@ nav{
 h1
 {
     text-align: center;
+    margin-bottom: 40px;
 }
 
 h2{
@@ -192,17 +194,29 @@ ul
     height: min-content;
     width:40%
 }
-.mainIllustration{
+.mainIllustrationContainer{
     display: inline-block;
-    height : 80%;
+    height :20%;
     width : 50%;
-    border: 1px solid black;
+    object-fit: contain;
+    text-align: center;
+}
+
+.mainIllustration
+{
+    width: 50%;
 }
 
 /*
 css page Nos Actus
  */
 
+.blogContainer a,
+.offerContainer a
+{
+    color: black;
+    text-decoration: none;
+}
 .blogContainer
 {
     display:flex;
@@ -240,12 +254,6 @@ css page Nos Actus
 
 }
 
-.blogContainer a,
-.offerContainer a
-{
-    color: black;
-    text-decoration: none;
-}
 
 .articlePreviewImage,
 .offerImage
@@ -265,10 +273,99 @@ css page Nos Actus
     Margin: 10px;
 }
 
+
+.articleContainer{
+    width:80%;
+    margin: 0 auto;
+}
+
 .articleBody{
     margin:20px;
     color: black;
 }
+
+.similarArticlesContainer
+{
+    margin-bottom: 40px;
+    width: 95%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.caroussel
+{
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    list-style-type: none;
+    padding: 20px;
+    margin: 10px;
+}
+
+
+.carousselItem
+{
+    margin-left: 1rem;
+    scroll-snap-align: center;
+
+}
+
+.caroussel::-webkit-scrollbar {
+    height: 3px;
+    background-color: rgba(255,255,255,0.2);
+    display: initial;
+}
+
+.caroussel::-webkit-scrollbar-track {
+    background-color: rgba(0,0,0,0.1);
+}
+
+
+
+.caroussel::-webkit-scrollbar-thumb {
+    background-color: #3d4852;
+    border-radius: 3px;
+}
+
+
+.carousselArticlePreview
+{
+    display: inline-block;
+    height: 400px;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 10px 5px 20px black;
+    padding: 0;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+
+
+.carousselArticlePreviewImage
+{
+    width: 100%;
+    height:100px;
+    object-fit: contain;
+    background-color: #FFFFFF;
+}
+
+
+.carousselArticlePreviewBody
+
+{
+    text-align: center;
+    top:-20px;
+    padding: 30px;
+    Margin: 10px;
+}
+
+
+
+
+
 
 
 .offerContainer
@@ -368,7 +465,9 @@ css page contact
 
 
 .blockFormArticle,
-.blockFormOffer
+.blockFormOffer,
+.blockFormConnexion,
+.blockFormDescription
 {
     margin: 20px;
 }
@@ -393,6 +492,46 @@ textarea
     height: 30px;
 }
 
+textarea
+{
+    height:120px;
+}
+
+input[type="checkbox"]
+{
+    box-shadow: none;
+    width: 20px;
+    height:20px;
+    position: relative;
+    top:5px;
+    margin: 10px;
+    padding: 5px;
+}
+
+input[type="file"]
+{
+    box-shadow: none;
+    height:20px;
+    position: relative;
+    top:5px;
+    margin: 10px;
+    padding: 5px;
+}
+
+input[type="file"]::-webkit-file-upload-button
+{
+    margin-right: 10px;
+    height: 20px;
+    width: 120px;
+    background-color: dodgerblue;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+
+
 .labelFeatureFormOffer>label
 {
     font-weight: normal;
@@ -405,15 +544,6 @@ textarea
     display: inline-block;
 }
 
-.widgetFeatureFormOffer input
-{
-    box-shadow: none;
-    width: 20px;
-    height:20px;
-    position: relative;
-    top:5px;
-    margin: 10px;
-}
 
 .checkboxLineFormOffer
 {
@@ -427,7 +557,7 @@ textarea
     width:300px
 }
 
-.subBlockFormOffer .widgetFormOffer input{
+.subBlockFormOffer input{
     width: 130px;
     margin-right: 20px;
 }
@@ -454,9 +584,14 @@ textarea
 }
 
 .button{
+    display: block;
+    margin: 20px;
+    padding: 5px;
+    margin-bottom: 50px;
     height: 30px;
     width: 120px;
     background-color: mediumblue;
+    box-sizing: content-box;
     color: white;
     border: none;
     border-radius: 10px;
@@ -469,35 +604,8 @@ textarea
     text-align: right;
 }
 
-
-#presentation_blog_article_imageFile_file::-webkit-file-upload-button
-{
-    visibility: hidden;
-}
-
-#presentation_blog_article_imageFile_file::before
-{
-    content: 'Select some files';
-    height: 20px;
-    width: 120px;
-    display: inline-block;
-    border-radius: 10px;
-    padding: 8px;
-    outline: none;
-    -webkit-user-select: none;
-    cursor: pointer;
-    background-color: white;
-    color: black;
-}
-
-#presentation_blog_article_imageFile_file:hover::before
-{
-    border-color: black;
-}
-
-
-#presentation_blog_article_imageFile_file:active::before {
-    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+.center{
+    margin: auto !important;
 }
 
 .cke
@@ -511,4 +619,57 @@ textarea
 .cke_bottom
 {
     border-radius: 20px;
+}
+
+
+.notEnable
+{
+    color: rgba(255, 255, 255, .2);
+}
+
+.tableAdmin thead{
+    background-color			: rgb(5, 138, 255);
+}
+
+.tableAdmin tbody tr:nth-child(even)
+{
+    background-color			: rgb(84, 214, 252);
+}
+
+.tableAdmin tbody tr:hover
+{
+    background-color			: #D1D4DF !important;
+}
+
+.tableAdmin
+{
+    letter-spacing				: 1px;
+    font-family					: Roboto condensed;
+    font-size					: 15px;
+    table-layout				: auto;
+    width						: 100%;
+    border-collapse				: collapse;
+}
+
+.tableAdminDetail
+ {
+     letter-spacing				: 1px;
+     font-family					: Roboto condensed;
+     font-size					: 15px;
+     table-layout				: auto;
+     width						: 50%;
+     border-collapse			: collapse;
+    background-color			: rgb(84, 214, 252);
+ }
+
+
+.tableAdminDetail td:nth-child(even)
+{
+    background-color			: rgb(127,232,255);
+}
+
+.tableAdmin th, .tableAdmin td,.tableAdmin tr,
+.tableAdminDetail th, .tableAdminDetail td,.tableAdminDetail tr
+{
+    border						: 1px solid black;
 }

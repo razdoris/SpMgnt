@@ -7,6 +7,7 @@ use App\Form\PresentationBlogArticleType;
 use App\Repository\PresentationBlogArticleRepository;
 
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,8 +23,11 @@ class BlogController extends AbstractController
      */
     public function blog(PresentationBlogArticleRepository $articles): Response
     {
+
+        $articlesList = $articles->findAllArticles();
+
         return $this->render('blog/blog.html.twig',[
-            'articlesList'=>$articles->findall()
+            'articlesList'=>$articlesList
         ]);
     }
 
@@ -40,8 +44,11 @@ class BlogController extends AbstractController
             throw $this->createNotFoundException("cet article n'existe pas");
         }
 
+        $similarArticles = $articles->findSimilarArticles($article);
+
         return $this->render('blog/articleDetail.html.twig',[
-            'article'=>$article
+            'article'=>$article,
+            'articlesList'=>$similarArticles
         ]);
     }
 

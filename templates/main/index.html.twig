@@ -12,17 +12,22 @@
         {{ include('main/indexChapter/_secondDescription.html.twig') }}
     </div>
     <div class="mainContainer">
-        {{ include('main/indexChapter/_firstDescription.html.twig') }}
+        {{ include('main/indexChapter/_thirdDescription.html.twig') }}
     </div>
     <div class="mainContainer">
-        {{ include('main/indexChapter/_firstDescription.html.twig') }}
+        {{ include('main/indexChapter/_fourstDescription.html.twig') }}
     </div>
-    <div class="mainContainer">
-        {{ include('main/indexChapter/_firstDescription.html.twig') }}
+    <div class="similarArticlesContainer">
+        <h1>Nos dernières actualités</h1>
+        {{ include('blog/inc/_carrouselArticle.html.twig') }}
     </div>
 {% endblock %}
 
 {% block extraStyle %}
 
 
+{% endblock %}
+
+{% block javascripts %}
+    {#{{ encore_entry_script_tags('app') }}#}
 {% endblock %}

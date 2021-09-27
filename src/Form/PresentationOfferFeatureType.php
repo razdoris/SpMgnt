@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\PresentationOfferFeature;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,6 +14,7 @@ class PresentationOfferFeatureType extends AbstractType
     {
         $builder
             ->add('featureName')
+            ->add('description', TextareaType::class)
         ;
     }
 
