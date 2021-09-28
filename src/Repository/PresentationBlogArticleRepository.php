@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\PresentationBlogArticle;
 use App\Entity\PresentationBlogCategorie;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
 use Doctrine\ORM\Tools\Pagination\Paginator;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -30,6 +31,17 @@ class PresentationBlogArticleRepository extends ServiceEntityRepository
              ->orderBy('article.date', 'desc')
              ->getQuery()
              ->getResult();
+
+        return $query;
+    }
+
+    public function findAllArticlesPaginate(): Query
+    {
+        $query= $this
+            ->createQueryBuilder('article')
+            ->leftJoin('article.categorie','category')
+            ->select('article','category')
+            ->getQuery();
 
         return $query;
     }

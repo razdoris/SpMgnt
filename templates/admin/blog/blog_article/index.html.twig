@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} | liste des articles{% endblock %}
+
+{% block body %}
+    <h1>Liste des articles du blog</h1>
+
+    <table class="tableAdmin">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Aperçu</th>
+                <th>Contenu</th>
+                <th>Date de publication</th>
+                <th>Redacteur</th>
+                <th>Categorie</th>
+                <th>Image</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for presentation_blog_article in presentation_blog_articles %}
+            <tr>
+                <td>{{ presentation_blog_article.id }}</td>
+                <td>{{ presentation_blog_article.title }}</td>
+                <td>{{ presentation_blog_article.preview|raw }}</td>
+                <td>{{ presentation_blog_article.content|raw }}</td>
+                <td>{{ presentation_blog_article.date|date('d/m/y') }}</td>
+                <td>{{ presentation_blog_article.author }}</td>
+                <td>{{ presentation_blog_article.categorie.label }}</td>
+                <td><img class="imageTable" src="{{ asset('images/uploads/blog/articleIllustrations/') ~ presentation_blog_article.imageName }}"/></td>
+                <td>
+                    <a href="{{ path('admin_blog_blog_article_show', {'id': presentation_blog_article.id}) }}">show</a>
+                    <a href="{{ path('admin_blog_blog_article_edit', {'id': presentation_blog_article.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="navigation">
+        {{ knp_pagination_render(presentation_blog_articles) }}
+    </div>
+    <div class="linkAdmin">
+        <a href="{{ path('admin_blog_blog_article_new') }}" >Create new</a>
+    </div>
+
+
+{% endblock %}

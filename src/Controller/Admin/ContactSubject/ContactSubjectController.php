@@ -11,12 +11,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/admin/contact/subject")
+ * @Route("/admin/contact/subject", name="admin_contact_subject_" )
  */
-class Controller extends AbstractController
+class ContactSubjectController extends AbstractController
 {
     /**
-     * @Route("/", name="admin_contact_subject__index", methods={"GET"})
+     * @Route("/", name="index", methods={"GET"})
      */
     public function index(PresentationContactSubjectRepository $contactSubjectRepository): Response
     {
@@ -26,7 +26,7 @@ class Controller extends AbstractController
     }
 
     /**
-     * @Route("/new", name="admin_contact_subject__new", methods={"GET","POST"})
+     * @Route("/new", name="new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
@@ -39,7 +39,7 @@ class Controller extends AbstractController
             $entityManager->persist($contactSubject);
             $entityManager->flush();
 
-            return $this->redirectToRoute('admin_contact_subject__index');
+            return $this->redirectToRoute('admin_contact_subject_index');
         }
 
         return $this->render('admin/contact_subject//new.html.twig', [
@@ -49,7 +49,7 @@ class Controller extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="admin_contact_subject__show", methods={"GET"})
+     * @Route("/{id}", name="show", methods={"GET"})
      */
     public function show(PresentationContactSubject $contactSubject): Response
     {
@@ -59,7 +59,7 @@ class Controller extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="admin_contact_subject__edit", methods={"GET","POST"})
+     * @Route("/{id}/edit", name="edit", methods={"GET","POST"})
      */
     public function edit(Request $request, PresentationContactSubject $contactSubject): Response
     {
@@ -69,7 +69,7 @@ class Controller extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('admin_contact_subject__index');
+            return $this->redirectToRoute('admin_contact_subject_index');
         }
 
         return $this->render('admin/contact_subject//edit.html.twig', [
@@ -79,7 +79,7 @@ class Controller extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="admin_contact_subject__delete", methods={"POST"})
+     * @Route("/{id}", name="delete", methods={"POST"})
      */
     public function delete(Request $request, PresentationContactSubject $contactSubject): Response
     {
@@ -89,6 +89,6 @@ class Controller extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('admin_contact_subject__index');
+        return $this->redirectToRoute('admin_contact_subject_index');
     }
 }

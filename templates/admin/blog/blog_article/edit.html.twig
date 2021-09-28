@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} | modifier article{% endblock %}
+
+{% block body %}
+    <h1>Modifier l'article du blog : </h1>
+
+    {{ include('admin/_formCRUD/_form.html.twig', {'button_label': 'Update'}) }}
+    <div class="formDelete">
+        {{ include('admin/_formCRUD/_delete_form.html.twig',{'pathUrl': 'admin_blog_blog_article_delete', 'id':  presentation_blog_article.id}) }}
+    </div>
+
+
+    <div class="linkAdmin">
+        <a href="{{ path('admin_blog_blog_article_index') }}">back to list</a>
+    </div>
+{% endblock %}

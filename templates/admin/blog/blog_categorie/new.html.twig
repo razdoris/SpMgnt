@@ -1,11 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New PresentationBlogCategorie{% endblock %}
+{% block title %}{{ parent() }} | nouvelle catégorie{% endblock %}
 
 {% block body %}
-    <h1>Create new PresentationBlogCategorie</h1>
+    <h1>Créer une catégorie pour le blog</h1>
 
-    {{ include('admin/blog/blog_categorie/_form.html.twig') }}
+    {{ include('admin/_formCRUD/_form.html.twig') }}
 
-    <a href="{{ path('admin_blog_blog_categorie_index') }}">back to list</a>
+    <div class="linkAdmin">
+        <a href="{{ path('admin_blog_blog_categorie_index') }}">back to list</a>
+    </div>
 {% endblock %}

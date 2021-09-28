@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} | nouvelle caractéristique{% endblock %}
+
+{% block body %}
+    <h1>Créer une nouvelle caractéristique pour les offres</h1>
+
+    {{ include('admin/_formCRUD/_form.html.twig') }}
+
+    <div class="linkAdmin">
+        <a href="{{ path('admin_offer_offer_feature_index') }}">back to list</a>
+    </div>
+{% endblock %}

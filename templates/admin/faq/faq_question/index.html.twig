@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}PresentationFaqQuestion index{% endblock %}
+{% block title %}{{ parent() }} | liste des questions{% endblock %}
 
 {% block body %}
-    <h1>PresentationFaqQuestion index</h1>
+    <h1>liste de questions/réponse de la FAQ</h1>
 
     <table class="tableAdmin">
         <thead>
@@ -34,6 +34,7 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('admin_faq_faq_question_new') }}">Create new</a>
+    <div class="linkAdmin">
+        <a href="{{ path('admin_faq_faq_question_new') }}">Create new</a>
+    </div>
 {% endblock %}

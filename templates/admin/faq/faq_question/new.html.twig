@@ -1,11 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New PresentationFaqQuestion{% endblock %}
+{% block title %}{{ parent() }} | nouvelle question{% endblock %}
 
 {% block body %}
-    <h1>Create new PresentationFaqQuestion</h1>
+    <h1>Créer question/reponse pour la faq</h1>
 
-    {{ include('admin/faq/faq_question/_form.html.twig') }}
+    {{ include('admin/_formCRUD/_form.html.twig') }}
 
-    <a href="{{ path('admin_faq_faq_question_index') }}">back to list</a>
+    <div class="linkAdmin">
+        <a href="{{ path('admin_faq_faq_question_index') }}">back to list</a>
+    </div>
 {% endblock %}

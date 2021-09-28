@@ -23,10 +23,10 @@ class PresentationOfferDescriptionRepository extends ServiceEntityRepository
     public function findAllOffers()
     {
         return $this
-            ->createQueryBuilder('offer')
-            ->leftJoin('offer.contactSubject', 'subject')
-            ->leftJoin('offer.features', 'features')
-            ->select('offer','subject','features')
+            ->createQueryBuilder('offer_description')
+            ->leftJoin('offer_description.contactSubject', 'subject')
+            ->leftJoin('offer_description.features', 'features')
+            ->select('offer_description','subject','features')
             ->getQuery()
             ->getResult();
     }

@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}PresentationBlogCategorie index{% endblock %}
+{% block title %}{{ parent() }} | liste des catégories{% endblock %}
 
 {% block body %}
-    <h1>PresentationBlogCategorie index</h1>
+    <h1>Liste des articles du blog</h1>
 
     <table class="tableAdmin">
         <thead>
@@ -30,6 +30,7 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('admin_blog_blog_categorie_new') }}">Create new</a>
+    <div class="linkAdmin">
+        <a href="{{ path('admin_blog_blog_categorie_new') }}">Create new</a>
+    </div>
 {% endblock %}

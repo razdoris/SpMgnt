@@ -4,6 +4,7 @@ namespace App\Controller\Admin\Faq;
 
 use App\Entity\PresentationFaqQuestion;
 use App\Form\PresentationFaqQuestion1Type;
+use App\Form\PresentationFaqQuestionType;
 use App\Repository\PresentationFaqQuestionRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;

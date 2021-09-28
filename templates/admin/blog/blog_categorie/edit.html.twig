@@ -1,13 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit PresentationBlogCategorie{% endblock %}
+{% block title %}{{ parent() }} | modifier article{% endblock %}
 
 {% block body %}
-    <h1>Edit PresentationBlogCategorie</h1>
+    <h1>Modifier la catégorie du blog :</h1>
 
-    {{ include('admin/blog/blog_categorie/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('admin/_formCRUD/_form.html.twig', {'button_label': 'Update'}) }}
+    <div class="formDelete">
+        {{ include('admin/_formCRUD/_delete_form.html.twig',{'pathUrl': 'admin_blog_blog_categorie_delete', 'id':  presentation_blog_categorie.id}) }}
+    </div>
 
     <a href="{{ path('admin_blog_blog_categorie_index') }}">back to list</a>
 
-    {{ include('admin/blog/blog_categorie/_delete_form.html.twig') }}
 {% endblock %}

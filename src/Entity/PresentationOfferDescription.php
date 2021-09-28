@@ -66,7 +66,7 @@ class PresentationOfferDescription
     private $features;
 
     /**
-     * @ORM\OneToOne(targetEntity=PresentationContactSubject::class, cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity=PresentationContactSubject::class, cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $contactSubject;

@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} | détails article{% endblock %}
+
+{% block body %}
+    <h1>détail de l'article :</h1>
+
+    <table class="tableAdminDetail">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ presentation_blog_article.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ presentation_blog_article.title }}</td>
+            </tr>
+            <tr>
+                <th>Preview</th>
+                <td>{{ presentation_blog_article.preview|raw }}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>{{ presentation_blog_article.content|raw }}</td>
+            </tr>
+            <tr>
+                <th>Publishing Date</th>
+                <td>{{ presentation_blog_article.date|date('d/m/y') }}</td>
+            </tr>
+            <tr>
+                <th>Author</th>
+                <td>{{ presentation_blog_article.author }}</td>
+            </tr>
+            <tr>
+                <th>Category</th>
+                <td>{{ presentation_blog_article.categorie.label }}</td>
+            </tr>
+            <tr>
+                <th>Category</th>
+                <td><img src="{{ asset('images/uploads/blog/articleIllustrations/') ~ presentation_blog_article.imageName}}" alt="image de d'illustration du blog"/></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    {{ include('admin/_formCRUD/_delete_form.html.twig',{'pathUrl': 'admin_blog_blog_article_delete', 'id':  presentation_blog_article.id}) }}
+
+    <div class="linkAdmin">
+        <a href="{{ path('admin_blog_blog_article_index') }}">back to list</a>
+        <a href="{{ path('admin_blog_blog_article_edit', {'id': presentation_blog_article.id}) }}">edit</a>
+
+    </div>
+
+{% endblock %}

@@ -1,11 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New ContactSubject{% endblock %}
+{% block title %}{{ parent() }} | nouveau sujet{% endblock %}
 
 {% block body %}
-    <h1>Create new ContactSubject</h1>
+    <h1>Créer un sujet pour le formulaire de contact</h1>
 
-    {{ include('admin/contact_subject/_form.html.twig') }}
+    {{ include('admin/_formCRUD/_form.html.twig') }}
 
-    <a href="{{ path('admin_contact_subject__index') }}">back to list</a>
+    <div class="linkAdmin">
+        <a href="{{ path('admin_contact_subject_index') }}">back to list</a>
+    </div>
 {% endblock %}

@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}PresentationOfferFeature index{% endblock %}
+{% block title %}{{ parent() }} | liste des caractéristiques{% endblock %}
 
 {% block body %}
-    <h1>PresentationOfferFeature index</h1>
+    <h1>liste des caractéristiques des offres</h1>
 
     <table class="tableAdmin">
         <thead>
@@ -21,8 +21,8 @@
                 <td>{{ presentation_offer_feature.featureName }}</td>
                 <td>{{ presentation_offer_feature.description }}</td>
                 <td>
-                    <a href="{{ path('admin_offer_offer_featur_show', {'id': presentation_offer_feature.id}) }}">show</a>
-                    <a href="{{ path('admin_offer_offer_featur_edit', {'id': presentation_offer_feature.id}) }}">edit</a>
+                    <a href="{{ path('admin_offer_offer_feature_show', {'id': presentation_offer_feature.id}) }}">show</a>
+                    <a href="{{ path('admin_offer_offer_feature_edit', {'id': presentation_offer_feature.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -32,6 +32,7 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('admin_offer_offer_featur_new') }}">Create new</a>
+    <div class="linkAdmin">
+        <a href="{{ path('admin_offer_offer_feature_new') }}">Create new</a>
+    </div>
 {% endblock %}

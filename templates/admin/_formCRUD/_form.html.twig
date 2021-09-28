@@ -1,0 +1,43 @@
+{{ form_start(form) }}
+    {% for item in form %}
+        {{ dump(item.vars.name) }}
+        {% if item.vars.name != '_token' %}
+            {% if item.vars.name == 'features' %}
+                <div class="blockFormOffer">
+                    {{ form_label(item) }}
+                    {% set i = 1 %}
+                    {% for feature in item %}
+                        {% if i%2!=0 %}
+                            <div class="checkboxLineFormOffer">
+                        {% endif %}
+                        <div class="checkboxGroupFormOffer">
+                            <div class="widgetFeatureFormOffer">
+                                {{ form_widget(feature) }}
+                            </div>
+                            <div class="labelFeatureFormOffer">
+                                {{ form_label(feature) }}
+                            </div>
+                        </div>
+                        {% if i%2==0 %}
+                            </div>
+                        {% endif %}
+                        {% set i = i + 1 %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+            {% if item.vars.name != 'features' %}
+                <div class="blockForm">
+                    <div class="labelForm">
+                        {{ form_label(item) }}
+                    </div>
+                    <div class="widgetForm">
+                        {{ form_widget(item) }}
+                    </div>
+                </div>
+            {% endif %}
+        {% endif %}
+
+
+{% endfor %}
+    <button class="button">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

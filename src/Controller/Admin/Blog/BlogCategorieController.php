@@ -11,12 +11,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/admin/blog/categorie")
+ * @Route("/admin/blog/categorie", name="admin_blog_blog_categorie_")
  */
 class BlogCategorieController extends AbstractController
 {
     /**
-     * @Route("/", name="admin_blog_blog_categorie_index", methods={"GET"})
+     * @Route("/", name="index", methods={"GET"})
      */
     public function index(PresentationBlogCategorieRepository $presentationBlogCategorieRepository): Response
     {
@@ -26,7 +26,7 @@ class BlogCategorieController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="admin_blog_blog_categorie_new", methods={"GET","POST"})
+     * @Route("/new", name="new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
@@ -49,7 +49,7 @@ class BlogCategorieController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="admin_blog_blog_categorie_show", methods={"GET"})
+     * @Route("/{id}", name="show", methods={"GET"})
      */
     public function show(PresentationBlogCategorie $presentationBlogCategorie): Response
     {
@@ -59,7 +59,7 @@ class BlogCategorieController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="admin_blog_blog_categorie_edit", methods={"GET","POST"})
+     * @Route("/{id}/edit", name="edit", methods={"GET","POST"})
      */
     public function edit(Request $request, PresentationBlogCategorie $presentationBlogCategorie): Response
     {
@@ -79,7 +79,7 @@ class BlogCategorieController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="admin_blog_blog_categorie_delete", methods={"POST"})
+     * @Route("/{id}", name="delete", methods={"POST"})
      */
     public function delete(Request $request, PresentationBlogCategorie $presentationBlogCategorie): Response
     {

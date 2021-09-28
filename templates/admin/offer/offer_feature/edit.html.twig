@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} | modifier caractéristique{% endblock %}
+
+{% block body %}
+    <h1>Modifier la caractéristique des offres :</h1>
+
+    {{ include('admin/_formCRUD/_form.html.twig', {'button_label': 'Update'}) }}
+    <div class="formDelete">
+        {{ include('admin/_formCRUD/_delete_form.html.twig',{'pathUrl': 'admin_offer_offer_feature_delete', 'id':  presentation_offer_feature.id}) }}
+    </div>
+    <div class="linkAdmin">
+        <a href="{{ path('admin_offer_offer_feature_index') }}">back to list</a>
+    </div>
+{% endblock %}

@@ -464,10 +464,7 @@ css page contact
 }
 
 
-.blockFormArticle,
-.blockFormOffer,
-.blockFormConnexion,
-.blockFormDescription
+.blockForm
 {
     margin: 20px;
 }
@@ -587,7 +584,6 @@ input[type="file"]::-webkit-file-upload-button
     display: block;
     margin: 20px;
     padding: 5px;
-    margin-bottom: 50px;
     height: 30px;
     width: 120px;
     background-color: mediumblue;
@@ -638,29 +634,37 @@ input[type="file"]::-webkit-file-upload-button
 
 .tableAdmin tbody tr:hover
 {
-    background-color			: #D1D4DF !important;
+    background-color			: rgb(54, 102, 163) !important;
 }
 
 .tableAdmin
 {
     letter-spacing				: 1px;
-    font-family					: Roboto condensed;
     font-size					: 15px;
     table-layout				: auto;
-    width						: 100%;
+    width						: fit-content;
     border-collapse				: collapse;
+}
+
+.tableAdmin td:nth-child(1)
+{
+    background-color			: rgb(85, 177, 255) !important;
 }
 
 .tableAdminDetail
  {
      letter-spacing				: 1px;
-     font-family					: Roboto condensed;
      font-size					: 15px;
-     table-layout				: auto;
-     width						: 50%;
+     table-layout				: fixed;
+     width						: 100%;
      border-collapse			: collapse;
     background-color			: rgb(84, 214, 252);
  }
+
+.tableAdminDetail th
+{
+    width: 10%;
+}
 
 
 .tableAdminDetail td:nth-child(even)
@@ -668,8 +672,42 @@ input[type="file"]::-webkit-file-upload-button
     background-color			: rgb(127,232,255);
 }
 
-.tableAdmin th, .tableAdmin td,.tableAdmin tr,
-.tableAdminDetail th, .tableAdminDetail td,.tableAdminDetail tr
+th, td
 {
     border						: 1px solid black;
+    overflow	: hidden;
+    padding:5px;
+}
+
+tr, td
+{
+    height: 20px !important;
+}
+
+.save
+{
+    display	: inline-block;
+}
+
+.delete
+{
+    display	: inline-block;
+    background-color: red;
+}
+
+.formDelete
+{
+    position	: absolute;
+    bottom:80px;
+    left: 150px;
+}
+
+.linkAdmin
+{
+    margin: 10px 0px 40px 20px;
+}
+
+.imageTable
+{
+    width: 100%;
 }

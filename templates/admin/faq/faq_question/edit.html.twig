@@ -1,13 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit PresentationFaqQuestion{% endblock %}
+{% block title %}{{ parent() }} | modifier question{% endblock %}
 
 {% block body %}
-    <h1>Edit PresentationFaqQuestion</h1>
+    <h1>Modifier question/reponses de la FAQ :</h1>
 
     {{ include('admin/faq/faq_question/_form.html.twig', {'button_label': 'Update'}) }}
+    <div class="formDelete">
+        {{ include('admin/_formCRUD/_delete_form.html.twig',{'pathUrl': 'admin_faq_faq_question_delete', 'id':  presentation_faq_question.id}) }}
+    </div>
+    <div class="linkAdmin">
+        <a href="{{ path('admin_faq_faq_question_index') }}">back to list</a>
+    </div>
 
-    <a href="{{ path('admin_faq_faq_question_index') }}">back to list</a>
-
-    {{ include('admin/faq/faq_question/_delete_form.html.twig') }}
 {% endblock %}

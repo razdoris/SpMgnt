@@ -1,13 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit ContactSubject{% endblock %}
+{% block title %}{{ parent() }} | modifier sujet{% endblock %}
 
 {% block body %}
-    <h1>Edit ContactSubject</h1>
+    <h1>Modifier le sujet du formulaire de contact : </h1>
 
-    {{ include('admin/contact_subject/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('admin/_formCRUD/_form.html.twig', {'button_label': 'Update'}) }}
+    <div class="formDelete">
+        {{ include('admin/_formCRUD/_delete_form.html.twig',{'pathUrl': 'admin_contact_subject_delete', 'id':  contact_subject.id}) }}
+    </div>
 
-    <a href="{{ path('admin_contact_subject__index') }}">back to list</a>
 
-    {{ include('admin/contact_subject/_delete_form.html.twig') }}
+    <div class="linkAdmin">
+        <a href="{{ path('admin_contact_subject_index') }}">back to list</a>
+    </div>
 {% endblock %}

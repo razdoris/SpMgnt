@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}PresentationOfferFeature{% endblock %}
+{% block title %}Détails caractéristique{% endblock %}
 
 {% block body %}
-    <h1>PresentationOfferFeature</h1>
+    <h1>détails de la caractéristique de l'offre</h1>
 
     <table class="tableAdminDetail">
         <tbody>
@@ -22,9 +22,11 @@
         </tbody>
     </table>
 
-    <a href="{{ path('admin_offer_offer_featur_index') }}">back to list</a>
+    {{ include('admin/_formCRUD/_delete_form.html.twig',{'pathUrl': 'admin_offer_offer_feature_delete', 'id':  presentation_offer_feature.id}) }}
 
-    <a href="{{ path('admin_offer_offer_featur_edit', {'id': presentation_offer_feature.id}) }}">edit</a>
+    <div class="linkAdmin">
+        <a href="{{ path('admin_offer_offer_feature_index') }}">back to list</a>
+        <a href="{{ path('admin_offer_offer_feature_edit', {'id': presentation_offer_feature.id}) }}">edit</a>
+    </div>
 
-    {{ include('admin/offer/offer_featur/_delete_form.html.twig') }}
 {% endblock %}
