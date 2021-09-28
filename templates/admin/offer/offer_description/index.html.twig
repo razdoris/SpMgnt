@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} | liste des offres{% endblock %}
+
+{% block body %}
+    <h1>Liste des offres</h1>
+
+    <table class="tableAdmin">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Features</th>
+            <th>min - max price</th>
+            <th>Subject</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for presentation_offer_description in presentation_offer_descriptions %}
+            <tr>
+                <td>{{ presentation_offer_description.id }}</td>
+                <td>{{ presentation_offer_description.name }}</td>
+                <td>
+                    <ul>
+                        {% for feature in presentation_offer_description.features%}
+                            <li>{{ feature.featureName }}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+                <td>{{ presentation_offer_description.lowPrice }} - {{ presentation_offer_description.hightPrice }} / {{ presentation_offer_description.periodicity }}</td>
+                <td>{{ presentation_offer_description.contactSubject.subjectText }}</td>
+                <td>
+                    <a href="{{ path('admin_offer_offer_description_show', {'id': presentation_offer_description.id}) }}">show</a>
+                    <a href="{{ path('admin_offer_offer_description_edit', {'id': presentation_offer_description.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="linkAdmin">
+        <a href="{{ path('admin_offer_offer_description_new') }}">Create new</a>
+    </div>
+{% endblock %}
