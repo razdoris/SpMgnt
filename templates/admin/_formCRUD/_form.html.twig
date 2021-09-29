@@ -1,6 +1,5 @@
 {{ form_start(form) }}
     {% for item in form %}
-        {{ dump(item.vars.name) }}
         {% if item.vars.name != '_token' %}
             {% if item.vars.name == 'features' %}
                 <div class="blockFormOffer">

@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/adminBase.html.twig' %}
 
 {% block title %}{{ parent() }} | modifier offre{% endblock %}
 
@@ -10,7 +10,6 @@
     <div class="formDelete">
         {{ include('admin/_formCRUD/_delete_form.html.twig',{'pathUrl': 'admin_offer_offer_description_delete', 'id':  presentation_offer_description.id}) }}
     </div>
-    <div class="linkAdmin">
-        <a href="{{ path('admin_offer_offer_description_index') }}">back to list</a>
-    </div>
+
+    {{ include('admin/_inc/_footerForm.html.twig') }}
 {% endblock %}

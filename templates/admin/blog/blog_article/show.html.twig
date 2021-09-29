@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/adminBase.html.twig' %}
 
 {% block title %}{{ parent() }} | détails article{% endblock %}
 
@@ -44,11 +44,6 @@
 
 
     {{ include('admin/_formCRUD/_delete_form.html.twig',{'pathUrl': 'admin_blog_blog_article_delete', 'id':  presentation_blog_article.id}) }}
-
-    <div class="linkAdmin">
-        <a href="{{ path('admin_blog_blog_article_index') }}">back to list</a>
-        <a href="{{ path('admin_blog_blog_article_edit', {'id': presentation_blog_article.id}) }}">edit</a>
-
-    </div>
+    {{ include('admin/_inc/_footerShow.html.twig') }}
 
 {% endblock %}

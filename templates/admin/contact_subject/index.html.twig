@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/adminBase.html.twig' %}
 
 {% block title %}{{ parent() }} | liste des sujets{% endblock %}
 
@@ -30,7 +30,5 @@
         {% endfor %}
         </tbody>
     </table>
-    <div class="linkAdmin">
-        <a href="{{ path('admin_contact_subject_new') }}">Create new</a>
-    </div>
+    {{ include('admin/_inc/_footerIndex.html.twig') }}
 {% endblock %}

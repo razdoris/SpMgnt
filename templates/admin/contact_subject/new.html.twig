@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/adminBase.html.twig' %}
 
 {% block title %}{{ parent() }} | nouveau sujet{% endblock %}
 
@@ -7,7 +7,6 @@
 
     {{ include('admin/_formCRUD/_form.html.twig') }}
 
-    <div class="linkAdmin">
-        <a href="{{ path('admin_contact_subject_index') }}">back to list</a>
-    </div>
+
+    {{ include('admin/_inc/_footerForm.html.twig') }}
 {% endblock %}

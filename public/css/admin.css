@@ -1,0 +1,481 @@
+/* Éléments principaux de la page */
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
+
+*
+{
+    margin:0;
+    padding:0;
+}
+
+body
+{
+    font-family				: 'Roboto Condensed', Arial, sans-serif;
+    color					: black;
+    height					: 90vh;
+    width               : 100%;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+header{
+    display:flex;
+    justify-content: space-between;
+    font-size               : 20px;
+    letter-spacing          : 3px;
+    position				: fixed;
+    width					: 100%;
+    top						: 0;
+    left					: 0;
+    background-color: #FFFFFF;
+    border-bottom: 3px solid rgba(0,211,255,1);
+    z-index: 100;
+}
+
+header a
+{
+    text-decoration: none;
+    color:black;
+    margin:0;
+    padding:0;
+}
+
+#AppLogo
+{
+    height: 80px;
+    width: 180px;
+    background-color: rgba(255,255,255,.5);
+    border-radius: 50px / 80px;
+    display: inline-block;
+}
+
+.adminHeaderGroup{
+    display: inline-block;
+}
+
+
+.titleHeader{
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.titleHeader h2
+{
+
+    text-align: center;
+}
+
+.headerPrincipal
+{
+    position:relative;
+    top:20px;
+    right:20px;
+    text-align:right;
+}
+
+.headerChild
+{
+    border-bottom:2px solid black;
+    border-left:2px solid black;
+    padding: 0 25px;
+    position:absolute;
+    right: 0;
+}
+
+.headerUl, .headerIl
+{
+    list-style: none !important;
+    margin:0 !important;
+    padding:0 !important;;
+}
+
+.hide
+{
+    display:none;
+}
+
+nav{
+
+    display:flex;
+    justify-content: space-between;
+    font-size               : 20px;
+    letter-spacing          : 3px;
+    position				: relative;
+    height					: 30px;
+    width					: 75%;
+    top                     :30px;
+    margin: 10px;
+}
+
+.NavGroupe
+{
+
+}
+
+.linkNav
+{
+    margin: 10px;
+}
+
+
+.flash{
+    padding: 20px;
+    font-weight: bold;
+    font-size: 1.4rem;
+    margin: 10px auto;
+    border-radius: 5px;
+    text-align: center;
+    background-color: rgba(255,255,255,0.5);
+    position: relative;
+    top: 120px;
+    width: 80%;
+}
+.flash-success
+{
+    border: 2px solid green;
+    color: green;
+}
+
+.flash-erreur
+{
+    border: 2px solid red;
+    color: red;
+}
+
+.alert{
+    padding: 20px;
+    font-weight: bold;
+    font-size: 1.4rem;
+    margin: 1rem 0;
+    border-radius: 5px;
+    text-align: center;
+}
+.alert-danger
+{
+    border: 2px solid red;
+    color: red;
+}
+
+
+.container
+{
+    border-radius: 30px;
+    position: relative;
+    top: 100px;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+h1
+{
+    text-align: center;
+}
+
+
+ul
+{
+    text-indent: 20px;
+    margin-left: 30px;
+}
+
+.blockForm,
+.blockFormOffer
+{
+    margin: 20px;
+}
+
+label
+{
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input,
+select,
+textarea
+{
+    border: inherit;
+    border-radius: 10px;
+    padding: 5px;
+    box-shadow: 10px 5px 20px gray;
+    box-sizing: content-box;
+    width: 300px;
+    height: 30px;
+}
+
+textarea
+{
+    height:120px;
+}
+
+input[type="checkbox"]
+{
+    box-shadow: none;
+    width: 20px;
+    height:20px;
+    position: relative;
+    top:5px;
+    margin: 10px;
+    padding: 5px;
+}
+
+input[type="file"]
+{
+    box-shadow: none;
+    height:20px;
+    position: relative;
+    top:5px;
+    margin: 10px;
+    padding: 5px;
+}
+
+input[type="file"]::-webkit-file-upload-button
+{
+    margin-right: 10px;
+    height: 20px;
+    width: 120px;
+    background-color: dodgerblue;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+
+
+.labelFeatureFormOffer>label
+{
+    font-weight: normal;
+}
+.labelFeatureFormOffer,
+.widgetFeatureFormOffer
+{
+    display: inline-block;
+}
+
+
+.checkboxLineFormOffer
+{
+    display: block;
+
+}
+
+.checkboxGroupFormOffer
+{
+    display: inline-block;
+    width:300px
+}
+
+
+
+.required:after
+{
+    content: "*";
+}
+
+.button{
+    display: block;
+    margin: 20px;
+    padding: 5px;
+    height: 30px;
+    width: 120px;
+    background-color: mediumblue;
+    box-sizing: content-box;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.center{
+    margin: auto !important;
+}
+
+.cke
+{
+    border-radius: 20px;
+    box-shadow: 10px 5px 20px black;
+}
+
+.cke_inner,
+.cke_top,
+.cke_bottom
+{
+    border-radius: 20px;
+}
+
+
+.notEnable
+{
+    color: rgba(255, 255, 255, .2);
+}
+
+.tableAdmin thead{
+    background-color			: rgb(69, 69, 69);
+    color: white;
+    font-weight: bolder;
+}
+
+.tableAdmin tbody tr:nth-child(even)
+{
+    background-color			: rgba(128, 235, 255, 0.38);
+}
+
+.tableAdmin tbody tr:hover
+{
+    background-color			: rgb(111, 211, 255) !important;
+}
+
+.tableAdmin
+{
+    letter-spacing				: 1px;
+    font-size					: 15px;
+    table-layout				: auto;
+    width						: fit-content;
+    border-collapse				: collapse;
+}
+
+
+.tableAdminDetail
+{
+    letter-spacing				: 1px;
+    font-size					: 15px;
+    table-layout				: fixed;
+    width						: 100%;
+    border-collapse			: collapse;
+}
+
+.tableAdminDetail th
+{
+    width: 10%;
+}
+
+
+.tableAdminDetail th:nth-child(1)
+{
+    background-color			: rgb(127,232,255);
+}
+
+th, td
+{
+    border						: 1px solid black;
+    overflow	: hidden;
+    padding:5px;
+}
+
+tr, td
+{
+    height: 20px !important;
+}
+
+.save
+{
+    display	: inline-block;
+}
+
+.delete
+{
+    display	: inline-block;
+    background-color: red;
+}
+
+/*
+.formDelete
+{
+    position	: absolute;
+    bottom:10%;
+    left: 150px;
+}
+*/
+
+.linkAdmin
+{
+    margin: 10px 0px 40px 20px;
+}
+
+.imageTable
+{
+    width: 100%;
+}
+
+.linkCategory
+{
+    position				: relative;
+    border					: 3px solid rgba(0,211,255,1);
+    border-radius			: 10px;
+    display					: inline-block;
+    max-width				: 400px;
+    min-width               : 300px;
+    width                   : 30%;
+    height					: 150px;
+    text-decoration			: none;
+    z-index					: 1;
+    margin: 1%;
+    text-align: left;
+    overflow: auto;
+}
+
+.categoryLabel
+{
+    position				: absolute;
+    font-size				: 200%;
+    left					: 20px;
+    top						: 10px;
+    color					: white;
+    z-index: 20;
+    text-shadow: 8px 5px 10px rgba(0,211,255,1), -1px 1px 0px rgba(0,211,255,.5), 1px -1px 0px rgba(0,211,255,.5), -1px -1px 0px rgba(0,211,255,.5) ;
+    width: 80%;
+    overflow:hidden;
+}
+
+.logoCategory
+{
+    position				: absolute;
+    right					: 5%;
+    font-size:              300%;
+    top: 25px;
+    color					: black;
+    height:80%;
+    width:30%;
+    z-index: 5;
+    text-align: right;
+}
+
+.logoCategory svg
+{
+    position: relative;
+    right: 0;
+    width: 80%;
+}
+
+
+.linkGroup
+{
+    font-size:15px !important;
+    color: black;
+    z-index:200;
+    text-shadow: 2px 2px 10px white;
+    padding-top: 10px;
+}
+
+.link
+{
+    margin-left: 25px;
+}
+
+.link a
+{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+#adminIndexContainer
+{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}

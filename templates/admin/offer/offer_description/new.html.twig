@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/adminBase.html.twig' %}
 
 {% block title %}{{ parent() }} | nouvelle offre{% endblock %}
 
@@ -7,7 +7,6 @@
 
     {{ include('admin/_formCRUD/_form.html.twig') }}
 
-    <div class="linkAdmin">
-        <a href="{{ path('admin_offer_offer_description_index') }}">back to list</a>
-    </div>
+
+    {{ include('admin/_inc/_footerForm.html.twig') }}
 {% endblock %}

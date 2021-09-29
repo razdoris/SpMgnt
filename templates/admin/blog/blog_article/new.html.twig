@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/adminBase.html.twig' %}
 
 {% block title %}{{ parent() }} | nouveau article{% endblock %}
 
@@ -7,7 +7,6 @@
 
     {{ include('admin/_formCRUD/_form.html.twig') }}
 
-    <div class="linkAdmin">
-        <a href="{{ path('admin_blog_blog_article_index') }}">back to list</a>
-    </div>
+
+    {{ include('admin/_inc/_footerForm.html.twig') }}
 {% endblock %}

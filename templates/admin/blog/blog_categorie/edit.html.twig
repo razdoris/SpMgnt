@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/adminBase.html.twig' %}
 
 {% block title %}{{ parent() }} | modifier article{% endblock %}
 
@@ -10,6 +10,6 @@
         {{ include('admin/_formCRUD/_delete_form.html.twig',{'pathUrl': 'admin_blog_blog_categorie_delete', 'id':  presentation_blog_categorie.id}) }}
     </div>
 
-    <a href="{{ path('admin_blog_blog_categorie_index') }}">back to list</a>
+    {{ include('admin/_inc/_footerForm.html.twig') }}
 
 {% endblock %}
