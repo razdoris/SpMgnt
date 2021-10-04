@@ -1,9 +1,9 @@
 {% extends 'admin/adminBase.html.twig' %}
 
-{% block title %}{{ parent() }} | détails article{% endblock %}
+{% block title %}{{ parent() }} | Détails article{% endblock %}
 
 {% block body %}
-    <h1>détail de la catégorie :</h1>
+    <h1>Détail de la catégorie :</h1>
 
     <table class="tableAdminDetail">
         <tbody>
@@ -17,7 +17,11 @@
             </tr>
         </tbody>
     </table>
-    {{ include('admin/_formCRUD/_delete_form.html.twig',{'pathUrl': 'admin_blog_blog_categorie_delete', 'id':  presentation_blog_categorie.id}) }}
-    {{ include('admin/_inc/_footerShow.html.twig') }}
+
+    {% set pathUrl =  'admin_blog_categorie'%}
+    {% set IdObject = presentation_blog_categorie.id %}
+    {{ include('admin/_formCRUD/_delete_form.html.twig',{'pathUrl': pathUrl, 'id':  IdObject}) }}
+    {{ include('admin/_inc/_footerShow.html.twig',{'pathUrl': pathUrl, 'id':  IdObject}) }}
+
 
 {% endblock %}

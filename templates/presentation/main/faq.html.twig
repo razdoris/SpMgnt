@@ -1,0 +1,24 @@
+{% extends 'presentation/presentationBase.html.twig' %}
+
+{% block title %}{{ parent() }} | faq{% endblock %}
+
+
+{% block pageTitle %}FAQ{% endblock %}
+{% block body %}
+    <div class="faqBody gradiantGroup">
+        {% for question in questionList %}
+            <span class="faqQuestion">
+                <h3>{{ question.question }}</h3>
+                <P>
+                    {{ question.answer|raw }}
+                </P>
+            </span>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block extraStyle %}
+
+
+{% endblock %}
+

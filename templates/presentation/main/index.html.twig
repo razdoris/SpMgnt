@@ -1,0 +1,47 @@
+{% extends 'presentation/presentationBase.html.twig' %}
+
+{% block title %}{{ parent() }} | accueil{% endblock %}
+
+
+{% block pageTitle %}ACCUEIL{% endblock %}
+{% block body %}
+    <div class="mainContainer">
+        {{ include('presentation/main/indexChapter/_firstDescription.html.twig') }}
+    </div>
+    <div class="mainContainer">
+        {{ include('presentation/main/indexChapter/_secondDescription.html.twig') }}
+    </div>
+    <div class="mainContainer">
+        {{ include('presentation/main/indexChapter/_thirdDescription.html.twig') }}
+    </div>
+    <div class="mainContainer">
+        {{ include('presentation/main/indexChapter/_fourstDescription.html.twig') }}
+    </div>
+    <div class="featureContainer mainContainer">
+        <h1>Des outils simple et pratiques</h1>
+        <div class="carousselFeature">
+        {% for feature in featureList %}
+            <div class="featureDesc gradiantGroup">
+                <img class="pictureFeature" src="{{ asset('images/uploads/ennuie.png') }}" alt="illustration de l'outil">
+                <h3>{{ feature.featureName }}</h3>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+    <div class="similarArticlesContainer mainContainer">
+        <h1>Nos dernières actualités</h1>
+        {{ include('presentation/blog/inc/_carrouselArticle.html.twig') }}
+    </div>
+{% endblock %}
+
+{% block extraStyle %}
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <script type="text/javascript" src="{{ asset('js/caroussel.js') }}"></script>
+{% endblock %}

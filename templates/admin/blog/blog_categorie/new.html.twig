@@ -1,12 +1,10 @@
 {% extends 'admin/adminBase.html.twig' %}
 
-{% block title %}{{ parent() }} | nouvelle catégorie{% endblock %}
+{% block title %}{{ parent() }} | Nouvelle catégorie{% endblock %}
 
 {% block body %}
     <h1>Créer une catégorie pour le blog</h1>
 
     {{ include('admin/_formCRUD/_form.html.twig') }}
-
-
-    {{ include('admin/_inc/_footerForm.html.twig') }}
+    {{ include('admin/_inc/_footerForm.html.twig',{'pathUrl':'admin_blog_categorie'}) }}
 {% endblock %}

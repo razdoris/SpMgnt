@@ -1,0 +1,25 @@
+{% extends 'presentation/presentationBase.html.twig' %}
+
+{% block body %}
+    <div class="articleContainer">
+        <H1 class="articleTitle">
+            {{ article.title }}
+        </H1>
+        <div class="articleBody">
+            {{ article.content|raw }}
+        </div>
+        <hr>
+        publier le {{ article.date|date('d/m/Y') }} par {{ article.author }}
+        <hr>
+    </div>
+
+    <div class="similarArticlesContainer">
+    <h1>sur le même sujet</h1>
+        {{  include('presentation/blog/inc/_carrouselArticle.html.twig') }}
+
+    </div>
+
+{% endblock %}
+
+{% block title %}{{ parent() }} | article: {{ article.id }} {% endblock %}
+

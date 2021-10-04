@@ -1,12 +1,11 @@
 {% extends 'admin/adminBase.html.twig' %}
 
-{% block title %}{{ parent() }} | nouveau sujet{% endblock %}
+{% block title %}{{ parent() }} | Nouveau sujet{% endblock %}
 
 {% block body %}
     <h1>Créer un sujet pour le formulaire de contact</h1>
 
     {{ include('admin/_formCRUD/_form.html.twig') }}
 
-
-    {{ include('admin/_inc/_footerForm.html.twig') }}
+    {{ include('admin/_inc/_footerForm.html.twig',{'pathUrl':'admin_contact_subject' }) }}
 {% endblock %}

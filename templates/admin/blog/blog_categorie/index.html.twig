@@ -1,6 +1,6 @@
 {% extends 'admin/adminBase.html.twig' %}
 
-{% block title %}{{ parent() }} | liste des catégories{% endblock %}
+{% block title %}{{ parent() }} | Liste des catégories{% endblock %}
 
 {% block body %}
     <h1>Liste des articles du blog</h1>
@@ -19,8 +19,8 @@
                 <td>{{ presentation_blog_categorie.id }}</td>
                 <td>{{ presentation_blog_categorie.label }}</td>
                 <td>
-                    <a href="{{ path('admin_blog_blog_categorie_show', {'id': presentation_blog_categorie.id}) }}">show</a>
-                    <a href="{{ path('admin_blog_blog_categorie_edit', {'id': presentation_blog_categorie.id}) }}">edit</a>
+                    <a href="{{ path('admin_blog_categorie_show', {'id': presentation_blog_categorie.id}) }}">show</a>
+                    <a href="{{ path('admin_blog_categorie_edit', {'id': presentation_blog_categorie.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -30,5 +30,6 @@
         {% endfor %}
         </tbody>
     </table>
-    {{ include('admin/_inc/_footerIndex.html.twig') }}
+    {{ include('admin/_inc/_footerIndex.html.twig',{'pathUrl':'admin_blog_categorie'}) }}
+
 {% endblock %}

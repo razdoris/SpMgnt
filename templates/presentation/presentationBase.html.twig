@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}SpMgmt{% endblock %}</title>
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/mainResponsive.css') }}" type="text/css">
+    {% block extraStyle %}{% endblock %}
+        <style>
+        body
+        {
+            background-color		: rgba(0,211,255,.5) !important;
+        }
+        header, nav
+         {
+             background-color		: rgba(0,211,255,1) !important;
+         }
+
+        </style>
+
+
+</head>
+<body>
+    <header>
+        {{ include('presentation/inc/_header.html.twig') }}
+
+    </header>
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="flash flash-{{ label }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+    <main class="container">
+        <h1>{% block pageTitle %}{% endblock %}</h1>
+        {% block body %}{% endblock %}
+    </main>
+
+
+
+    <script src="{{ asset('js/itemNavigationToggle.js') }}"></script>
+    {% block javascripts %}
+        {#{{ encore_entry_script_tags('app') }}#}
+    {% endblock %}
+</body>
+
+
+
+</html>
+

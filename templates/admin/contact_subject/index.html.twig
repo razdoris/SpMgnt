@@ -1,6 +1,6 @@
 {% extends 'admin/adminBase.html.twig' %}
 
-{% block title %}{{ parent() }} | liste des sujets{% endblock %}
+{% block title %}{{ parent() }} | Liste des sujets{% endblock %}
 
 {% block body %}
     <h1>Liste des sujets du formulaire de contact</h1>
@@ -30,5 +30,6 @@
         {% endfor %}
         </tbody>
     </table>
-    {{ include('admin/_inc/_footerIndex.html.twig') }}
+    {{ include('admin/_inc/_footerIndex.html.twig',{'pathUrl':'admin_contact_subject'}) }}
+
 {% endblock %}

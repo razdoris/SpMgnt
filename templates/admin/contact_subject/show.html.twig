@@ -1,6 +1,6 @@
 {% extends 'admin/adminBase.html.twig' %}
 
-{% block title %}{{ parent() }} | détails sujet{% endblock %}
+{% block title %}{{ parent() }} | Détails sujet{% endblock %}
 
 {% block body %}
     <h1>Détails du sujet du formulaire de contact</h1>
@@ -18,7 +18,10 @@
         </tbody>
     </table>
 
-    {{ include('admin/_formCRUD/_delete_form.html.twig',{'pathUrl': 'admin_contact_subject_delete', 'id':  contact_subject.id}) }}
-    {{ include('admin/_inc/_footerShow.html.twig') }}
+    {% set pathUrl =  'admin_contact_subject'%}
+    {% set IdObject = contact_subject.id %}
+    {{ include('admin/_formCRUD/_delete_form.html.twig',{'pathUrl': pathUrl, 'id':  IdObject}) }}
+    {{ include('admin/_inc/_footerShow.html.twig',{'pathUrl': pathUrl, 'id':  IdObject}) }}
+
 
 {% endblock %}

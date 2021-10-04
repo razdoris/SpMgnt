@@ -1,14 +1,14 @@
 {% extends 'admin/adminBase.html.twig' %}
 
-{% block title %}{{ parent() }} | modifier caractéristique{% endblock %}
+{% block title %}{{ parent() }} | Modifier caractéristique{% endblock %}
 
 {% block body %}
     <h1>Modifier la caractéristique des offres :</h1>
+    {% set pathUrl='admin_offer_feature' %}
 
     {{ include('admin/_formCRUD/_form.html.twig', {'button_label': 'Update'}) }}
     <div class="formDelete">
-        {{ include('admin/_formCRUD/_delete_form.html.twig',{'pathUrl': 'admin_offer_offer_feature_delete', 'id':  presentation_offer_feature.id}) }}
+        {{ include('admin/_formCRUD/_delete_form.html.twig',{'pathUrl': pathUrl, 'id':  presentation_offer_feature.id}) }}
     </div>
-
-    {{ include('admin/_inc/_footerForm.html.twig') }}
+    {{ include('admin/_inc/_footerForm.html.twig',{'pathUrl':pathUrl}) }}
 {% endblock %}

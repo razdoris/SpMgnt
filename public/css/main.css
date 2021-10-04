@@ -85,6 +85,11 @@ header a
     padding:0 !important;;
 }
 
+.burgerMenu
+{
+    display: none;
+}
+
 .hide
 {
     display:none;
@@ -98,14 +103,25 @@ nav{
     letter-spacing          : 3px;
     position				: relative;
     height					: 30px;
-    width					: 75%;
+    width					: 70%;
     top                     :30px;
-    margin: 10px;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
-.NavGroupe
+.navGroupe
 {
+    text-align: left;
+    padding: 0;
+    margin-left: 0 !important;
+    text-indent: 0 !important;
+}
 
+.navGroupe li
+{
+    display: inline;
+    text-align: left;
+    list-style-type: none;
 }
 
 .linkNav
@@ -260,7 +276,7 @@ css page Nos Actus
 {
     width: 100%;
     height:150px;
-    object-fit: contain;
+    object-fit: cover;
     background-color: #FFFFFF;
 }
 
@@ -710,4 +726,31 @@ tr, td
 .imageTable
 {
     width: 100%;
+}
+
+
+.featureDesc
+{
+    text-align	: center;
+    display: inline-block;
+    height:150px !important;
+    padding:5px;
+    margin: 10px;
+}
+
+.pictureFeature
+{
+    width:70px;
+    height: 70px;
+    margin: auto;
+}
+
+
+.pictureFeature:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    background-image: url(public/Icons/defaultImage.css);
 }

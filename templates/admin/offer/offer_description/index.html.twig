@@ -1,6 +1,6 @@
 {% extends 'admin/adminBase.html.twig' %}
 
-{% block title %}{{ parent() }} | liste des offres{% endblock %}
+{% block title %}{{ parent() }} | Liste des offres{% endblock %}
 
 {% block body %}
     <h1>Liste des offres</h1>
@@ -31,8 +31,8 @@
                 <td>{{ presentation_offer_description.lowPrice }} - {{ presentation_offer_description.hightPrice }} / {{ presentation_offer_description.periodicity }}</td>
                 <td>{{ presentation_offer_description.contactSubject.subjectText }}</td>
                 <td>
-                    <a href="{{ path('admin_offer_offer_description_show', {'id': presentation_offer_description.id}) }}">show</a>
-                    <a href="{{ path('admin_offer_offer_description_edit', {'id': presentation_offer_description.id}) }}">edit</a>
+                    <a href="{{ path('admin_offer_description_show', {'id': presentation_offer_description.id}) }}">show</a>
+                    <a href="{{ path('admin_offer_description_edit', {'id': presentation_offer_description.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -42,5 +42,6 @@
         {% endfor %}
         </tbody>
     </table>
-    {{ include('admin/_inc/_footerIndex.html.twig') }}
+    {{ include('admin/_inc/_footerIndex.html.twig',{'pathUrl':'admin_offer_description'}) }}
+
 {% endblock %}

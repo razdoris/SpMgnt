@@ -1,12 +1,10 @@
 {% extends 'admin/adminBase.html.twig' %}
 
-{% block title %}{{ parent() }} | nouvelle caractéristique{% endblock %}
+{% block title %}{{ parent() }} | Nouvelle caractéristique{% endblock %}
 
 {% block body %}
     <h1>Créer une nouvelle caractéristique pour les offres</h1>
 
     {{ include('admin/_formCRUD/_form.html.twig') }}
-
-
-    {{ include('admin/_inc/_footerForm.html.twig') }}
+    {{ include('admin/_inc/_footerForm.html.twig',{'pathUrl':'admin_offer_feature'}) }}
 {% endblock %}

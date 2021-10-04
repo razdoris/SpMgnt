@@ -1,9 +1,9 @@
 {% extends 'admin/adminBase.html.twig' %}
 
-{% block title %}{{ parent() }} | détails offre{% endblock %}
+{% block title %}{{ parent() }} | Détails offre{% endblock %}
 
 {% block body %}
-    <h1>détail de l'offre :</h1>
+    <h1>Détail de l'offre :</h1>
 
     <table class="tableAdminDetail">
         <tbody>
@@ -39,6 +39,10 @@
             </tr>
         </tbody>
     </table>
-    {{ include('admin/_formCRUD/_delete_form.html.twig',{'pathUrl': 'admin_offer_offer_description_delete', 'id':  presentation_offer_description.id}) }}
-    {{ include('admin/_inc/_footerShow.html.twig') }}
+
+    {% set pathUrl =  'admin_offer_description'%}
+    {% set IdObject = presentation_offer_description.id %}
+    {{ include('admin/_formCRUD/_delete_form.html.twig',{'pathUrl': pathUrl, 'id':  IdObject}) }}
+    {{ include('admin/_inc/_footerShow.html.twig',{'pathUrl': pathUrl, 'id':  IdObject}) }}
+
 {% endblock %}

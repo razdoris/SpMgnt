@@ -1,0 +1,37 @@
+@media all and (max-width: 1000px)
+{
+
+    .navGroupe{
+        display: none;
+    }
+
+    .navGroupeShow{
+        display: inherit;
+    }
+
+    nav
+    {
+        display: block !important;
+        width: 60% !important;
+        height: fit-content !important;
+        text-align: center !important;
+    }
+    .burgerMenu{
+        display: block;
+    }
+
+    .navGroupe li
+    {
+        display: block !important;
+        list-style-type: none;
+        text-align: center !important;
+    }
+    .burgerMenu
+    {
+        width: 30px;
+        margin: 0 auto;
+        font-size: 20px;
+        color: white;
+        cursor: pointer;
+    }
+}

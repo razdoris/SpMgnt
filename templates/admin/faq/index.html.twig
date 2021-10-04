@@ -1,0 +1,39 @@
+{% extends 'admin/adminBase.html.twig' %}
+
+{% block title %}{{ parent() }} | Liste des questions{% endblock %}
+
+{% block body %}
+    <h1>Liste de questions/réponse de la FAQ</h1>
+
+    <table class="tableAdmin">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Number</th>
+                <th>Question</th>
+                <th>Answer</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for presentation_faq_question in presentation_faq_questions %}
+            <tr>
+                <td>{{ presentation_faq_question.id }}</td>
+                <td>{{ presentation_faq_question.number }}</td>
+                <td>{{ presentation_faq_question.question }}</td>
+                <td>{{ presentation_faq_question.answer }}</td>
+                <td>
+                    <a href="{{ path('admin_faq_question_show', {'id': presentation_faq_question.id}) }}">show</a>
+                    <a href="{{ path('admin_faq_question_edit', {'id': presentation_faq_question.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {{ include('admin/_inc/_footerIndex.html.twig',{'pathUrl':'admin_faq_question'}) }}
+
+{% endblock %}

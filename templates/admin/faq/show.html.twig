@@ -1,0 +1,35 @@
+{% extends 'admin/adminBase.html.twig' %}
+
+{% block title %}{{ parent() }} | Détails question{% endblock %}
+
+{% block body %}
+    <h1>Détails de la question/reponse de la faq</h1>
+
+    <table class="tableAdminDetail">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ presentation_faq_question.id }}</td>
+            </tr>
+            <tr>
+                <th>Number</th>
+                <td>{{ presentation_faq_question.number }}</td>
+            </tr>
+            <tr>
+                <th>Question</th>
+                <td>{{ presentation_faq_question.question }}</td>
+            </tr>
+            <tr>
+                <th>Answer</th>
+                <td>{{ presentation_faq_question.answer }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    {% set pathUrl =  'admin_faq_question'%}
+    {% set IdObject = presentation_faq_question.id %}
+    {{ include('admin/_formCRUD/_delete_form.html.twig',{'pathUrl': pathUrl, 'id':  IdObject}) }}
+    {{ include('admin/_inc/_footerShow.html.twig',{'pathUrl': pathUrl, 'id':  IdObject}) }}
+
+
+{% endblock %}
