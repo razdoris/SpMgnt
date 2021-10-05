@@ -1,0 +1,208 @@
+{% extends 'application/applicationBase.html.twig' %}
+
+{% block title %}Accueil FCNA | {{ parent() }}{% endblock %}
+
+
+{% block body %}
+    <div class="inlineDiv withGradient" id="nextMatch">
+        <div>Forme:
+            {% for i in 0..5 %}
+                <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg" version="1.1">
+                    <circle r="5" cx="6" cy="6" stroke="black" fill="{{ random(['green', 'orange', 'red']) }}" stroke-width="1" />
+                </svg>
+            {% endfor %}
+        </div>
+        <h3>Prochaine rencontre</h3>
+        <h4>équipe adverse</h4>
+        <img id="logoNextMatch" src="{{ asset('Icons/bouclier.svg') }}" alt="logo équipe adverse">
+        <div>Forme:
+            {% for i in 0..5 %}
+                <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg" version="1.1">
+                    <circle r="5" cx="6" cy="6" stroke="black" fill="{{ random(['green', 'orange', 'red']) }}" stroke-width="1" />
+                </svg>
+            {% endfor %}
+        </div>
+        <div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
+                <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+            </svg> lieux
+        </div>
+        <div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+            </svg> heure
+        </div>
+        <div>
+            météo
+            <br>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wind" viewBox="0 0 16 16">
+                <path d="M12.5 2A2.5 2.5 0 0 0 10 4.5a.5.5 0 0 1-1 0A3.5 3.5 0 1 1 12.5 8H.5a.5.5 0 0 1 0-1h12a2.5 2.5 0 0 0 0-5zm-7 1a1 1 0 0 0-1 1 .5.5 0 0 1-1 0 2 2 0 1 1 2 2h-5a.5.5 0 0 1 0-1h5a1 1 0 0 0 0-2zM0 9.5A.5.5 0 0 1 .5 9h10.042a3 3 0 1 1-3 3 .5.5 0 0 1 1 0 2 2 0 1 0 2-2H.5a.5.5 0 0 1-.5-.5z"/>
+            </svg>
+            vent
+        </div>
+    </div>
+    <div class="inlineDiv withGradient" id="mainCalendar">
+
+    </div>
+    <div class="inlineDiv withGradient" id="teamRankingContainer">
+        <div class="tableDiv height500" id="firstTeamRanking">
+            <table class="teamRanking">
+                <thead>
+                <tr>
+                    <th>Pt</th>
+                    <th>Équipes</th>
+                    <th>pts</th>
+                    <th>J.</th>
+                    <th>G.</th>
+                    <th>N.</th>
+                    <th>P.</th>
+                    <th>p.</th>
+                    <th>c.</th>
+                    <th>+/-</th>
+                    <th>G.N.P.</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for i in 1..20 %}
+                    <tr>
+                        {% set p = random(50) %}
+                        {% set c = random(50) %}
+
+                        <td>{{ i }}</td>
+                        <td>lorem</td>
+                        <td>{{ (106/i)|round }}</td>
+                        <td>38</td>
+                        <td>{{ random(38) }}</td>
+                        <td>{{ random(38) }}</td>
+                        <td>{{ random(38) }}</td>
+                        <td>{{ p }}</td>
+                        <td>{{ c }}</td>
+                        <td>{{ p-c }}</td>
+                        <td>{% for j in 0..5 %}
+                                <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg" version="1.1">
+                                    <circle r="5" cx="6" cy="6" stroke="black"
+                                            fill="{{ random(['green', 'orange', 'red']) }}" stroke-width="1"/>
+                                </svg>
+                            {% endfor %}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="tableDiv hide height500" id="allTeamRanking">
+            <table class="teamRanking">
+                <thead>
+                <tr>
+                    <th>niveau</th>
+                    <th>Équipes</th>
+                    <th>Classement</th>
+                    <th>Pts</th>
+                    <th>Évolution</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for i in 1..4 %}
+                    <tr>
+                        <td>{{ random(['ligue1','ligue2','3eme division','Regionale1']) }}</td>
+                        <td>{{ random(['','u'~random(8,18)]) }} Équipe {{ random('ABC') }}</td>
+                        <td>{{ random(20) }}</td>
+                        <td>{{ random(38) }}</td>
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                 class="bi bi-arrow-down-right" viewBox="0 0 16 16">
+                                {{ random([
+                                    '<path fill="red" fill-rule="evenodd" d="M14 13.5a.5.5 0 0 1-.5.5h-6a.5.5 0 0 1 0-1h4.793L2.146 2.854a.5.5 0 1 1 .708-.708L13 12.293V7.5a.5.5 0 0 1 1 0v6z"/>',
+                                    '<path fill="orange" fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>',
+                                    '<path fill="green" fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z"/>'
+                                ])|raw }}</svg>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <input type="radio" name="rankingView" value="firstTeamRanking" checked>
+            <input type="radio" name="rankingView" value="allTeamRanking">
+        </div>
+
+    </div>
+    <div class="inlineDiv withGradient halfContainer" id="bestScorerRankingContainer">
+        <table class="teamRanking">
+            <caption>Meilleurs Buteurs</caption>
+            <thead>
+            <tr>
+                <th>PL</th>
+                <th>Nom Prenom</th>
+                <th>Total</th>
+                <th>Champ</th>
+                <th>Coupe</th>
+                <th>Amicaux</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for i in 1..9 %}
+                {% set champ=random(25) %}
+                {% set coupe=random(25) %}
+                {% set amicaux=random(25) %}
+                <tr>
+                    <td>{{ i }}</td>
+                    <td>{{ random(['Lorem', 'ipsum', 'dolor', 'sit amet', 'consectetur',
+                            'adipisicing', 'Minus', 'praesentium', 'sed unde', 'veritatis',
+                            'Asperiores', 'delectus', 'iste nam', 'similique', ]) }}</td>
+                    <td>{{ champ+coupe+amicaux }}</td>
+                    <td>{{ champ }}</td>
+                    <td>{{ coupe }}</td>
+                    <td>{{ amicaux }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+    <div class="inlineDiv withGradient halfContainer" id="bestFerrymanRankingContainer">
+        <table class="teamRanking">
+            <caption>Meilleurs Passeurs</caption>
+            <thead>
+            <tr>
+                <th>PL</th>
+                <th>Nom Prenom</th>
+                <th>Total</th>
+                <th>Champ</th>
+                <th>Coupe</th>
+                <th>Amicaux</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for i in 1..9 %}
+                {% set champ=random(25) %}
+                {% set coupe=random(25) %}
+                {% set amicaux=random(25) %}
+                <tr>
+                    <td>{{ i }}</td>
+                    <td>{{ random(['Lorem', 'ipsum', 'dolor', 'sit amet', 'consectetur',
+                            'adipisicing', 'Minus', 'praesentium', 'sed unde', 'veritatis',
+                            'Asperiores', 'delectus', 'iste nam', 'similique', ]) }}</td>
+                    <td>{{ champ+coupe+amicaux }}</td>
+                    <td>{{ champ }}</td>
+                    <td>{{ coupe }}</td>
+                    <td>{{ amicaux }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}
+
+{% block extraStyle %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.css">
+{% endblock %}
+
+{% block javascripts %}
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.js"></script>
+    <script src="{{ asset('js/calendar.js') }}"></script>
+    <script src="{{ asset('js/apiFootball.js') }}"></script>
+{% endblock %}

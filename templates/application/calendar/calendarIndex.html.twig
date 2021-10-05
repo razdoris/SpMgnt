@@ -1,0 +1,136 @@
+{% extends 'application/applicationBase.html.twig' %}
+
+{% block title %}Accueil FCNA | {{ parent() }}{% endblock %}
+
+
+{% block body %}
+
+    <div class="inlineDiv withGradient" id="calendarCalendar">
+
+    </div>
+    <div class="inlineDiv withGradient" id="legendContainer">
+        <h3>Legende</h3>
+        <ul>
+            <li>
+                <img class="iconLegend" src="{{ asset('Icons/staff.svg') }}" alt="icon de l'evenement">
+                <label class="labelLegend">Reunion de staff</label>
+            </li>
+            <li>
+                <img class="iconLegend" src="{{ asset('Icons/tactique.svg') }}" alt="icon de l'evenement">
+                <label class="labelLegend">Reunion tactique</label>
+            </li>
+            <li>
+                <img class="iconLegend" src="{{ asset('Icons/tableau.svg') }}" alt="icon de l'evenement">
+                <label class="labelLegend">Tableau noir</label>
+            </li>
+            <li>
+                <img class="iconLegend" src="{{ asset('Icons/information.svg') }}" alt="icon de l'evenement">
+                <label class="labelLegend">Reunion d'information</label>
+            </li>
+            <li>
+                <img class="iconLegend" src="{{ asset('Icons/amical.svg') }}" alt="icon de l'evenement">
+                <label class="labelLegend">Match amical</label>
+            </li>
+            <li>
+                <img class="iconLegend" src="{{ asset('Icons/selection.svg') }}" alt="icon de l'evenement">
+                <label class="labelLegend">Match de séléction</label>
+            </li>
+            <li>
+                <img class="iconLegend" src="{{ asset('Icons/coupe.svg') }}" alt="icon de l'evenement">
+                <label class="labelLegend">Match de coupe</label>
+            </li>
+            <li>
+                <img class="iconLegend" src="{{ asset('Icons/champ.svg') }}" alt="icon de l'evenement">
+                <label class="labelLegend">Match de championnat</label>
+            </li>
+            <li>
+                <img class="iconLegend" src="{{ asset('Icons/entrainement.svg') }}" alt="icon de l'evenement">
+                <label class="labelLegend">Scéance d'entrainement</label>
+            </li>
+        </ul>
+    </div>
+    <div class="inlineDiv withGradient" id="addNewEventContainer">
+       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aperiam autem cumque, dignissimos ducimus impedit itaque nam nisi nobis, obcaecati officia officiis placeat provident rem repellat vero vitae? Fugit, non?
+        <br>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut est, fugiat fugit, harum illum, ipsa itaque laboriosam laudantium minus modi obcaecati pariatur quisquam ratione repellat similique sit velit voluptates voluptatibus?
+    </div>
+    <div class="inlineDiv withGradient halfContainer chartContainer" id="assiduityMatchContainer">
+        <div class="tableDiv" id="assiduityMatchTable">
+            <table class="teamRanking">
+                <caption>taux de presence au matchs</caption>
+                <thead>
+                <tr>
+                    <th>Nom Prenom</th>
+                    <th>Prés.</th>
+                    <th>Indis.</th>
+                    <th>Abs.</th>
+                    <th>Ret</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for i in 1..9 %}
+                    <tr>
+                        <td>{{ random(['Lorem', 'ipsum', 'dolor', 'sit amet', 'consectetur',
+                                'adipisicing', 'Minus', 'praesentium', 'sed unde', 'veritatis',
+                                'Asperiores', 'delectus', 'iste nam', 'similique', ]) }}</td>
+                        <td>{{ random(25) }}</td>
+                        <td>{{ random(15) }}</td>
+                        <td>{{ random(25) }}</td>
+                        <td>{{ random(5) }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="chartDiv hide" id="assiduityMatchChart">
+            <canvas class="canevaChart" id="canvasAssiduityMatch" width="10px" height="10px"></canvas>
+        </div>
+    </div>
+    <div class="inlineDiv withGradient halfContainer chartContainer" id="assiduityPracticeContainer">
+        <div class="tableDiv" id="assiduityMatchTable">
+            <table class="teamRanking">
+                <caption>taux de presence au entrainement</caption>
+                <thead>
+                <tr>
+                    <th>Nom Prenom</th>
+                    <th>Prés.</th>
+                    <th>Indis.</th>
+                    <th>Abs.</th>
+                    <th>Ret</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for i in 1..9 %}
+                    <tr>
+                        <td>{{ random(['Lorem', 'ipsum', 'dolor', 'sit amet', 'consectetur',
+                                'adipisicing', 'Minus', 'praesentium', 'sed unde', 'veritatis',
+                                'Asperiores', 'delectus', 'iste nam', 'similique', ]) }}</td>
+                        <td>{{ random(25) }}</td>
+                        <td>{{ random(15) }}</td>
+                        <td>{{ random(25) }}</td>
+                        <td>{{ random(5) }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="chartDiv hide" id="assiduityPracticeChart">
+            <canvas class="canevaChart" id="canvasAssiduityPractice" width="10px" height="10px"></canvas>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block extraStyle %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.css">
+{% endblock %}
+
+{% block javascripts %}
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.js"></script>
+    <script src="{{ asset('js/calendar.js') }}"></script>
+    {#  <script src="{{ asset('js/apiFootball.js') }}"></script>#}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"
+            integrity="sha512-Wt1bJGtlnMtGP0dqNFH1xlkLBNpEodaiQ8ZN5JLA5wpc1sUlk/O5uuOMNgvzddzkpvZ9GLyYNa8w2s7rqiTk5Q=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{{ asset('js/charts.js') }}"></script>
+{% endblock %}

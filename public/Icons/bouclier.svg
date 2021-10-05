@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="192.20499mm"
+   height="236.93109mm"
+   viewBox="0 0 192.20499 236.93109"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="bouclier.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.24748737"
+     inkscape:cx="-186.87035"
+     inkscape:cy="681.4925"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="2400"
+     inkscape:window-height="1284"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     fit-margin-top="5"
+     fit-margin-left="5"
+     fit-margin-right="5"
+     fit-margin-bottom="5" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="fond"
+     transform="translate(451.01204,149.02485)">
+    <path
+       style="fill:#9c9c9c;fill-opacity:1;stroke:none;stroke-width:0.2380302px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -354.90959,-144.0248 0.0103,226.931046 c 24.44866,-10.139617 91.08412,-53.659945 91.09212,-99.467666 v -89.17505 c -30.51524,-3.30728 -75.33754,-21.43298 -91.10244,-38.28833 z m 0,0 c -15.76493,16.85535 -60.58723,34.98105 -91.10245,38.28833 v 89.17505 c 0.008,45.807721 66.64397,89.328049 91.09263,99.467666 z"
+       id="path4522-9"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     style="display:inline"
+     transform="translate(451.01204,149.02485)">
+    <path
+       style="fill:#000000;fill-opacity:0.29773464;stroke:none;stroke-width:0.23803021px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -354.90948,-144.02485 c 15.76492,16.85534 60.58718,34.98113 91.10242,38.28841 v 89.175042 c -0.008,45.807719 -66.6436,89.327985 -91.09225,99.467605 l -0.0102,-226.931057"
+       id="path4522-6"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc" />
+  </g>
+</svg>

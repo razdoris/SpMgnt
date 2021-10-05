@@ -1,0 +1,45 @@
+{% extends 'admin/adminBase.html.twig' %}
+
+{% block title %}{{ parent() }} | Liste des types d'évenement{% endblock %}
+
+{% block body %}
+    <h1>Liste des types d'évenement</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Label</th>
+                <th>Icon</th>
+                <th>BackgroundColor</th>
+                <th>BorderColor</th>
+                <th>TextColor</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for application_calendar_events_sort in application_calendar_events_sorts %}
+            <tr>
+                <td>{{ application_calendar_events_sort.id }}</td>
+                <td>{{ application_calendar_events_sort.label }}</td>
+                <td>{{ application_calendar_events_sort.icon }}</td>
+                <td>{{ application_calendar_events_sort.backgroundColor }}</td>
+                <td>{{ application_calendar_events_sort.borderColor }}</td>
+                <td>{{ application_calendar_events_sort.TextColor }}</td>
+                <td>
+                    <a href="{{ path('admin_application_calendar_events_sort_show', {'id': application_calendar_events_sort.id}) }}">show</a>
+                    <a href="{{ path('admin_application_calendar_events_sort_edit', {'id': application_calendar_events_sort.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+    {{ include('admin/_inc/_footerIndex.html.twig',{'pathUrl':'admin_application_calendar_events_sort'}) }}
+
+{% endblock %}

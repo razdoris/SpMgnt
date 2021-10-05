@@ -1,0 +1,318 @@
+/* Éléments principaux de la page */
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
+
+*
+{
+    margin:0;
+    padding:0;
+}
+
+body
+{
+    font-family				: 'Roboto Condensed', Arial, sans-serif;
+    color					: black;
+    height					: 90vh;
+    width               : 100%;
+}
+
+
+
+
+
+::-webkit-scrollbar {
+   display: none;
+}
+
+
+
+header{
+    display:flex;
+    justify-content: space-between;
+    font-size               : 20px;
+    letter-spacing          : 3px;
+    position				: fixed;
+    height					: 100px;
+    width					: 100%;
+    top						: 0px;
+    left					: 0px;
+    z-index: 100;
+}
+
+header a
+{
+    text-decoration: none;
+    color:black;
+    margin:0;
+    padding:0;
+}
+
+#AppLogo
+{
+    height: 80px;
+    width: 180px;
+    background-color: rgba(255,255,255,.5);
+    border-radius: 50px / 80px;
+}
+
+
+#titleHeader{
+    margin: 10px;
+    height: 80px;
+    width: 180px;
+}
+
+.headerPrincipal
+{
+    position:relative;
+    top:20px;
+    right:20px;
+    text-align:right;
+}
+
+.headerChild
+{
+    border-bottom:2px solid black;
+    border-left:2px solid black;
+    padding: 0 25px;
+    position:absolute;
+    right: 0px;
+}
+
+.headerUl, .headerIl
+{
+    list-style: none !important;
+    margin:0 !important;
+    padding:0 !important;;
+}
+
+.hide
+{
+    display:none;
+}
+
+
+
+.flash{
+    padding: 20px;
+    font-weight: bold;
+    font-size: 1.4rem;
+    margin: 10px auto;
+    border-radius: 5px;
+    text-align: center;
+    background-color: rgba(255,255,255,0.5);
+    position: relative;
+    top: 120px;
+    width: 80%;
+}
+.flash-success
+{
+    border: 2px solid green;
+    color: green;
+}
+
+.flash-erreur
+{
+    border: 2px solid red;
+    color: red;
+}
+
+.alert{
+    padding: 20px;
+    font-weight: bold;
+    font-size: 1.4rem;
+    margin: 1rem 0;
+    border-radius: 5px;
+    text-align: center;
+}
+.alert-danger
+{
+    border: 2px solid red;
+    color: red;
+}
+
+
+/*
+
+ */
+
+.container
+{
+    border-radius: 30px;
+    position				: relative;
+    top						: 100px;
+    padding: 10px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 100px;
+}
+
+#nextMatch
+{
+    text-align: center;
+    width: 30%;
+    min-width: 300px;
+}
+
+.withGradient
+{
+    background: linear-gradient(to right ,rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.1));
+    padding: 5px;
+    border-radius: 20px;
+}
+
+#logoNextMatch
+{
+    width: 180px;
+}
+
+.inlineDiv
+{
+    display: inline-block;
+    vertical-align: top;
+    margin: 10px;
+}
+
+.inlineDiv h3
+{
+    margin: auto;
+    text-align:center;
+}
+
+#navMenuSpace
+{
+    width: 10%;
+    min-width: 150px;
+    height:200px;
+}
+
+#navMenu
+{
+    width: 10%;
+    min-width: 150px;
+    text-align: left;
+    position: absolute;
+    left:10px;
+    top: 120px;
+    z-index: 80;
+}
+
+#navMenu li
+{
+    margin: 20px 0 10px 0;
+}
+
+
+#navMenu a
+{
+    text-decoration: none;
+}
+
+
+#mainCalendar
+{
+    width: 50%;
+    min-width: 300px;
+}
+
+.teamRanking{
+    border-collapse: collapse;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.teamRanking td,
+.teamRanking th
+{
+    text-align: center;
+    padding: 2px 10px ;
+    border: 1px solid black;
+}
+
+.teamRanking td
+{
+    cursor: pointer;
+}
+
+
+.teamRanking tbody tr:hover
+{
+    background-color: #bcddec;
+}
+
+#teamRankingContainer
+{
+    margin-bottom: 40px;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    overflow: scroll;
+}
+
+.height500
+{
+    height:fit-content;
+    min-height: 500px;
+
+}
+
+.halfContainer
+{
+    width: 45%;
+    min-width: 400px;
+}
+
+.tableDiv
+{
+    margin: 10px;
+    text-align: center;
+    height:fit-content;
+}
+
+caption {
+    padding: 10px;
+    font-weight: bolder;
+}
+
+#calendarCalendar
+{
+    width: 80%;
+    min-width: 300px;
+}
+
+#legendContainer ul
+{
+    list-style-type: none;
+}
+
+.iconLegend
+{
+    width: 50px;
+    height: 50px;
+}
+
+.labelLegend
+{
+    position: relative;
+    bottom:20px;
+    margin: 10px;
+}
+
+#addNewEventContainer
+{
+    width: 60%;
+    min-width: 40px;
+}
+
+.chartContainer
+{
+    height: 500px;
+}
+
+.fc-button {
+    color: black !important;
+    background-color: transparent !important;
+    border: none !important;
+}
