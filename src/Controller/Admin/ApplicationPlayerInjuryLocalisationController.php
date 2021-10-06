@@ -36,8 +36,16 @@ class ApplicationPlayerInjuryLocalisationController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            if($applicationPlayerInjuryLocalisation->getLateralite()=="both"){
+                $applicationPlayerInjuryLocalisationGauche = new ApplicationPlayerInjuryLocalisation();
+                $applicationPlayerInjuryLocalisationGauche->setLocalisation($applicationPlayerInjuryLocalisation->getLocalisation());
+                $applicationPlayerInjuryLocalisationGauche->setLateralite('Gauche');
+                $applicationPlayerInjuryLocalisation->setLateralite('Droit');
+                $entityManager->persist($applicationPlayerInjuryLocalisationGauche);
+            }
             $entityManager->persist($applicationPlayerInjuryLocalisation);
             $entityManager->flush();
+
 
             return $this->redirectToRoute('admin_application_player_injury_localisation_index');
         }

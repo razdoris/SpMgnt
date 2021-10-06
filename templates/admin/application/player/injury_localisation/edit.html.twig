@@ -14,3 +14,18 @@
     {{ include('admin/_inc/_footerForm.html.twig',{'pathUrl':pathUrl}) }}
 
 {% endblock %}
+
+
+{% block javascripts %}
+    <script>
+        console.log("{{ application_player_injury_localisation.lateralite }}");
+        if("{{ application_player_injury_localisation.lateralite }}" == "Gauche"){
+            document.querySelector("#application_player_injury_localisation_lateralite_1").setAttribute("checked","checked")
+        }else if("{{ application_player_injury_localisation.lateralite }}" == "Droit"){
+            document.querySelector("#application_player_injury_localisation_lateralite_0").setAttribute("checked","checked")
+        }
+    </script>
+
+
+
+{% endblock %}
