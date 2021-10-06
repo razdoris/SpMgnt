@@ -2,11 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\ApplicationCalendarEventsTypeRepository;
+use App\Repository\ApplicationCalendarEventsSortRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=ApplicationCalendarEventsTypeRepository::class)
+ * @ORM\Entity(repositoryClass=ApplicationCalendarEventsSortRepository::class)
  */
 class ApplicationCalendarEventsSort
 {

@@ -399,6 +399,13 @@ tr, td
 .imageTable
 {
     width: 100%;
+    max-width:100px;
+}
+
+.iconTable
+{
+    width: 100%;
+    max-width:50px;
 }
 
 .linkCategory

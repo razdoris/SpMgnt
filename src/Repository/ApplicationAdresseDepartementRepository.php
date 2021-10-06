@@ -20,15 +20,15 @@ class ApplicationAdresseDepartementRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return Departement[] Returns an array of Departement objects
+    //  * @return ApplicationAdresseDepartement[] Returns an array of ApplicationAdresseDepartement objects
     //  */
     /*
     public function findByExampleField($value)
     {
-        return $this->createQueryBuilder('d')
-            ->andWhere('d.exampleField = :val')
+        return $this->createQueryBuilder('a')
+            ->andWhere('a.exampleField = :val')
             ->setParameter('val', $value)
-            ->orderBy('d.id', 'ASC')
+            ->orderBy('a.id', 'ASC')
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()
@@ -37,10 +37,10 @@ class ApplicationAdresseDepartementRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Departement
+    public function findOneBySomeField($value): ?ApplicationAdresseDepartement
     {
-        return $this->createQueryBuilder('d')
-            ->andWhere('d.exampleField = :val')
+        return $this->createQueryBuilder('a')
+            ->andWhere('a.exampleField = :val')
             ->setParameter('val', $value)
             ->getQuery()
             ->getOneOrNullResult()

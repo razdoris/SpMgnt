@@ -4,7 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\ApplicationCalendarEventsSort;
 use App\Form\ApplicationCalendarEventsSortType;
-use App\Repository\ApplicationCalendarEventsTypeRepository;
+use App\Repository\ApplicationCalendarEventsSortRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,7 +18,7 @@ class ApplicationCalendarEventsSortController extends AbstractController
     /**
      * @Route("/", name="admin_application_calendar_events_sort_index", methods={"GET"})
      */
-    public function index(ApplicationCalendarEventsTypeRepository $applicationCalendarEventsTypeRepository): Response
+    public function index(ApplicationCalendarEventsSortRepository $applicationCalendarEventsTypeRepository): Response
     {
         return $this->render('admin/application/calendar/events_sort/index.html.twig', [
             'application_calendar_events_sorts' => $applicationCalendarEventsTypeRepository->findAll(),

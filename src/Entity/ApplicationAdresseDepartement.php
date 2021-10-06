@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ApplicationAdresseDepartementRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -20,38 +22,108 @@ class ApplicationAdresseDepartement
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $name;
+    private $nomDepartement;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=4)
      */
-    private $code;
+    private $codeDepartement;
+
+    /**
+     * @ORM\OneToMany(targetEntity=ApplicationAdresseVille::class, mappedBy="departement", orphanRemoval=true)
+     */
+    private $applicationAdresseVilles;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=ApplicationAdresseRegion::class, inversedBy="applicationAdresseDepartements")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $region;
+
+    public function __construct()
+    {
+        $this->applicationAdresseVilles = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getNomDepartement(): ?string
     {
-        return $this->name;
+        return $this->nomDepartement;
     }
 
-    public function setName(string $name): self
+    public function setNomDepartement(string $nomDepartement): self
     {
-        $this->name = $name;
+        $this->nomDepartement = $nomDepartement;
 
         return $this;
     }
 
-    public function getCode(): ?int
+    public function getCodeDerpartement(): ?string
     {
-        return $this->code;
+        return $this->codeDerpartement;
     }
 
-    public function setCode(int $code): self
+    public function setCodeDerpartement(string $codeDerpartement): self
     {
-        $this->code = $code;
+        $this->codeDerpartement = $codeDerpartement;
+
+        return $this;
+    }
+
+    public function getCodeDepartement(): ?int
+    {
+        return $this->codeDepartement;
+    }
+
+    public function setCodeDepartement(int $codeDepartement): self
+    {
+        $this->codeDepartement = $codeDepartement;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ApplicationAdresseVille[]
+     */
+    public function getApplicationAdresseVilles(): Collection
+    {
+        return $this->applicationAdresseVilles;
+    }
+
+    public function addApplicationAdresseVille(ApplicationAdresseVille $applicationAdresseVille): self
+    {
+        if (!$this->applicationAdresseVilles->contains($applicationAdresseVille)) {
+            $this->applicationAdresseVilles[] = $applicationAdresseVille;
+            $applicationAdresseVille->setDepartement($this);
+        }
+
+        return $this;
+    }
+
+    public function removeApplicationAdresseVille(ApplicationAdresseVille $applicationAdresseVille): self
+    {
+        if ($this->applicationAdresseVilles->removeElement($applicationAdresseVille)) {
+            // set the owning side to null (unless already changed)
+            if ($applicationAdresseVille->getDepartement() === $this) {
+                $applicationAdresseVille->setDepartement(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getRegion(): ?ApplicationAdresseRegion
+    {
+        return $this->region;
+    }
+
+    public function setRegion(?ApplicationAdresseRegion $region): self
+    {
+        $this->region = $region;
 
         return $this;
     }

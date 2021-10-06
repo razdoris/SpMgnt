@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ApplicationAdresseRegionRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -20,38 +22,78 @@ class ApplicationAdresseRegion
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $name;
+    private $nomRegion;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $code;
+    private $codeRegion;
+
+    /**
+     * @ORM\OneToMany(targetEntity=ApplicationAdresseDepartement::class, mappedBy="region", orphanRemoval=true)
+     */
+    private $applicationAdresseDepartements;
+
+    public function __construct()
+    {
+        $this->applicationAdresseDepartements = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getNomRegion(): ?string
     {
-        return $this->name;
+        return $this->nomRegion;
     }
 
-    public function setName(string $name): self
+    public function setNomRegion(string $nomRegion): self
     {
-        $this->name = $name;
+        $this->nomRegion = $nomRegion;
 
         return $this;
     }
 
-    public function getCode(): ?int
+    public function getCodeRegion(): ?int
     {
-        return $this->code;
+        return $this->codeRegion;
     }
 
-    public function setCode(int $code): self
+    public function setCodeRegion(int $codeRegion): self
     {
-        $this->code = $code;
+        $this->codeRegion = $codeRegion;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ApplicationAdresseDepartement[]
+     */
+    public function getApplicationAdresseDepartements(): Collection
+    {
+        return $this->applicationAdresseDepartements;
+    }
+
+    public function addApplicationAdresseDepartement(ApplicationAdresseDepartement $applicationAdresseDepartement): self
+    {
+        if (!$this->applicationAdresseDepartements->contains($applicationAdresseDepartement)) {
+            $this->applicationAdresseDepartements[] = $applicationAdresseDepartement;
+            $applicationAdresseDepartement->setRegion($this);
+        }
+
+        return $this;
+    }
+
+    public function removeApplicationAdresseDepartement(ApplicationAdresseDepartement $applicationAdresseDepartement): self
+    {
+        if ($this->applicationAdresseDepartements->removeElement($applicationAdresseDepartement)) {
+            // set the owning side to null (unless already changed)
+            if ($applicationAdresseDepartement->getRegion() === $this) {
+                $applicationAdresseDepartement->setRegion(null);
+            }
+        }
 
         return $this;
     }

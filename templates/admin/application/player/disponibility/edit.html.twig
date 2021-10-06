@@ -1,0 +1,16 @@
+{% extends 'admin/adminBase.html.twig' %}
+
+{% block title %}{{ parent() }} | Modifier disponibilité{% endblock %}
+
+{% block body %}
+    <h1>Modifier la disponibilité :</h1>
+    {% set pathUrl='admin_application_player_disponibility' %}
+
+
+    {{ include('admin/_formCRUD/_form.html.twig', {'button_label': 'Update'}) }}
+    <div class="formDelete">
+        {{ include('admin/_formCRUD/_delete_form.html.twig',{'pathUrl': pathUrl, 'id':  application_player_disponibility.id}) }}
+    </div>
+    {{ include('admin/_inc/_footerForm.html.twig',{'pathUrl':pathUrl}) }}
+
+{% endblock %}

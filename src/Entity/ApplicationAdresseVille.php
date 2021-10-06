@@ -20,38 +20,56 @@ class ApplicationAdresseVille
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $name;
+    private $nomVille;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $code;
+    private $codeVille;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=ApplicationAdresseDepartement::class, inversedBy="applicationAdresseVilles")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $departement;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getNomVille(): ?string
     {
-        return $this->name;
+        return $this->nomVille;
     }
 
-    public function setName(string $name): self
+    public function setNomVille(string $nomVille): self
     {
-        $this->name = $name;
+        $this->nomVille = $nomVille;
 
         return $this;
     }
 
-    public function getCode(): ?int
+    public function getCodeVille(): ?int
     {
-        return $this->code;
+        return $this->codeVille;
     }
 
-    public function setCode(int $code): self
+    public function setCodeVille(int $codeVille): self
     {
-        $this->code = $code;
+        $this->codeVille = $codeVille;
+
+        return $this;
+    }
+
+    public function getDepartement(): ?ApplicationAdresseDepartement
+    {
+        return $this->departement;
+    }
+
+    public function setDepartement(?ApplicationAdresseDepartement $departement): self
+    {
+        $this->departement = $departement;
 
         return $this;
     }

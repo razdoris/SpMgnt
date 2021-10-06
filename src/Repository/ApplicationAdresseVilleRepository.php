@@ -25,10 +25,10 @@ class ApplicationAdresseVilleRepository extends ServiceEntityRepository
     /*
     public function findByExampleField($value)
     {
-        return $this->createQueryBuilder('v')
-            ->andWhere('v.exampleField = :val')
+        return $this->createQueryBuilder('a')
+            ->andWhere('a.exampleField = :val')
             ->setParameter('val', $value)
-            ->orderBy('v.id', 'ASC')
+            ->orderBy('a.id', 'ASC')
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()
@@ -39,8 +39,8 @@ class ApplicationAdresseVilleRepository extends ServiceEntityRepository
     /*
     public function findOneBySomeField($value): ?ApplicationAdresseVille
     {
-        return $this->createQueryBuilder('v')
-            ->andWhere('v.exampleField = :val')
+        return $this->createQueryBuilder('a')
+            ->andWhere('a.exampleField = :val')
             ->setParameter('val', $value)
             ->getQuery()
             ->getOneOrNullResult()

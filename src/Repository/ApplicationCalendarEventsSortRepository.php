@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\ApplicationAdresseRegion;
+use App\Entity\ApplicationCalendarEventsSort;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method ApplicationAdresseRegion|null find($id, $lockMode = null, $lockVersion = null)
- * @method ApplicationAdresseRegion|null findOneBy(array $criteria, array $orderBy = null)
- * @method ApplicationAdresseRegion[]    findAll()
- * @method ApplicationAdresseRegion[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method ApplicationCalendarEventsSort|null find($id, $lockMode = null, $lockVersion = null)
+ * @method ApplicationCalendarEventsSort|null findOneBy(array $criteria, array $orderBy = null)
+ * @method ApplicationCalendarEventsSort[]    findAll()
+ * @method ApplicationCalendarEventsSort[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ApplicationAdresseRegionRepository extends ServiceEntityRepository
+class ApplicationCalendarEventsSortRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, ApplicationAdresseRegion::class);
+        parent::__construct($registry, ApplicationCalendarEventsSort::class);
     }
 
     // /**
-    //  * @return ApplicationAdresseRegion[] Returns an array of ApplicationAdresseRegion objects
+    //  * @return ApplicationCalendarEventsType[] Returns an array of ApplicationCalendarEventsType objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class ApplicationAdresseRegionRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?ApplicationAdresseRegion
+    public function findOneBySomeField($value): ?ApplicationCalendarEventsType
     {
         return $this->createQueryBuilder('a')
             ->andWhere('a.exampleField = :val')

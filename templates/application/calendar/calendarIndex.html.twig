@@ -11,42 +11,12 @@
     <div class="inlineDiv withGradient" id="legendContainer">
         <h3>Legende</h3>
         <ul>
-            <li>
-                <img class="iconLegend" src="{{ asset('Icons/staff.svg') }}" alt="icon de l'evenement">
-                <label class="labelLegend">Reunion de staff</label>
-            </li>
-            <li>
-                <img class="iconLegend" src="{{ asset('Icons/tactique.svg') }}" alt="icon de l'evenement">
-                <label class="labelLegend">Reunion tactique</label>
-            </li>
-            <li>
-                <img class="iconLegend" src="{{ asset('Icons/tableau.svg') }}" alt="icon de l'evenement">
-                <label class="labelLegend">Tableau noir</label>
-            </li>
-            <li>
-                <img class="iconLegend" src="{{ asset('Icons/information.svg') }}" alt="icon de l'evenement">
-                <label class="labelLegend">Reunion d'information</label>
-            </li>
-            <li>
-                <img class="iconLegend" src="{{ asset('Icons/amical.svg') }}" alt="icon de l'evenement">
-                <label class="labelLegend">Match amical</label>
-            </li>
-            <li>
-                <img class="iconLegend" src="{{ asset('Icons/selection.svg') }}" alt="icon de l'evenement">
-                <label class="labelLegend">Match de séléction</label>
-            </li>
-            <li>
-                <img class="iconLegend" src="{{ asset('Icons/coupe.svg') }}" alt="icon de l'evenement">
-                <label class="labelLegend">Match de coupe</label>
-            </li>
-            <li>
-                <img class="iconLegend" src="{{ asset('Icons/champ.svg') }}" alt="icon de l'evenement">
-                <label class="labelLegend">Match de championnat</label>
-            </li>
-            <li>
-                <img class="iconLegend" src="{{ asset('Icons/entrainement.svg') }}" alt="icon de l'evenement">
-                <label class="labelLegend">Scéance d'entrainement</label>
-            </li>
+            {%  for typeEvent in typesEventsList %}
+                <li>
+                    <img class="iconLegend" src="{{ asset('Icons/EventsType/' ~ typeEvent.icon) }}" alt="icon de l'evenement">
+                    <label class="labelLegend">{{ typeEvent.label }}</label>
+                </li>
+            {% endfor %}
         </ul>
     </div>
     <div class="inlineDiv withGradient" id="addNewEventContainer">

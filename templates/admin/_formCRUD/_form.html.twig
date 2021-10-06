@@ -4,9 +4,8 @@
             {% if item.vars.name == 'features' %}
                 <div class="blockFormOffer">
                     {{ form_label(item) }}
-                    {% set i = 1 %}
                     {% for feature in item %}
-                        {% if i%2!=0 %}
+                        {% if loop.index%2!=0 %}
                             <div class="checkboxLineFormOffer">
                         {% endif %}
                         <div class="checkboxGroupFormOffer">
@@ -17,10 +16,9 @@
                                 {{ form_label(feature) }}
                             </div>
                         </div>
-                        {% if i%2==0 %}
+                        {% if loop.index%2==0 %}
                             </div>
                         {% endif %}
-                        {% set i = i + 1 %}
                     {% endfor %}
                 </div>
             {% endif %}

@@ -5,7 +5,7 @@
 {% block body %}
     <h1>Liste des types d'évenement</h1>
 
-    <table class="table">
+    <table class="tableAdmin">
         <thead>
             <tr>
                 <th>Id</th>
@@ -22,7 +22,11 @@
             <tr>
                 <td>{{ application_calendar_events_sort.id }}</td>
                 <td>{{ application_calendar_events_sort.label }}</td>
-                <td>{{ application_calendar_events_sort.icon }}</td>
+                <td>
+                    <img class="imageTable iconTable"
+                         src="{{ asset('Icons/EventsType/')~ application_calendar_events_sort.icon}}"
+                         alt="icon du type d'evenement {{ application_calendar_events_sort.label }}">
+                </td>
                 <td>{{ application_calendar_events_sort.backgroundColor }}</td>
                 <td>{{ application_calendar_events_sort.borderColor }}</td>
                 <td>{{ application_calendar_events_sort.TextColor }}</td>

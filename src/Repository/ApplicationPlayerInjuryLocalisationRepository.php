@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\ApplicationCalendarEventsSort;
+use App\Entity\ApplicationPlayerInjuryLocalisation;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method ApplicationCalendarEventsSort|null find($id, $lockMode = null, $lockVersion = null)
- * @method ApplicationCalendarEventsSort|null findOneBy(array $criteria, array $orderBy = null)
- * @method ApplicationCalendarEventsSort[]    findAll()
- * @method ApplicationCalendarEventsSort[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method ApplicationPlayerInjuryLocalisation|null find($id, $lockMode = null, $lockVersion = null)
+ * @method ApplicationPlayerInjuryLocalisation|null findOneBy(array $criteria, array $orderBy = null)
+ * @method ApplicationPlayerInjuryLocalisation[]    findAll()
+ * @method ApplicationPlayerInjuryLocalisation[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ApplicationCalendarEventsTypeRepository extends ServiceEntityRepository
+class ApplicationPlayerInjuryLocalisationRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, ApplicationCalendarEventsSort::class);
+        parent::__construct($registry, ApplicationPlayerInjuryLocalisation::class);
     }
 
     // /**
-    //  * @return ApplicationCalendarEventsType[] Returns an array of ApplicationCalendarEventsType objects
+    //  * @return ApplicationPlayerInjuryLocalisation[] Returns an array of ApplicationPlayerInjuryLocalisation objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class ApplicationCalendarEventsTypeRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?ApplicationCalendarEventsType
+    public function findOneBySomeField($value): ?ApplicationPlayerInjuryLocalisation
     {
         return $this->createQueryBuilder('a')
             ->andWhere('a.exampleField = :val')

@@ -1,0 +1,41 @@
+{% extends 'admin/adminBase.html.twig' %}
+
+{% block title %}{{ parent() }} | Liste des disponibilités{% endblock %}
+
+{% block body %}
+    <h1>Liste des disponibilités</h1>
+
+    <table class="tableAdmin">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Label</th>
+                <th>Type</th>
+                <th>Color</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for application_player_disponibility in application_player_disponibilities %}
+            <tr>
+                <td>{{ application_player_disponibility.id }}</td>
+                <td>{{ application_player_disponibility.label }}</td>
+                <td>{{ application_player_disponibility.type }}</td>
+                <td>{{ application_player_disponibility.color }}</td>
+                <td>
+                    <a href="{{ path('admin_application_player_disponibility_show', {'id': application_player_disponibility.id}) }}">show</a>
+                    <a href="{{ path('admin_application_player_disponibility_edit', {'id': application_player_disponibility.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+    {{ include('admin/_inc/_footerIndex.html.twig',{'pathUrl':'admin_application_player_disponibility'}) }}
+
+{% endblock %}
