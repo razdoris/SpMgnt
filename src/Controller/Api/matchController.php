@@ -2,17 +2,15 @@
 
 namespace App\Controller\Api;
 
-use App\Entity\ApplicationMatch;
-use App\Repository\ApplicationMatchRepository;
-use App\Repository\ApplicationStandingsRepository;
-use DateTimeInterface;
+use App\Entity\ApiMatch;
+use App\Repository\ApiMatchRepository;
+use App\Repository\ApiStandingsRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Validator\Constraints\Date;
 
 class matchController extends AbstractController
 {
@@ -30,7 +28,7 @@ class matchController extends AbstractController
      * @Route("/api/lastMatchDay", name="api_lastMatchDay")
      */
     public function lastMatchDay(
-        ApplicationMatchRepository $match
+        ApiMatchRepository $match
     ): Response
     {
         $lastDate = ($match->lastDay());
@@ -42,8 +40,8 @@ class matchController extends AbstractController
      * @Route("/api/addMatch", name="api_addMatch")
      */
     public function addMatch(
-        ApplicationMatchRepository $match,
-        ApplicationStandingsRepository $standing,
+        ApiMatchRepository $match,
+        ApiStandingsRepository $standing,
         EntityManagerInterface $entityManager,
         Request $request
     ): Response
@@ -52,7 +50,7 @@ class matchController extends AbstractController
         $teamHome = $standing->findByIdApi((int)$request->get('homeTeam'));
         $dateFormat = date_create($request->get('dateDay'));
 
-        $match = new ApplicationMatch();
+        $match = new ApiMatch();
         $match->setAwayTeam($teamAway[0]);
         $match->setAwayTeamGoal((int)$request->get('awayTeamGoal'));
         $match->setHomeTeam($teamHome[0]);

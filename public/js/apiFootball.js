@@ -161,7 +161,7 @@ async function getLastDayOfMatch(year){
 
 /**
  * add a 0 before number under 10
- * @param (int)number
+ * @param number(int) the month or day number
  * @return {string} creat by the number and a 0 if the number is under ten
  */
 function numberformat(number){
@@ -172,8 +172,8 @@ function numberformat(number){
     return number;
 }
 
-
+//createOrMajStanding()
 createOrMajMatch().then(response=>{})
-createOrMajStanding()
+
 
 

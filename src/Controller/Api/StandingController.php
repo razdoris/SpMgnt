@@ -2,8 +2,8 @@
 
 namespace App\Controller\Api;
 
-use App\Entity\ApplicationStandings;
-use App\Repository\ApplicationStandingsRepository;
+use App\Entity\ApiStandings;
+use App\Repository\ApiStandingsRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -30,14 +30,14 @@ class StandingController extends AbstractController
     public function majClubInStanding(
         Request $request,
         EntityManagerInterface $entityManager,
-        ApplicationStandingsRepository $standing
+        ApiStandingsRepository $standing
     ): response
     {
 
         $idApi=(int)$request->get('idApi');
         $clubInDatabase = $standing->findByIdApi($idApi);
         if(!$clubInDatabase){
-            $club = new ApplicationStandings();
+            $club = new ApiStandings();
             $club->setClubName($request->get('equipe'));
             $club->setLogo($request->get('logo'));
             $club->setIdApi($idApi);
@@ -67,7 +67,7 @@ class StandingController extends AbstractController
     public function deleteClubInStanding(
         Request $request,
         EntityManagerInterface $entityManager,
-        ApplicationStandingsRepository $standing
+        ApiStandingsRepository $standing
     ): response
     {
         $standing->deleteAll();

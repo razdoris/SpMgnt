@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\ApplicationStandingsRepository;
+use App\Repository\ApiStandingsRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=ApplicationStandingsRepository::class)
+ * @ORM\Entity(repositoryClass=ApiStandingsRepository::class)
  */
-class ApplicationStandings
+class ApiStandings
 {
     /**
      * @ORM\Id

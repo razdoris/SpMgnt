@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\ApplicationMatch;
+use App\Entity\ApplicationVideo;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method ApplicationMatch|null find($id, $lockMode = null, $lockVersion = null)
- * @method ApplicationMatch|null findOneBy(array $criteria, array $orderBy = null)
- * @method ApplicationMatch[]    findAll()
- * @method ApplicationMatch[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method ApplicationVideo|null find($id, $lockMode = null, $lockVersion = null)
+ * @method ApplicationVideo|null findOneBy(array $criteria, array $orderBy = null)
+ * @method ApplicationVideo[]    findAll()
+ * @method ApplicationVideo[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ApplicationMatchRepository extends ServiceEntityRepository
+class ApplicationVideoRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, ApplicationMatch::class);
+        parent::__construct($registry, ApplicationVideo::class);
     }
 
     // /**
-    //  * @return ApplicationMatch[] Returns an array of ApplicationMatch objects
+    //  * @return ApplicationVideo[] Returns an array of ApplicationVideo objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class ApplicationMatchRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?ApplicationMatch
+    public function findOneBySomeField($value): ?ApplicationVideo
     {
         return $this->createQueryBuilder('a')
             ->andWhere('a.exampleField = :val')

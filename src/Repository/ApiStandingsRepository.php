@@ -2,21 +2,21 @@
 
 namespace App\Repository;
 
-use App\Entity\ApplicationStandings;
+use App\Entity\ApiStandings;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method ApplicationStandings|null find($id, $lockMode = null, $lockVersion = null)
- * @method ApplicationStandings|null findOneBy(array $criteria, array $orderBy = null)
- * @method ApplicationStandings[]    findAll()
- * @method ApplicationStandings[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method ApiStandings|null find($id, $lockMode = null, $lockVersion = null)
+ * @method ApiStandings|null findOneBy(array $criteria, array $orderBy = null)
+ * @method ApiStandings[]    findAll()
+ * @method ApiStandings[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ApplicationStandingsRepository extends ServiceEntityRepository
+class ApiStandingsRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, ApplicationStandings::class);
+        parent::__construct($registry, ApiStandings::class);
     }
 
     public function findByIdApi($idApi)
@@ -40,7 +40,7 @@ class ApplicationStandingsRepository extends ServiceEntityRepository
         return $query;
     }
     // /**
-    //  * @return ApplicationStandings[] Returns an array of ApplicationStandings objects
+    //  * @return ApiStandings[] Returns an array of ApiStandings objects
     //  */
     /*
     public function findByExampleField($value)
@@ -57,7 +57,7 @@ class ApplicationStandingsRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?ApplicationStandings
+    public function findOneBySomeField($value): ?ApiStandings
     {
         return $this->createQueryBuilder('a')
             ->andWhere('a.exampleField = :val')
