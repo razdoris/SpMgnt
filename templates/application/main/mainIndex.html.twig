@@ -1,6 +1,6 @@
 {% extends 'application/applicationBase.html.twig' %}
 
-{% block title %}Accueil FCNA | {{ parent() }}{% endblock %}
+{% block title %}Accueil {{ parent() }}{% endblock %}
 
 
 {% block body %}
@@ -204,5 +204,4 @@
 {% block javascripts %}
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.js"></script>
     <script src="{{ asset('js/calendar.js') }}"></script>
-    <script src="{{ asset('js/apiFootball.js') }}"></script>
 {% endblock %}

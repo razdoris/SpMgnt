@@ -28,3 +28,21 @@ vich_uploader:
             inject_on_load: false
             delete_on_update: true
             delete_on_remove: true
+
+        userAvatar:
+            uri_prefix: /images/user/avatar
+            upload_destination: '%kernel.project_dir%/public/images/user/avatar'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+
+            inject_on_load: false
+            delete_on_update: true
+            delete_on_remove: true
+
+        clubLogo:
+            uri_prefix: /images/club/logo
+            upload_destination: '%kernel.project_dir%/public/images/club/logo'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+
+            inject_on_load: false
+            delete_on_update: true
+            delete_on_remove: true

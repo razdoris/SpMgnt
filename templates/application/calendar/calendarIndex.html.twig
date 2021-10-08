@@ -1,6 +1,6 @@
 {% extends 'application/applicationBase.html.twig' %}
 
-{% block title %}Accueil FCNA | {{ parent() }}{% endblock %}
+{% block title %}Calendrier {{ parent() }}{% endblock %}
 
 
 {% block body %}
@@ -39,20 +39,20 @@
                 </thead>
                 <tbody>
                 {% for i in 1..9 %}
-                    <tr>
-                        <td>{{ random(['Lorem', 'ipsum', 'dolor', 'sit amet', 'consectetur',
+                    <tr class="ligneMatch">
+                        <td class="nomeMatchPractice">{{ random(['Lorem', 'ipsum', 'dolor', 'sit amet', 'consectetur',
                                 'adipisicing', 'Minus', 'praesentium', 'sed unde', 'veritatis',
                                 'Asperiores', 'delectus', 'iste nam', 'similique', ]) }}</td>
-                        <td>{{ random(25) }}</td>
-                        <td>{{ random(15) }}</td>
-                        <td>{{ random(25) }}</td>
-                        <td>{{ random(5) }}</td>
+                        <td class="presenceMatchPractice">{{ random(25) }}</td>
+                        <td class="absenceMatchPractice">{{ random(15) }}</td>
+                        <td class="indispoMatchPractice">{{ random(25) }}</td>
+                        <td class="retardMatchPractice">{{ random(5) }}</td>
                     </tr>
                 {% endfor %}
                 </tbody>
             </table>
         </div>
-        <div class="chartDiv hide" id="assiduityMatchChart">
+        <div class="chartDiv hide chartDivMatch" id="assiduityMatchChart">
             <canvas class="canevaChart" id="canvasAssiduityMatch" width="10px" height="10px"></canvas>
         </div>
     </div>
@@ -72,19 +72,19 @@
                 <tbody>
                 {% for i in 1..9 %}
                     <tr>
-                        <td>{{ random(['Lorem', 'ipsum', 'dolor', 'sit amet', 'consectetur',
+                        <td class="nomeMatchPractice">{{ random(['Lorem', 'ipsum', 'dolor', 'sit amet', 'consectetur',
                                 'adipisicing', 'Minus', 'praesentium', 'sed unde', 'veritatis',
                                 'Asperiores', 'delectus', 'iste nam', 'similique', ]) }}</td>
-                        <td>{{ random(25) }}</td>
-                        <td>{{ random(15) }}</td>
-                        <td>{{ random(25) }}</td>
-                        <td>{{ random(5) }}</td>
+                        <td class="presenceMatchPractice">{{ random(25) }}</td>
+                        <td class="absenceMatchPractice">{{ random(15) }}</td>
+                        <td class="indispoMatchPractice">{{ random(25) }}</td>
+                        <td class="retardMatchPractice">{{ random(5) }}</td>
                     </tr>
                 {% endfor %}
                 </tbody>
             </table>
         </div>
-        <div class="chartDiv hide" id="assiduityPracticeChart">
+        <div class="chartDiv hide chartDivPractice" id="assiduityPracticeChart">
             <canvas class="canevaChart" id="canvasAssiduityPractice" width="10px" height="10px"></canvas>
         </div>
     </div>
@@ -98,7 +98,7 @@
 {% block javascripts %}
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.js"></script>
     <script src="{{ asset('js/calendar.js') }}"></script>
-    {#  <script src="{{ asset('js/apiFootball.js') }}"></script>#}
+    {# <script src="{{ asset('js/apiFootball.js') }}"></script> #}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"
             integrity="sha512-Wt1bJGtlnMtGP0dqNFH1xlkLBNpEodaiQ8ZN5JLA5wpc1sUlk/O5uuOMNgvzddzkpvZ9GLyYNa8w2s7rqiTk5Q=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
