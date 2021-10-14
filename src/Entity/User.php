@@ -99,9 +99,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $updatedAt;
 
     /**
-     * @ORM\OneToOne(targetEntity=ApplicationJoueur::class, mappedBy="user", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=ApplicationPlayer::class, mappedBy="user", cascade={"persist", "remove"})
      */
-    private $applicationJoueur;
+    private $applicationPlayer;
 
 
 
@@ -330,19 +330,19 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getApplicationJoueur(): ?ApplicationJoueur
+    public function getApplicationPlayer(): ?ApplicationPlayer
     {
-        return $this->applicationJoueur;
+        return $this->applicationPlayer;
     }
 
-    public function setApplicationJoueur(ApplicationJoueur $applicationJoueur): self
+    public function setApplicationPlayer(ApplicationPlayer $applicationPlayer): self
     {
         // set the owning side of the relation if necessary
-        if ($applicationJoueur->getUser() !== $this) {
-            $applicationJoueur->setUser($this);
+        if ($applicationPlayer->getUser() !== $this) {
+            $applicationPlayer->setUser($this);
         }
 
-        $this->applicationJoueur = $applicationJoueur;
+        $this->applicationPlayer = $applicationPlayer;
 
         return $this;
     }

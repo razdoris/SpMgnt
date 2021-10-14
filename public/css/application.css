@@ -306,9 +306,16 @@ caption {
     min-width: 40px;
 }
 
-.chartContainer
-{
+.chartContainer{
     height: 500px;
+    text-align: center;
+}
+
+.canevaChart
+{
+    margin: auto;
+    height: 500px !important;
+    width: 500px !important ;
 }
 
 .fc-button {

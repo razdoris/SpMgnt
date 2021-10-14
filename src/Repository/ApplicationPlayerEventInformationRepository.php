@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\ApplicationJoueur;
+use App\Entity\ApplicationPlayerEventInformation;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method ApplicationJoueur|null find($id, $lockMode = null, $lockVersion = null)
- * @method ApplicationJoueur|null findOneBy(array $criteria, array $orderBy = null)
- * @method ApplicationJoueur[]    findAll()
- * @method ApplicationJoueur[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method ApplicationPlayerEventInformation|null find($id, $lockMode = null, $lockVersion = null)
+ * @method ApplicationPlayerEventInformation|null findOneBy(array $criteria, array $orderBy = null)
+ * @method ApplicationPlayerEventInformation[]    findAll()
+ * @method ApplicationPlayerEventInformation[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ApplicationJoueurRepository extends ServiceEntityRepository
+class ApplicationPlayerEventInformationRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, ApplicationJoueur::class);
+        parent::__construct($registry, ApplicationPlayerEventInformation::class);
     }
 
     // /**
-    //  * @return ApplicationJoueur[] Returns an array of ApplicationJoueur objects
+    //  * @return ApplicationPlayerEventInformation[] Returns an array of ApplicationPlayerEventInformation objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class ApplicationJoueurRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?ApplicationJoueur
+    public function findOneBySomeField($value): ?ApplicationPlayerEventInformation
     {
         return $this->createQueryBuilder('a')
             ->andWhere('a.exampleField = :val')

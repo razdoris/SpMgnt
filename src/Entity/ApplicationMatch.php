@@ -18,127 +18,194 @@ class ApplicationMatch
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=ApplicationStandings::class)
+     * @ORM\OneToOne(targetEntity=ApplicationEvenement::class, cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
-    private $awayTeam;
+    private $evenement;
 
     /**
-     * @ORM\ManyToOne(targetEntity=ApplicationStandings::class)
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $homeTeam;
+    private $nomPrenomArbitre;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=50, nullable=true)
      */
-    private $matchDay;
+    private $Adversaire;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $domicile;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $motPresidentAvantMatch;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $motCoachAvantMatch;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $motARetenir;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $motPresidentApresMatch;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $motCoachApresMatch;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $comptRendu;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $awayTeamGoal;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $homeTeamGoal;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $idApi;
-
-    /**
-     * @ORM\Column(type="date")
-     */
-    private $date;
+    private $noteDuMatch;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getAwayTeam(): ?ApplicationStandings
+    public function getEvenement(): ?ApplicationEvenement
     {
-        return $this->awayTeam;
+        return $this->evenement;
     }
 
-    public function setAwayTeam(?ApplicationStandings $awayTeam): self
+    public function setEvenement(ApplicationEvenement $evenement): self
     {
-        $this->awayTeam = $awayTeam;
+        $this->evenement = $evenement;
 
         return $this;
     }
 
-    public function getHomeTeam(): ?ApplicationStandings
+    public function getNomPrenomArbitre(): ?string
     {
-        return $this->homeTeam;
+        return $this->nomPrenomArbitre;
     }
 
-    public function setHomeTeam(?ApplicationStandings $homeTeam): self
+    public function setNomPrenomArbitre(?string $nomPrenomArbitre): self
     {
-        $this->homeTeam = $homeTeam;
+        $this->nomPrenomArbitre = $nomPrenomArbitre;
 
         return $this;
     }
 
-    public function getMatchDay(): ?int
+    public function getAdversaire(): ?string
     {
-        return $this->matchDay;
+        return $this->Adversaire;
     }
 
-    public function setMatchDay(int $matchDay): self
+    public function setAdversaire(string $Adversaire): self
     {
-        $this->matchDay = $matchDay;
+        $this->Adversaire = $Adversaire;
 
         return $this;
     }
 
-    public function getAwayTeamGoal(): ?int
+    public function getDomicile(): ?bool
     {
-        return $this->awayTeamGoal;
+        return $this->domicile;
     }
 
-    public function setAwayTeamGoal(?int $awayTeamGoal): self
+    public function setDomicile(bool $domicile): self
     {
-        $this->awayTeamGoal = $awayTeamGoal;
+        $this->domicile = $domicile;
 
         return $this;
     }
 
-    public function getHomeTeamGoal(): ?int
+    public function getMotPresidentAvantMatch(): ?string
     {
-        return $this->homeTeamGoal;
+        return $this->motPresidentAvantMatch;
     }
 
-    public function setHomeTeamGoal(?int $homeTeamGoal): self
+    public function setMotPresidentAvantMatch(?string $motPresidentAvantMatch): self
     {
-        $this->homeTeamGoal = $homeTeamGoal;
+        $this->motPresidentAvantMatch = $motPresidentAvantMatch;
 
         return $this;
     }
 
-    public function getIdApi(): ?int
+    public function getMotCoachAvantMatch(): ?string
     {
-        return $this->idApi;
+        return $this->motCoachAvantMatch;
     }
 
-    public function setIdApi(int $idApi): self
+    public function setMotCoachAvantMatch(?string $motCoachAvantMatch): self
     {
-        $this->idApi = $idApi;
+        $this->motCoachAvantMatch = $motCoachAvantMatch;
 
         return $this;
     }
 
-    public function getDate(): ?\DateTimeInterface
+    public function getMotARetenir(): ?string
     {
-        return $this->date;
+        return $this->motARetenir;
     }
 
-    public function setDate(\DateTimeInterface $date): self
+    public function setMotARetenir(?string $motARetenir): self
     {
-        $this->date = $date;
+        $this->motARetenir = $motARetenir;
+
+        return $this;
+    }
+
+    public function getMotPresidentApresMatch(): ?string
+    {
+        return $this->motPresidentApresMatch;
+    }
+
+    public function setMotPresidentApresMatch(?string $motPresidentApresMatch): self
+    {
+        $this->motPresidentApresMatch = $motPresidentApresMatch;
+
+        return $this;
+    }
+
+    public function getMotCoachApresMatch(): ?string
+    {
+        return $this->motCoachApresMatch;
+    }
+
+    public function setMotCoachApresMatch(?string $motCoachApresMatch): self
+    {
+        $this->motCoachApresMatch = $motCoachApresMatch;
+
+        return $this;
+    }
+
+    public function getComptRendu(): ?string
+    {
+        return $this->comptRendu;
+    }
+
+    public function setComptRendu(?string $comptRendu): self
+    {
+        $this->comptRendu = $comptRendu;
+
+        return $this;
+    }
+
+    public function getNoteDuMatch(): ?int
+    {
+        return $this->noteDuMatch;
+    }
+
+    public function setNoteDuMatch(?int $noteDuMatch): self
+    {
+        $this->noteDuMatch = $noteDuMatch;
 
         return $this;
     }
