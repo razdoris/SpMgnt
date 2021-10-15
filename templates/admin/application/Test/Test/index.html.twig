@@ -1,0 +1,42 @@
+{% extends 'admin/adminBase.html.twig' %}
+
+{% block title %}{{ parent() }} | Liste des Tests{% endblock %}
+
+{% block body %}
+    <h1>Liste des tests</h1>
+
+    <table class="tableAdmin">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>ForAll</th>
+                <th>TestName</th>
+                <th>NumberOfValues</th>
+                <th>Abaque</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for application_test in application_tests %}
+            <tr>
+                <td>{{ application_test.id }}</td>
+                <td>{{ application_test.forAll ? 'Yes' : 'No' }}</td>
+                <td>{{ application_test.testName }}</td>
+                <td>{{ application_test.numberOfValues }}</td>
+                <td>{{ application_test.abaqueName }}</td>
+                <td>
+                    <a href="{{ path('admin_application_test_test_show', {'id': application_test.id}) }}">show</a>
+                    <a href="{{ path('admin_application_test_test_edit', {'id': application_test.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+    {{ include('admin/_inc/_footerIndex.html.twig',{'pathUrl':'admin_application_test_test'}) }}
+{% endblock %}

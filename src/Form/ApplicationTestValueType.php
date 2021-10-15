@@ -2,26 +2,25 @@
 
 namespace App\Form;
 
-use App\Entity\PresentationContactSubject;
+use App\Entity\ApplicationTestValue;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class PresentationContactSubjectType extends AbstractType
+class ApplicationTestValueType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('subjectText',null,[
-                'label'=>'Nom du sujet de contact du formulaire'
-            ])
+            ->add('name')
+            ->add('unit')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => PresentationContactSubject::class,
+            'data_class' => ApplicationTestValue::class,
         ]);
     }
 }

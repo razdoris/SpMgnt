@@ -1,0 +1,40 @@
+{% extends 'admin/adminBase.html.twig' %}
+
+{% block title %}{{ parent() }} | Liste des valeurs de test{% endblock %}
+
+{% block body %}
+    <h1>Liste des valeurs possible pour un test</h1>
+
+    <table class="tableAdmin">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Unit</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for application_test_value in application_test_values %}
+            <tr>
+                <td>{{ application_test_value.id }}</td>
+                <td>{{ application_test_value.name }}</td>
+                <td>{{ application_test_value.unit }}</td>
+                <td>
+                    <a href="{{ path('admin_application_test_value_show', {'id': application_test_value.id}) }}">show</a>
+                    <a href="{{ path('admin_application_test_value_edit', {'id': application_test_value.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+    {{ include('admin/_inc/_footerIndex.html.twig',{'pathUrl':'admin_application_test_value'}) }}
+
+
+{% endblock %}

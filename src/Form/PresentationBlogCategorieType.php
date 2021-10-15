@@ -12,7 +12,9 @@ class PresentationBlogCategorieType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('label')
+            ->add('label',null,[
+                'label'=>'Nom de la catégorie'
+            ])
         ;
     }
 

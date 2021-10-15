@@ -1,0 +1,39 @@
+{% extends 'admin/adminBase.html.twig' %}
+
+{% block title %}{{ parent() }} | Détails du test{% endblock %}
+
+{% block body %}
+    <h1>Détails du test</h1>
+
+    <table class="tableAdminDetail">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ application_test.id }}</td>
+            </tr>
+            <tr>
+                <th>ForAll</th>
+                <td>{{ application_test.forAll ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>TestName</th>
+                <td>{{ application_test.testName }}</td>
+            </tr>
+            <tr>
+                <th>NumberOfValues</th>
+                <td>{{ application_test.numberOfValues }}</td>
+            </tr>
+            <tr>
+                <th>Abaque</th>
+                <td>{{ application_test.abaqueName }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    {% set pathUrl =  'admin_application_test_test'%}
+    {% set IdObject = application_test.id %}
+    {{ include('admin/_formCRUD/_delete_form.html.twig',{'pathUrl': pathUrl, 'id':  IdObject}) }}
+    {{ include('admin/_inc/_footerShow.html.twig',{'pathUrl': pathUrl, 'id':  IdObject}) }}
+
+{% endblock %}
