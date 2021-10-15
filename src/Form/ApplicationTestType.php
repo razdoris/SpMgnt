@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\ApplicationClub;
 use App\Entity\ApplicationTest;
+use App\Entity\ApplicationTestValue;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;

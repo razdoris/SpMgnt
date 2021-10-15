@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ApplicationTestValueRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -26,6 +28,12 @@ class ApplicationTestValue
      * @ORM\Column(type="string", length=20)
      */
     private $unit;
+
+
+    public function __construct()
+    {
+        $this->applicationTests = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -55,4 +63,5 @@ class ApplicationTestValue
 
         return $this;
     }
+
 }
