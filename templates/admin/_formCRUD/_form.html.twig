@@ -1,5 +1,5 @@
 {{ form_start(form) }}
-    {% for item in form %}
+    {% for item in form.children %}
         {% if item.vars.name != '_token' %}
             {% if item.vars.name == 'features' %}
                 <div class="blockFormOffer">
@@ -21,14 +21,34 @@
                         {% endif %}
                     {% endfor %}
                 </div>
-            {% endif %}
-            {% if item.vars.name != 'features' %}
+            {% endif %}{#
+            {% if item.vars.name == 'data' %}
+                <div class="blockData" data-index="{{ item|length > 0 ? item|last.vars.name + 1 : 0 }}" data-prototype="{{ form_widget(item.vars.prototype)|e('html_attr') }}">
+                    {{ form_label(item) }}
+                    {% for dataInfo in item %}
+                        <div class="checkboxGroupData" >
+                            <div class="widgetFeatureFormOffer">
+                                {{ form_widget(dataInfo) }}
+                            </div>
+                            <div class="labelFeatureFormOffer">
+                                {{ form_label(dataInfo) }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <button type="button" class="add_dataInfo_link" data-collection-holder-class="checkboxGroupData">Add a tag</button>
+
+                </div>
+            {% endif %}#}
+            {% if item.vars.name != 'features' and  item.vars.name != 'data' %}
                 <div class="blockForm">
                     <div class="labelForm">
                         {{ form_label(item) }}
                     </div>
                     <div class="widgetForm">
                         {{ form_widget(item) }}
+                        {% if form_errors(item) %}
+                        <div class="alert-message">{{ form_errors(item) }}</div>
+                        {% endif %}
                     </div>
                 </div>
             {% endif %}
@@ -36,5 +56,6 @@
 
 
 {% endfor %}
+
     <button class="button">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}

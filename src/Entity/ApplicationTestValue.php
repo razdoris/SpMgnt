@@ -6,6 +6,7 @@ use App\Repository\ApplicationTestValueRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ApplicationTestValueRepository::class)
@@ -21,11 +22,13 @@ class ApplicationTestValue
 
     /**
      * @ORM\Column(type="string", length=20)
+     * @Assert\NotBlank
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=20)
+     * @Assert\NotBlank
      */
     private $unit;
 
@@ -62,6 +65,11 @@ class ApplicationTestValue
         $this->unit = $unit;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->name . ' (' . $this->unit. ')';
     }
 
 }

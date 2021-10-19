@@ -3,6 +3,8 @@
 namespace App\Controller\Admin;
 
 use App\Entity\ApplicationTest;
+use App\Entity\ApplicationTestTestValue;
+use App\Form\ApplicationTestTestValueType;
 use App\Form\ApplicationTestType;
 use App\Repository\ApplicationTestRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -31,8 +33,19 @@ class ApplicationTestController extends AbstractController
     public function new(Request $request): Response
     {
         $applicationTest = new ApplicationTest();
+        $data= new ApplicationTestTestValue();
+        $data ->setName('essai de data');
+        $data ->setTest($applicationTest);
+
+        $applicationTest->setTestName("essai de test");
+        $applicationTest->addApplicationTestTestValue($data);
+        dump($applicationTest);
         $form = $this->createForm(ApplicationTestType::class, $applicationTest);
         $form->handleRequest($request);
+        dump($form);
+
+
+
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();

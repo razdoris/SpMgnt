@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
@@ -60,6 +61,39 @@ class ApplicationTest
      * @var \DateTimeInterface|null
      */
     private $updatedAt;
+
+
+    /**
+     * @ORM\Column(type="date")
+     * @Assert\NotBlank
+     */
+    private $createDate;
+
+    /**
+     * @ORM\OneToMany(targetEntity=ApplicationTestTestValue::class, mappedBy="test")
+     */
+    private $applicationTestTestValues;
+
+    public function __construct()
+    {
+        $this->applicationTestTestValues = new ArrayCollection();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCreateDate()
+    {
+        return $this->createDate;
+    }
+
+    /**
+     * @param mixed $createDate
+     */
+    public function setCreateDate($createDate): void
+    {
+        $this->createDate = $createDate;
+    }
 
 
     public function getId(): ?int
@@ -150,6 +184,36 @@ class ApplicationTest
     public function setAbaqueName(?string $abaqueName): self
     {
         $this->abaqueName = $abaqueName;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ApplicationTestTestValue[]
+     */
+    public function getApplicationTestTestValues(): Collection
+    {
+        return $this->applicationTestTestValues;
+    }
+
+    public function addApplicationTestTestValue(ApplicationTestTestValue $applicationTestTestValue): self
+    {
+        if (!$this->applicationTestTestValues->contains($applicationTestTestValue)) {
+            $this->applicationTestTestValues[] = $applicationTestTestValue;
+            $applicationTestTestValue->setTest($this);
+        }
+
+        return $this;
+    }
+
+    public function removeApplicationTestTestValue(ApplicationTestTestValue $applicationTestTestValue): self
+    {
+        if ($this->applicationTestTestValues->removeElement($applicationTestTestValue)) {
+            // set the owning side to null (unless already changed)
+            if ($applicationTestTestValue->getTest() === $this) {
+                $applicationTestTestValue->setTest(null);
+            }
+        }
 
         return $this;
     }

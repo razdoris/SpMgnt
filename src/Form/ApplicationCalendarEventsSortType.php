@@ -22,13 +22,16 @@ class ApplicationCalendarEventsSortType extends AbstractType
             ])
             ->add('backgroundColor', ColorType::class, [
                 'label'=>'couleur de fond',
-                'html5'=>true
+                'html5'=>true,
+                'required' => false
             ])
             ->add('borderColor',ColorType::class, [
-                'label'=>'couleur de bordure'
+                'label'=>'couleur de bordure',
+                'required' => false
             ])
             ->add('TextColor',ColorType::class, [
-                'label'=>'couleur de text'
+                'label'=>'couleur de text',
+                'required' => false
             ])
         ;
     }

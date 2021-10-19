@@ -5,8 +5,38 @@
 {% block body %}
     <h1>Créer un test</h1>
 
-    {{ include('admin/_formCRUD/_form.html.twig') }}
+    {{ include('/admin/application/Test/Test/_form.html.twig') }}
 
     {{ include('admin/_inc/_footerForm.html.twig',{'pathUrl':'admin_application_test_test'}) }}
 
+{% endblock %}
+
+
+{% block javascripts %}
+   <script>
+       const addFormToCollection = (e) => {
+           console.log('ça passe')
+           const collectionHolder = document.querySelector('.' + e.currentTarget.dataset.collectionHolderClass);
+
+           const item = document.createElement('div');
+
+           item.innerHTML = collectionHolder
+               .dataset
+               .prototype
+               .replace(
+                   /__name__/g,
+                   collectionHolder.dataset.index
+               );
+
+           collectionHolder.appendChild(item);
+
+           collectionHolder.dataset.index++;
+       };
+
+       document
+           .querySelectorAll('.add_data_link')
+           .forEach(btn => btn.addEventListener("click", addFormToCollection));
+
+
+   </script>
 {% endblock %}

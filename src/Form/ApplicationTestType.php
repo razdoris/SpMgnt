@@ -4,10 +4,13 @@ namespace App\Form;
 
 use App\Entity\ApplicationClub;
 use App\Entity\ApplicationTest;
-use App\Entity\ApplicationTestValue;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
@@ -20,13 +23,14 @@ class ApplicationTestType extends AbstractType
                 'label'=>'Nom du test'
             ])
             ->add('forAll',null,[
-                'label'=>'Test accessible a tous les clubs'
+                'label'=>'tous'
             ])
             ->add('club', EntityType::class,[
                 'class'=>ApplicationClub::class,
-                'label'=>'selectionner un club (si le test est privé)',
+                'label'=>'selectionner un club',
                 'choice_label'=>'nom',
-                'placeholder' => 'choisissez...'
+                'placeholder' => 'choisissez...',
+                'required'=>false
             ])
             ->add('numberOfValues', null,[
                 'label'=>'combien de données sont necessaires aux tests'
@@ -35,7 +39,43 @@ class ApplicationTestType extends AbstractType
                 'label'=>'abaque',
                 'required'=>false
             ])
+            ->add('applicationTestTestValues', CollectionType::class,[
+                'entry_type'=>ApplicationTestEmbedTestValueLinkType::class,
+                'entry_options'=>[
+                    'label'=>false,
+                    ],
+                "allow_add"=>true,
+                "allow_delete"=>true,
+                'attr'=>['class'=>'DataChoice'],
+                'label'=>'données liées au test'
+            ])
+
         ;
+/*
+        $builder->get('numberOfValues')->addEventListener(
+            FormEvents::POST_SUBMIT, function (FormEvent $event){
+                dump($event->getForm());
+                dump($event->getData());
+                $number = $event->getData();
+                $form = $event->getForm()->getParent();
+                for($i=1; $i<=$number; $i++)
+                {
+                    $form->add('data_'.$i,ApplicationTestEmbedTestValueLinkType::class,[
+                        'mapped'=>false,
+                        'required'=>true,
+                        'attr'=>['class'=>'testValue']
+                    ]);
+                }
+                $form->add('createDate',DateType::class,[
+                    'html5'=>true,
+                    'label'=>'date de creation',
+                    'required'=>true,
+                    'widget' => 'single_text',
+                    'attr' => ['value' => date_format((new \DateTime("now")),'Y-m-d')]
+                ]);
+
+        }
+        );*/
     }
 
     public function configureOptions(OptionsResolver $resolver)

@@ -1,0 +1,71 @@
+{{ form_start(form) }}
+<div class="blockForm">
+    <div class="labelForm">
+        {{ form_label(form.testName) }}
+    </div>
+    <div class="widgetForm">
+        {{ form_widget(form.testName) }}
+        {% if form_errors(form.testName) %}
+            <div class="alert-message">{{ form_errors(form.testName) }}</div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="blockForm">
+    <div class="labelForm">
+        {{ form_label(form.club) }}
+    </div>
+    <div class="widgetForm">
+        {{ form_widget(form.forAll) }}{{ form_label(form.forAll) }}  {{ form_widget(form.club) }}
+        {% if form_errors(form.forAll) %}
+            <div class="alert-message">{{ form_errors(form.forAll) }}</div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="blockForm">
+    <div class="labelForm">
+        {{ form_label(form.numberOfValues) }}
+    </div>
+    <div class="widgetForm">
+        {{ form_widget(form.numberOfValues) }}
+        {% if form_errors(form.numberOfValues) %}
+            <div class="alert-message">{{ form_errors(form.numberOfValues) }}</div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="blockForm">
+    <div class="labelForm">
+        {{ form_label(form.abaqueFile) }}
+    </div>
+    <div class="widgetForm">
+        {{ form_widget(form.abaqueFile) }}
+        {% if form_errors(form.abaqueFile) %}
+            <div class="alert-message">{{ form_errors(form.abaqueFile) }}</div>
+        {% endif %}
+    </div>
+</div>
+
+
+
+<div class="blockForm">
+    {{ form_label(form.applicationTestTestValues) }}
+    <div class="dataValue" id="dataValue" data-index="{{ form.applicationTestTestValues|length > 0 ? form.applicationTestTestValues|last.vars.name + 1 : 0 }}" data-prototype="{{ form_widget(form.applicationTestTestValues.vars.prototype)|e('html_attr') }}">
+
+          {% for data in form.applicationTestTestValues %}
+              {%  block widgetFormData %}
+                    <div class="widgetForm">
+                        {{ form_widget(data.name) }}
+                        {{ form_widget(data.testValue) }}
+                    </div>
+              {% endblock %}
+        {% endfor %}
+    </div>
+    <button type="button" class="add_data_link button" data-collection-holder-class="dataValue">Ajouter une données</button>
+
+
+</div>
+
+<button class="button">{{ button_label|default('Save') }}</button>
+

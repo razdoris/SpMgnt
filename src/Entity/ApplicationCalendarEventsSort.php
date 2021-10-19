@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ApplicationCalendarEventsSortRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ApplicationCalendarEventsSortRepository::class)
@@ -19,6 +20,7 @@ class ApplicationCalendarEventsSort
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank()
      */
     private $label;
 
@@ -29,16 +31,28 @@ class ApplicationCalendarEventsSort
 
     /**
      * @ORM\Column(type="string", length=7)
+     * @Assert\Regex(
+     *     pattern="^#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$)",
+     *     match=true,
+     *     message="ceci n'est pas une couleur valide")
      */
     private $backgroundColor;
 
     /**
      * @ORM\Column(type="string", length=7)
+     * @Assert\Regex(
+     *     pattern="^#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$)",
+     *     match=true,
+     *     message="ceci n'est pas une couleur valide")
      */
     private $borderColor;
 
     /**
      * @ORM\Column(type="string", length=7)
+     * @Assert\Regex(
+     *     pattern="^#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$)",
+     *     match=true,
+     *     message="ceci n'est pas une couleur valide")
      */
     private $TextColor;
 

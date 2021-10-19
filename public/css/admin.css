@@ -132,6 +132,7 @@ nav{
     top: 120px;
     width: 80%;
 }
+
 .flash-success
 {
     border: 2px solid green;
@@ -152,12 +153,12 @@ nav{
     border-radius: 5px;
     text-align: center;
 }
+
 .alert-danger
 {
     border: 2px solid red;
     color: red;
 }
-
 
 .container
 {
@@ -245,17 +246,16 @@ input[type="file"]::-webkit-file-upload-button
 
 }
 
-
 .labelFeatureFormOffer>label
 {
     font-weight: normal;
 }
+
 .labelFeatureFormOffer,
 .widgetFeatureFormOffer
 {
     display: inline-block;
 }
-
 
 .checkboxLineFormOffer
 {
@@ -268,8 +268,6 @@ input[type="file"]::-webkit-file-upload-button
     display: inline-block;
     width:300px
 }
-
-
 
 .required:after
 {
@@ -485,4 +483,14 @@ tr, td
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+}
+
+.alert-message
+{
+    background-color: red;
+    width: fit-content;
+    margin-top: 5px;
+    padding: 5px;
+    border-radius: 10px;
+
 }

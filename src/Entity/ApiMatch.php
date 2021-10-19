@@ -3,7 +3,9 @@
 namespace App\Entity;
 
 use App\Repository\ApiMatchRepository;
+use Doctrine\Common\Annotations\Annotation\IgnoreAnnotation;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ApiMatchRepository::class)
@@ -20,12 +22,14 @@ class ApiMatch
     /**
      * @ORM\ManyToOne(targetEntity=ApiStandings::class)
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank
      */
     private $awayTeam;
 
     /**
      * @ORM\ManyToOne(targetEntity=ApiStandings::class)
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank
      */
     private $homeTeam;
 

@@ -19,8 +19,11 @@ class ApplicationTestValueType extends AbstractType
 
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults([
-            'data_class' => ApplicationTestValue::class,
-        ]);
+        $defaultParameters = array(
+            "attr"                =>  array(
+                "novalidate"  => "novalidate"
+            ),
+        );
+        $resolver->setDefaults($defaultParameters);
     }
 }
