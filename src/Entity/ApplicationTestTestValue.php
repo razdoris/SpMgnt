@@ -24,13 +24,18 @@ class ApplicationTestTestValue
     private $name;
 
     /**
-     * @ORM\ManyToOne(targetEntity=ApplicationTest::class, inversedBy="applicationTestTestValues", cascade="persist")
+     * @ORM\ManyToOne(
+     *     targetEntity=ApplicationTest::class,
+     *     inversedBy="valuesType",
+     *     cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $test;
 
     /**
-     * @ORM\ManyToOne(targetEntity=ApplicationTestValue::class, cascade="persist" )
+     * @ORM\ManyToOne(
+     *     targetEntity=ApplicationTestValue::class,
+     *     cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      * @Assert\NotBlank
      */
@@ -66,12 +71,12 @@ class ApplicationTestTestValue
         return $this;
     }
 
-    public function gettestValue(): ?ApplicationTestValue
+    public function getTestValue(): ?ApplicationTestValue
     {
         return $this->testValue;
     }
 
-    public function settestValue(?ApplicationTestValue $testValue): self
+    public function setTestValue(?ApplicationTestValue $testValue): self
     {
         $this->testValue = $testValue;
 

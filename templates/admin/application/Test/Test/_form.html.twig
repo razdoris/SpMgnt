@@ -51,7 +51,7 @@
 
 
 <div class="blockForm">
-    {{ form_label(form.applicationTestTestValues) }}
+    {{ form_label(form.valuesType) }}
 
     <div>
         <div class="widgetFormData">
@@ -63,8 +63,8 @@
                     <th></th>
                 </tr>
                 </thead>
-                <tbody class="dataValue" id="dataValue" data-index="{{ form.applicationTestTestValues|length > 0 ? form.applicationTestTestValues|last.vars.name + 1 : 0 }}" data-prototype="{{ formMacro.widget_data_value(form.applicationTestTestValues.vars.prototype)|e('html_attr') }}">
-                {% for data in form.applicationTestTestValues %}
+                <tbody class="dataValue" id="dataValue" data-index="{{ form.valuesType|length > 0 ? form.valuesType|last.vars.name + 1 : 0 }}" data-prototype="{{ formMacro.widget_data_value(form.valuesType.vars.prototype)|e('html_attr') }}">
+                {% for data in form.valuesType %}
                     <tr>
                         {{ formMacro.widget_data_value(data) }}
                     </tr>

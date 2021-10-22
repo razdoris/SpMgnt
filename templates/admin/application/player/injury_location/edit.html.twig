@@ -18,10 +18,10 @@
 
 {% block javascripts %}
     <script>
-        console.log("{{ application_player_injury_location.lateralite }}");
-        if("{{ application_player_injury_location.lateralite }}" == "Gauche"){
+        console.log("{{ application_player_injury_location.laterality }}");
+        if("{{ application_player_injury_location.laterality }}" === "Gauche"){
             document.querySelector("#application_player_injury_location_lateralite_1").setAttribute("checked","checked")
-        }else if("{{ application_player_injury_location.lateralite }}" == "Droit"){
+        }else if("{{ application_player_injury_location.laterality }}" === "Droit"){
             document.querySelector("#application_player_injury_location_lateralite_0").setAttribute("checked","checked")
         }
     </script>

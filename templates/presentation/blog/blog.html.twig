@@ -16,7 +16,7 @@
                         <img class="articlePreviewImage" src="{{ asset('images/uploads/blog/articleIllustrations/') ~ article.imageName }}"
                              alt="image d'illustration de l'article"/>
                     {% endif %}
-                    <div class="articlePreviewTitle">{{ article.categorie.label }}</div>
+                    <div class="articlePreviewTitle">{{ article.category.label }}</div>
                     <div class="articlePreviewBody">
                         <h3>{{ article.title }}</h3>
                         <P>{{ article.preview|raw }}

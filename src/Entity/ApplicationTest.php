@@ -70,11 +70,11 @@ class ApplicationTest
      *     cascade={"persist", "remove"},
      *     orphanRemoval=true)
      */
-    private $applicationTestTestValues;
+    private $valuesType;
 
     public function __construct()
     {
-        $this->applicationTestTestValues = new ArrayCollection();
+        $this->valuesType = new ArrayCollection();
     }
 
 
@@ -173,28 +173,28 @@ class ApplicationTest
     /**
      * @return Collection|ApplicationTestTestValue[]
      */
-    public function getApplicationTestTestValues(): Collection
+    public function getValuesType(): Collection
     {
-        return $this->applicationTestTestValues;
+        return $this->valuesType;
     }
 
-    public function addApplicationTestTestValue(ApplicationTestTestValue $applicationTestTestValue): self
+    public function addValueType(ApplicationTestTestValue $valueType): self
     {
-        if (!$this->applicationTestTestValues->contains($applicationTestTestValue)) {
-            $this->applicationTestTestValues[] = $applicationTestTestValue;
-            $applicationTestTestValue->setTest($this);
+        if (!$this->valuesType->contains($valueType)) {
+            $this->valuesType[] = $valueType;
+            $valueType->setTest($this);
         }
 
         return $this;
     }
 
-    public function removeApplicationTestTestValue(ApplicationTestTestValue $applicationTestTestValue): self
+    public function removeValueType(ApplicationTestTestValue $valueType): self
     {
 
-        if ($this->applicationTestTestValues->removeElement($applicationTestTestValue)) {
+        if ($this->valuesType->removeElement($valueType)) {
             // set the owning side to null (unless already changed)
-            if ($applicationTestTestValue->getTest() === $this) {
-                $applicationTestTestValue->setTest(null);
+            if ($valueType->getTest() === $this) {
+                $valueType->setTest(null);
             }
         }
 

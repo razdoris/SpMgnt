@@ -39,7 +39,7 @@ class PresentationBlogArticleRepository extends ServiceEntityRepository
         $query= $this
             ->createQueryBuilder('article')
             ->leftJoin('article.category','c')
-            ->select('a','c')
+            ->select('article','c')
             ->getQuery();
 
         return $query;

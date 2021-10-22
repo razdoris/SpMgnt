@@ -13,10 +13,10 @@ class ApplicationPlayerInjuryLocationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('localisation',null,[
+            ->add('location',null,[
                 'label'=>"ajouter une localisation possible pour une blessure"
             ])
-            ->add('lateralite',ChoiceType::class,[
+            ->add('laterality',ChoiceType::class,[
                 'label' => 'lateralité',
                 'choices' => [
                     'non applicable' => false,

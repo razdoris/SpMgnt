@@ -13,32 +13,49 @@
 
 
 {% block javascripts %}
-   <script>
-       const addFormToCollection = (e) => {
-           console.log('ça passe')
-           const collectionHolder = document.querySelector('.' + e.currentTarget.dataset.collectionHolderClass);
+<script>
 
-           const item = document.createElement('tr');
+    let btnAdd = document.querySelectorAll('.add_data_link');
+    let btnRemove = document.querySelectorAll('.remove_data_link');
 
+    btnAdd.forEach(btn => {
+        btn.addEventListener("click", e => {
+            addFormToCollection(e)
+        })
+    });
 
-
-           item.innerHTML = collectionHolder
-               .dataset
-               .prototype
-               .replace(
-                   /__name__/g,
-                   collectionHolder.dataset.index
-               );
-
-           collectionHolder.appendChild(item);
-
-           collectionHolder.dataset.index++;
-       };
-
-       document
-           .querySelectorAll('.add_data_link')
-           .forEach(btn => btn.addEventListener("click", addFormToCollection));
+    btnRemove.forEach(btn=> {
+        console.log(btn)
+        btn.addEventListener("click", e=> {
+            removeFormToCollection(btn)
+        })
+    })
 
 
-   </script>
+    function addFormToCollection(e){
+        console.log('ça passe')
+        const collectionHolder = document.querySelector('.' + e.currentTarget.dataset.collectionHolderClass);
+        const item = document.createElement('tr');
+
+        item.innerHTML = collectionHolder
+            .dataset
+            .prototype
+            .replace(
+                /__name__/g,
+                collectionHolder.dataset.index
+            );
+
+        collectionHolder.appendChild(item);
+        collectionHolder.dataset.index++;
+        let newBtn = collectionHolder.querySelector('.remove_data_link')
+    };
+
+    function removeFormToCollection(btn){
+        console.log('ça passe');
+        console.log(btn)
+        let test = btn.closest('tr')
+        console.log(test)
+        test.remove();
+    };
+</script>
 {% endblock %}

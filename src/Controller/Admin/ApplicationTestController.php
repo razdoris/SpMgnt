@@ -24,8 +24,10 @@ class ApplicationTestController extends AbstractController
      */
     public function index(ApplicationTestRepository $applicationTestRepository): Response
     {
+        $application_tests = $applicationTestRepository->findAll();
+
         return $this->render('admin/application/test/test/index.html.twig', [
-            'application_tests' => $applicationTestRepository->findAll(),
+            'application_tests' => $application_tests,
         ]);
     }
 

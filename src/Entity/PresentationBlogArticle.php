@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\PresentationBlogArticleRepository;
+use App\Entity\PresentationBlogCategory;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
@@ -36,7 +37,7 @@ class PresentationBlogArticle
     private $content;
 
     /**
-     * @ORM\ManyToOne(targetEntity=presentationBlogCategory::class)
+     * @ORM\ManyToOne(targetEntity=PresentationBlogCategory::class)
      * @ORM\JoinColumn(nullable=false)
      */
     private $category;

@@ -39,7 +39,7 @@ class ApplicationTestType extends AbstractType
                 'label'=>'abaque',
                 'required'=>false
             ])
-            ->add('applicationTestTestValues', CollectionType::class,[
+            ->add('valuesType', CollectionType::class,[
                 'entry_type'=>ApplicationTestEmbedTestValueLinkType::class,
                 'entry_options'=>[
                     'label'=>false,

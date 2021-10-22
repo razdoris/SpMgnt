@@ -30,7 +30,7 @@ class PresentationBlogArticleType extends AbstractType
                 'label'=>'Image d\'illustration',
                 'required'=>false
             ])
-            ->add('categorie', EntityType::class,[
+            ->add('category', EntityType::class,[
                 'class'=>PresentationBlogCategory::class,
                 'label'=>'Categorie de l\'article',
                 'choice_label'=>'label',

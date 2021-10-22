@@ -21,7 +21,7 @@
         {% for application_test in application_tests %}
             <tr>
                 <td>{{ application_test.id }}</td>
-                <td>{{ application_test.forAll ? 'Yes' : 'No' }}</td>
+                <td>{{ application_test.forAll ? 'Yes' : application_test.club }}</td>
                 <td>{{ application_test.testName }}</td>
                 <td>{{ application_test.numberOfValues }}</td>
                 <td>{{ application_test.abaqueName }}</td>
