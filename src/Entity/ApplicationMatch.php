@@ -18,194 +18,194 @@ class ApplicationMatch
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity=ApplicationEvenement::class, cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=ApplicationEvent::class, cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
-    private $evenement;
+    private $event;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $nomPrenomArbitre;
+    private $refereeName;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
      */
-    private $Adversaire;
+    private $opponent;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $domicile;
+    private $atHome;
 
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private $motPresidentAvantMatch;
+    private $presidentSpeechBefore;
 
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private $motCoachAvantMatch;
+    private $coachSpeechBefore;
 
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private $motARetenir;
+    private $importantItem;
 
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private $motPresidentApresMatch;
+    private $presidentSpeechAfter;
 
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private $motCoachApresMatch;
+    private $coachSpeechAfter;
 
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private $comptRendu;
+    private $debriefing;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $noteDuMatch;
+    private $grade;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getEvenement(): ?ApplicationEvenement
+    public function getEvent(): ?ApplicationEvent
     {
-        return $this->evenement;
+        return $this->event;
     }
 
-    public function setEvenement(ApplicationEvenement $evenement): self
+    public function setEvent(ApplicationEvent $event): self
     {
-        $this->evenement = $evenement;
+        $this->event = $event;
 
         return $this;
     }
 
-    public function getNomPrenomArbitre(): ?string
+    public function getRefereeName(): ?string
     {
-        return $this->nomPrenomArbitre;
+        return $this->refereeName;
     }
 
-    public function setNomPrenomArbitre(?string $nomPrenomArbitre): self
+    public function setRefereeName(?string $refereeName): self
     {
-        $this->nomPrenomArbitre = $nomPrenomArbitre;
+        $this->refereeName = $refereeName;
 
         return $this;
     }
 
-    public function getAdversaire(): ?string
+    public function getOpponent(): ?string
     {
-        return $this->Adversaire;
+        return $this->opponent;
     }
 
-    public function setAdversaire(string $Adversaire): self
+    public function setOpponent(string $opponent): self
     {
-        $this->Adversaire = $Adversaire;
+        $this->opponent = $opponent;
 
         return $this;
     }
 
-    public function getDomicile(): ?bool
+    public function getAtHome(): ?bool
     {
-        return $this->domicile;
+        return $this->atHome;
     }
 
-    public function setDomicile(bool $domicile): self
+    public function setAtHome(bool $atHome): self
     {
-        $this->domicile = $domicile;
+        $this->atHome = $atHome;
 
         return $this;
     }
 
-    public function getMotPresidentAvantMatch(): ?string
+    public function getPresidentSpeechBefore(): ?string
     {
-        return $this->motPresidentAvantMatch;
+        return $this->presidentSpeechBefore;
     }
 
-    public function setMotPresidentAvantMatch(?string $motPresidentAvantMatch): self
+    public function setPresidentSpeechBefore(?string $presidentSpeechBefore): self
     {
-        $this->motPresidentAvantMatch = $motPresidentAvantMatch;
+        $this->presidentSpeechBefore = $presidentSpeechBefore;
 
         return $this;
     }
 
-    public function getMotCoachAvantMatch(): ?string
+    public function getCoachSpeechBefore(): ?string
     {
-        return $this->motCoachAvantMatch;
+        return $this->coachSpeechBefore;
     }
 
-    public function setMotCoachAvantMatch(?string $motCoachAvantMatch): self
+    public function setCoachSpeechBefore(?string $coachSpeechBefore): self
     {
-        $this->motCoachAvantMatch = $motCoachAvantMatch;
+        $this->coachSpeechBefore = $coachSpeechBefore;
 
         return $this;
     }
 
-    public function getMotARetenir(): ?string
+    public function getImportantItem(): ?string
     {
-        return $this->motARetenir;
+        return $this->importantItem;
     }
 
-    public function setMotARetenir(?string $motARetenir): self
+    public function setImportantItem(?string $importantItem): self
     {
-        $this->motARetenir = $motARetenir;
+        $this->importantItem = $importantItem;
 
         return $this;
     }
 
-    public function getMotPresidentApresMatch(): ?string
+    public function getPresidentSpeechAfter(): ?string
     {
-        return $this->motPresidentApresMatch;
+        return $this->presidentSpeechAfter;
     }
 
-    public function setMotPresidentApresMatch(?string $motPresidentApresMatch): self
+    public function setPresidentSpeechAfter(?string $presidentSpeechAfter): self
     {
-        $this->motPresidentApresMatch = $motPresidentApresMatch;
+        $this->presidentSpeechAfter = $presidentSpeechAfter;
 
         return $this;
     }
 
-    public function getMotCoachApresMatch(): ?string
+    public function getCoachSpeechAfter(): ?string
     {
-        return $this->motCoachApresMatch;
+        return $this->coachSpeechAfter;
     }
 
-    public function setMotCoachApresMatch(?string $motCoachApresMatch): self
+    public function setCoachSpeechAfter(?string $coachSpeechAfter): self
     {
-        $this->motCoachApresMatch = $motCoachApresMatch;
+        $this->coachSpeechAfter = $coachSpeechAfter;
 
         return $this;
     }
 
-    public function getComptRendu(): ?string
+    public function getDebriefing(): ?string
     {
-        return $this->comptRendu;
+        return $this->debriefing;
     }
 
-    public function setComptRendu(?string $comptRendu): self
+    public function setDebriefing(?string $debriefing): self
     {
-        $this->comptRendu = $comptRendu;
+        $this->debriefing = $debriefing;
 
         return $this;
     }
 
-    public function getNoteDuMatch(): ?int
+    public function getGrade(): ?int
     {
-        return $this->noteDuMatch;
+        return $this->grade;
     }
 
-    public function setNoteDuMatch(?int $noteDuMatch): self
+    public function setGrade(?int $grade): self
     {
-        $this->noteDuMatch = $noteDuMatch;
+        $this->grade = $grade;
 
         return $this;
     }

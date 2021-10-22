@@ -20,7 +20,7 @@ class ApplicationPlayerEventInformation
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=ApplicationEvenement::class)
+     * @ORM\ManyToOne(targetEntity=ApplicationEvent::class)
      * @ORM\JoinColumn(nullable=false)
      */
     private $event;
@@ -142,12 +142,12 @@ class ApplicationPlayerEventInformation
         return $this->id;
     }
 
-    public function getEvent(): ?ApplicationEvenement
+    public function getEvent(): ?ApplicationEvent
     {
         return $this->event;
     }
 
-    public function setEvent(?ApplicationEvenement $event): self
+    public function setEvent(?ApplicationEvent $event): self
     {
         $this->event = $event;
 

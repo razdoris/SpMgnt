@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=ApplicationEvenementRepository::class)
  */
-class ApplicationEvenement
+class ApplicationEvent
 {
     /**
      * @ORM\Id
@@ -22,28 +22,28 @@ class ApplicationEvenement
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $titre;
+    private $title;
 
     /**
-     * @ORM\ManyToOne(targetEntity=ApplicationClub::class, inversedBy="applicationEvenements")
+     * @ORM\ManyToOne(targetEntity=ApplicationClub::class, inversedBy="events")
      * @ORM\JoinColumn(nullable=false)
      */
     private $club;
 
     /**
-     * @ORM\ManyToMany(targetEntity=ApplicationEquipe::class, inversedBy="applicationEvenements")
+     * @ORM\ManyToMany(targetEntity=ApplicationTeam::class, inversedBy="events")
      */
-    private $equipe;
+    private $teams;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $dateDebut;
+    private $startDate;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $fin;
+    private $endDate;
 
     /**
      * @ORM\Column(type="text", nullable=true)
@@ -53,12 +53,12 @@ class ApplicationEvenement
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $adresse;
+    private $address;
 
     /**
-     * @ORM\ManyToOne(targetEntity=ApplicationAdresseVille::class)
+     * @ORM\ManyToOne(targetEntity=ApplicationAddressCity::class)
      */
-    private $ville;
+    private $city;
 
     /**
      * @ORM\ManyToOne(targetEntity=ApplicationCalendarEventsSort::class)
@@ -68,7 +68,7 @@ class ApplicationEvenement
 
     public function __construct()
     {
-        $this->equipe = new ArrayCollection();
+        $this->team = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -76,14 +76,14 @@ class ApplicationEvenement
         return $this->id;
     }
 
-    public function getTitre(): ?string
+    public function getTitle(): ?string
     {
-        return $this->titre;
+        return $this->title;
     }
 
-    public function setTitre(string $titre): self
+    public function setTitle(string $title): self
     {
-        $this->titre = $titre;
+        $this->title = $title;
 
         return $this;
     }
@@ -101,49 +101,49 @@ class ApplicationEvenement
     }
 
     /**
-     * @return Collection|ApplicationEquipe[]
+     * @return Collection|ApplicationTeam[]
      */
-    public function getEquipe(): Collection
+    public function getTeams(): Collection
     {
-        return $this->equipe;
+        return $this->teams;
     }
 
-    public function addEquipe(ApplicationEquipe $equipe): self
+    public function addEquipe(ApplicationTeam $team): self
     {
-        if (!$this->equipe->contains($equipe)) {
-            $this->equipe[] = $equipe;
+        if (!$this->team->contains($team)) {
+            $this->teams[] = $team;
         }
 
         return $this;
     }
 
-    public function removeEquipe(ApplicationEquipe $equipe): self
+    public function removeEquipe(ApplicationTeam $team): self
     {
-        $this->equipe->removeElement($equipe);
+        $this->teams->removeElement($team);
 
         return $this;
     }
 
-    public function getDateDebut(): ?\DateTimeInterface
+    public function getStartDate(): ?\DateTimeInterface
     {
-        return $this->dateDebut;
+        return $this->startDate;
     }
 
-    public function setDateDebut(\DateTimeInterface $dateDebut): self
+    public function setStartDate(\DateTimeInterface $startDate): self
     {
-        $this->dateDebut = $dateDebut;
+        $this->startDate = $startDate;
 
         return $this;
     }
 
-    public function getFin(): ?\DateTimeInterface
+    public function getEndDate(): ?\DateTimeInterface
     {
-        return $this->fin;
+        return $this->endDate;
     }
 
-    public function setFin(\DateTimeInterface $fin): self
+    public function setEndDate(\DateTimeInterface $endDate): self
     {
-        $this->fin = $fin;
+        $this->endDate = $endDate;
 
         return $this;
     }
@@ -160,26 +160,26 @@ class ApplicationEvenement
         return $this;
     }
 
-    public function getAdresse(): ?string
+    public function getAddress(): ?string
     {
-        return $this->adresse;
+        return $this->address;
     }
 
-    public function setAdresse(?string $adresse): self
+    public function setAddress(?string $address): self
     {
-        $this->adresse = $adresse;
+        $this->address = $address;
 
         return $this;
     }
 
-    public function getVille(): ?ApplicationAdresseVille
+    public function getCity(): ?ApplicationAddressCity
     {
-        return $this->ville;
+        return $this->city;
     }
 
-    public function setVille(?ApplicationAdresseVille $ville): self
+    public function setCity(?ApplicationAddressCity $city): self
     {
-        $this->ville = $ville;
+        $this->city = $city;
 
         return $this;
     }

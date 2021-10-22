@@ -64,35 +64,17 @@ class ApplicationTest
 
 
     /**
-     * @ORM\Column(type="date")
-     * @Assert\NotBlank
-     */
-    private $createDate;
-
-    /**
-     * @ORM\OneToMany(targetEntity=ApplicationTestTestValue::class, mappedBy="test")
+     * @ORM\OneToMany(
+     *     targetEntity=ApplicationTestTestValue::class,
+     *     mappedBy="test",
+     *     cascade={"persist", "remove"},
+     *     orphanRemoval=true)
      */
     private $applicationTestTestValues;
 
     public function __construct()
     {
         $this->applicationTestTestValues = new ArrayCollection();
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getCreateDate()
-    {
-        return $this->createDate;
-    }
-
-    /**
-     * @param mixed $createDate
-     */
-    public function setCreateDate($createDate): void
-    {
-        $this->createDate = $createDate;
     }
 
 
@@ -208,6 +190,7 @@ class ApplicationTest
 
     public function removeApplicationTestTestValue(ApplicationTestTestValue $applicationTestTestValue): self
     {
+
         if ($this->applicationTestTestValues->removeElement($applicationTestTestValue)) {
             // set the owning side to null (unless already changed)
             if ($applicationTestTestValue->getTest() === $this) {

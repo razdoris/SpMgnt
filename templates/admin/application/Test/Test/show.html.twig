@@ -27,6 +27,14 @@
                 <th>Abaque</th>
                 <td>{{ application_test.abaqueName }}</td>
             </tr>
+            <tr>
+                <th>valeur</th>
+                <td>
+                    {% for testValue in application_test.applicationTestTestValues %}
+                        {{ testValue.name }};
+                    {% endfor %}
+                </td>
+            </tr>
         </tbody>
     </table>
 

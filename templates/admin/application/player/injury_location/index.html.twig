@@ -1,0 +1,40 @@
+{% extends 'admin/adminBase.html.twig' %}
+
+{% block title %}{{ parent() }} | Liste des localisations des blessures{% endblock %}
+
+{% block body %}
+    <h1>Liste des localisations des blessures</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Localisation</th>
+                <th>Lateralite</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for application_player_injury_location in application_player_injury_locations %}
+            <tr>
+                <td>{{ application_player_injury_location.id }}</td>
+                <td>{{ application_player_injury_location.location }}</td>
+                <td>{{ application_player_injury_location.laterality }}</td>
+                <td>
+                    <a href="{{ path('admin_application_player_injury_location_show', {'id': application_player_injury_location.id}) }}">show</a>
+                    <a href="{{ path('admin_application_player_injury_location_edit', {'id': application_player_injury_location.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+    {{ include('admin/_inc/_footerIndex.html.twig',{'pathUrl':'admin_application_player_injury_location'}) }}
+
+
+{% endblock %}

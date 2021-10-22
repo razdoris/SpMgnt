@@ -8,8 +8,8 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use App\Entity\ApplicationAdresseRegion;
-use App\Entity\ApplicationAdresseDepartement;
-use App\Entity\ApplicationAdresseVille;
+use App\Entity\ApplicationAdressDepartement;
+use App\Entity\ApplicationAddressCity;
 
 class CitiesImportCommand extends ContainerAwareCommand
 {

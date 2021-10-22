@@ -3,7 +3,7 @@
 namespace App\Form;
 
 use App\Entity\PresentationBlogArticle;
-use App\Entity\PresentationBlogCategorie;
+use App\Entity\PresentationBlogCategory;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -31,7 +31,7 @@ class PresentationBlogArticleType extends AbstractType
                 'required'=>false
             ])
             ->add('categorie', EntityType::class,[
-                'class'=>PresentationBlogCategorie::class,
+                'class'=>PresentationBlogCategory::class,
                 'label'=>'Categorie de l\'article',
                 'choice_label'=>'label',
                 'placeholder'=>'séléctionnez...'

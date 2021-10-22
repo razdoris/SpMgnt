@@ -3,9 +3,9 @@
 namespace App\Controller\Admin;
 
 use App\Entity\PresentationBlogArticle;
-use App\Entity\PresentationBlogCategorie;
+use App\Entity\PresentationBlogCategory;
 use App\Form\PresentationBlogArticleType;
-use App\Form\PresentationBlogCategorieType;
+use App\Form\PresentationBlogCategoryType;
 use App\Repository\PresentationBlogArticleRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -28,7 +28,7 @@ class BlogArticleController extends AbstractController
         Request $request
     ): Response
     {
-
+        //$articlesList = $presentationBlogArticleRepository->findAll();
         $articlesList= $paginator->paginate(
             $presentationBlogArticleRepository->findAllArticlesPaginate(),
             $request->query->getInt('page',1),

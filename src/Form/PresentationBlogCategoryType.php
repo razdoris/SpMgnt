@@ -2,12 +2,12 @@
 
 namespace App\Form;
 
-use App\Entity\PresentationBlogCategorie;
+use App\Entity\PresentationBlogCategory;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class PresentationBlogCategorieType extends AbstractType
+class PresentationBlogCategoryType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -21,7 +21,7 @@ class PresentationBlogCategorieType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => PresentationBlogCategorie::class,
+            'data_class' => PresentationBlogCategory::class,
         ]);
     }
 }

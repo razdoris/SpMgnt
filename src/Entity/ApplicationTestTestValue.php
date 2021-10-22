@@ -24,13 +24,13 @@ class ApplicationTestTestValue
     private $name;
 
     /**
-     * @ORM\ManyToOne(targetEntity=ApplicationTest::class, inversedBy="applicationTestTestValues")
+     * @ORM\ManyToOne(targetEntity=ApplicationTest::class, inversedBy="applicationTestTestValues", cascade="persist")
      * @ORM\JoinColumn(nullable=false)
      */
     private $test;
 
     /**
-     * @ORM\ManyToOne(targetEntity=ApplicationTestValue::class)
+     * @ORM\ManyToOne(targetEntity=ApplicationTestValue::class, cascade="persist" )
      * @ORM\JoinColumn(nullable=false)
      * @Assert\NotBlank
      */

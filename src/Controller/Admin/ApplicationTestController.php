@@ -7,6 +7,8 @@ use App\Entity\ApplicationTestTestValue;
 use App\Form\ApplicationTestTestValueType;
 use App\Form\ApplicationTestType;
 use App\Repository\ApplicationTestRepository;
+use App\Repository\ApplicationTestTestValueRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -33,22 +35,25 @@ class ApplicationTestController extends AbstractController
     public function new(Request $request): Response
     {
         $applicationTest = new ApplicationTest();
-        $data= new ApplicationTestTestValue();
-        $data ->setName('essai de data');
-        $data ->setTest($applicationTest);
-
-        $applicationTest->setTestName("essai de test");
-        $applicationTest->addApplicationTestTestValue($data);
-        dump($applicationTest);
         $form = $this->createForm(ApplicationTestType::class, $applicationTest);
         $form->handleRequest($request);
-        dump($form);
 
 
 
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+
+
+            $testValueList = $applicationTest->getApplicationTestTestValues();
+
+
+
+            foreach ($testValueList as $testValue ){
+                $testValue->setTest($applicationTest);
+                $entityManager->persist($testValue);
+            };
+
             $entityManager->persist($applicationTest);
             $entityManager->flush();
 
@@ -66,6 +71,7 @@ class ApplicationTestController extends AbstractController
      */
     public function show(ApplicationTest $applicationTest): Response
     {
+        dump($applicationTest);
         return $this->render('admin/application/test/test/show.html.twig', [
             'application_test' => $applicationTest,
         ]);
@@ -74,13 +80,32 @@ class ApplicationTestController extends AbstractController
     /**
      * @Route("/{id}/edit", name="admin_application_test_test_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, ApplicationTest $applicationTest): Response
+    public function edit(Request $request,
+                         ApplicationTest $applicationTest,
+                         entityManagerInterface $entityManager,
+                         ApplicationTestTestValueRepository $repo
+    ): Response
     {
         $form = $this->createForm(ApplicationTestType::class, $applicationTest);
         $form->handleRequest($request);
+        dump('before');
+        dump($applicationTest);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            $testValueList = $applicationTest->getApplicationTestTestValues();
+
+            dump('after');
+            dump($applicationTest);
+
+            foreach ($testValueList as $testValue ){
+                $testValue->setTest($applicationTest);
+                $entityManager->persist($testValue);
+            };
+
+
+            $entityManager->persist($applicationTest);
+            $entityManager->flush();
+
 
             return $this->redirectToRoute('admin_application_test_test_index');
         }

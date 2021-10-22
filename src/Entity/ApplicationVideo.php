@@ -25,12 +25,12 @@ class ApplicationVideo
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $nom;
+    private $videoName;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $chemin;
+    private $path;
 
     public function getId(): ?int
     {
@@ -49,26 +49,26 @@ class ApplicationVideo
         return $this;
     }
 
-    public function getNom(): ?string
+    public function getVideoName(): ?string
     {
-        return $this->nom;
+        return $this->videoName;
     }
 
-    public function setNom(string $nom): self
+    public function setVideoName(string $videoName): self
     {
-        $this->nom = $nom;
+        $this->videoName = $videoName;
 
         return $this;
     }
 
-    public function getChemin(): ?string
+    public function getPath(): ?string
     {
-        return $this->chemin;
+        return $this->path;
     }
 
-    public function setChemin(string $chemin): self
+    public function setPath(string $path): self
     {
-        $this->chemin = $chemin;
+        $this->path = $path;
 
         return $this;
     }

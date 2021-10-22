@@ -3,7 +3,6 @@
 namespace App\Repository;
 
 use App\Entity\PresentationBlogArticle;
-use App\Entity\PresentationBlogCategorie;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\Query;
 use Doctrine\ORM\Tools\Pagination\Paginator;
@@ -26,7 +25,7 @@ class PresentationBlogArticleRepository extends ServiceEntityRepository
     {
          $query= $this
              ->createQueryBuilder('article')
-             ->leftJoin('article.categorie','category')
+             ->leftJoin('article.category','category')
              ->select('article','category')
              ->orderBy('article.date', 'desc')
              ->getQuery()
@@ -39,8 +38,8 @@ class PresentationBlogArticleRepository extends ServiceEntityRepository
     {
         $query= $this
             ->createQueryBuilder('article')
-            ->leftJoin('article.categorie','category')
-            ->select('article','category')
+            ->leftJoin('article.category','c')
+            ->select('a','c')
             ->getQuery();
 
         return $query;
@@ -51,11 +50,11 @@ class PresentationBlogArticleRepository extends ServiceEntityRepository
     {
 
         $idArt = $article->getId();
-        $idCat=$article->getCategorie()->getId();
+        $idCat=$article->getCategory()->getId();
 
          $query = $this
              ->createQueryBuilder('article')
-             ->leftJoin('article.categorie','category')
+             ->leftJoin('article.category','category')
              ->select('article','category')
              ->where('category.id = :idCat')
              ->setParameter('idCat',$idCat)
@@ -75,7 +74,7 @@ class PresentationBlogArticleRepository extends ServiceEntityRepository
 
         $query= $this
             ->createQueryBuilder('article')
-            ->leftJoin('article.categorie','category')
+            ->leftJoin('article.category','category')
             ->select('article','category')
             ->orderBy('article.date', 'desc')
             ->setMaxResults(6)

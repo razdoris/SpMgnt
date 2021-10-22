@@ -494,3 +494,8 @@ tr, td
     border-radius: 10px;
 
 }
+
+.widgetFormData
+{
+  margin-bottom: 10px !important;
+}

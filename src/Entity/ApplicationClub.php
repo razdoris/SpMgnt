@@ -27,7 +27,7 @@ class ApplicationClub
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank()
      */
-    private $Nom;
+    private $name;
 
     /**
      * @ORM\Column(type="text", nullable=true)
@@ -58,15 +58,15 @@ class ApplicationClub
     private $updatedAt;
 
     /**
-     * @ORM\OneToMany(targetEntity=ApplicationEvenement::class, mappedBy="club")
+     * @ORM\OneToMany(targetEntity=ApplicationEvent::class, mappedBy="club")
      */
-    private $applicationEvenements;
+    private $events;
 
 
     public function __construct()
     {
         $this->users = new ArrayCollection();
-        $this->applicationEvenements = new ArrayCollection();
+        $this->events = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -74,14 +74,14 @@ class ApplicationClub
         return $this->id;
     }
 
-    public function getNom(): ?string
+    public function getName(): ?string
     {
-        return $this->Nom;
+        return $this->name;
     }
 
-    public function setNom(string $Nom): self
+    public function setName(string $name): self
     {
-        $this->Nom = $Nom;
+        $this->name = $name;
 
         return $this;
     }
@@ -169,29 +169,29 @@ class ApplicationClub
     }
 
     /**
-     * @return Collection|ApplicationEvenement[]
+     * @return Collection|ApplicationEvent[]
      */
     public function getApplicationEvenements(): Collection
     {
-        return $this->applicationEvenements;
+        return $this->events;
     }
 
-    public function addApplicationEvenement(ApplicationEvenement $applicationEvenement): self
+    public function addApplicationEvenement(ApplicationEvent $event): self
     {
-        if (!$this->applicationEvenements->contains($applicationEvenement)) {
-            $this->applicationEvenements[] = $applicationEvenement;
-            $applicationEvenement->setClub($this);
+        if (!$this->events->contains($event)) {
+            $this->events[] = $event;
+            $event->setClub($this);
         }
 
         return $this;
     }
 
-    public function removeApplicationEvenement(ApplicationEvenement $applicationEvenement): self
+    public function removeApplicationEvenement(ApplicationEvent $event): self
     {
-        if ($this->applicationEvenements->removeElement($applicationEvenement)) {
+        if ($this->events->removeElement($event)) {
             // set the owning side to null (unless already changed)
-            if ($applicationEvenement->getClub() === $this) {
-                $applicationEvenement->setClub(null);
+            if ($event->getClub() === $this) {
+                $event->setClub(null);
             }
         }
 

@@ -7,10 +7,63 @@
     {% set pathUrl='admin_application_test_test' %}
 
 
-    {{ include('admin/_formCRUD/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('admin/application/Test/Test/_form.html.twig', {'button_label': 'Update'}) }}
     <div class="formDelete">
         {{ include('admin/_formCRUD/_delete_form.html.twig',{'pathUrl': pathUrl, 'id':  application_test.id}) }}
     </div>
     {{ include('admin/_inc/_footerForm.html.twig',{'pathUrl':pathUrl}) }}
 
+{% endblock %}
+
+
+{% block javascripts %}
+    <script>
+
+        let btnAdd = document.querySelectorAll('.add_data_link');
+        let btnRemove = document.querySelectorAll('.remove_data_link');
+
+        btnAdd.forEach(btn => {
+            btn.addEventListener("click", e => {
+                addFormToCollection(e)
+            })
+        });
+
+        btnRemove.forEach(btn=> {
+            console.log(btn)
+            btn.addEventListener("click", e=> {
+                removeFormToCollection(btn)
+            })
+        })
+
+
+        function addFormToCollection(e){
+            console.log('ça passe')
+            const collectionHolder = document.querySelector('.' + e.currentTarget.dataset.collectionHolderClass);
+            const item = document.createElement('tr');
+
+            item.innerHTML = collectionHolder
+                .dataset
+                .prototype
+                .replace(
+                    /__name__/g,
+                    collectionHolder.dataset.index
+                );
+
+            collectionHolder.appendChild(item);
+            collectionHolder.dataset.index++;
+            let newBtn = collectionHolder.querySelector('.remove_data_link')
+        };
+
+        function removeFormToCollection(btn){
+            console.log('ça passe');
+            console.log(btn)
+            let test = btn.closest('tr')
+            console.log(test)
+            test.remove();
+        };
+
+
+
+
+    </script>
 {% endblock %}

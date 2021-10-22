@@ -43,12 +43,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\Column(type="string", length=100)
      */
-    private $Nom;
+    private $name;
 
     /**
      * @ORM\Column(type="string", length=100)
      */
-    private $Prenom;
+    private $firstName;
 
     /**
      * @ORM\Column(type="date", nullable=true)
@@ -56,24 +56,24 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $birthday;
 
     /**
-     * @ORM\ManyToOne(targetEntity=ApplicationAdresseVille::class)
+     * @ORM\ManyToOne(targetEntity=ApplicationAddressCity::class)
      */
-    private $birthplace;
+    private $birthPlace;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $aresseNumberAndStreetName;
+    private $addressNumberAndStreetName;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $adresseComplement;
+    private $addressComplement;
 
     /**
-     * @ORM\ManyToOne(targetEntity=ApplicationAdresseVille::class)
+     * @ORM\ManyToOne(targetEntity=ApplicationAddressCity::class)
      */
-    private $adresseCity;
+    private $addressCity;
 
     /**
      * @ORM\ManyToOne(targetEntity=ApplicationClub::class, inversedBy="users")
@@ -101,7 +101,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\OneToOne(targetEntity=ApplicationPlayer::class, mappedBy="user", cascade={"persist", "remove"})
      */
-    private $applicationPlayer;
+    private $player;
 
 
 
@@ -194,26 +194,26 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // $this->plainPassword = null;
     }
 
-    public function getNom(): ?string
+    public function getName(): ?string
     {
-        return $this->Nom;
+        return $this->name;
     }
 
-    public function setNom(string $Nom): self
+    public function setName(string $name): self
     {
-        $this->Nom = $Nom;
+        $this->name = $name;
 
         return $this;
     }
 
-    public function getPrenom(): ?string
+    public function getFirstName(): ?string
     {
-        return $this->Prenom;
+        return $this->firstName;
     }
 
-    public function setPrenom(string $Prenom): self
+    public function setFirstName(string $firstName): self
     {
-        $this->Prenom = $Prenom;
+        $this->firstName = $firstName;
 
         return $this;
     }
@@ -230,50 +230,50 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getBirthplace(): ?ApplicationAdresseVille
+    public function getBirthPlace(): ?ApplicationAddressCity
     {
-        return $this->birthplace;
+        return $this->birthPlace;
     }
 
-    public function setBirthplace(?ApplicationAdresseVille $birthplace): self
+    public function setBirthPlace(?ApplicationAddressCity $birthPlace): self
     {
-        $this->birthplace = $birthplace;
+        $this->birthPlace = $birthPlace;
 
         return $this;
     }
 
-    public function getAresseNumberAndStreetName(): ?string
+    public function getAddressNumberAndStreetName(): ?string
     {
-        return $this->aresseNumberAndStreetName;
+        return $this->addressNumberAndStreetName;
     }
 
-    public function setAresseNumberAndStreetName(?string $aresseNumberAndStreetName): self
+    public function setAddressNumberAndStreetName(?string $addressNumberAndStreetName): self
     {
-        $this->aresseNumberAndStreetName = $aresseNumberAndStreetName;
+        $this->addressNumberAndStreetName = $addressNumberAndStreetName;
 
         return $this;
     }
 
-    public function getAdresseComplement(): ?string
+    public function getAddressComplement(): ?string
     {
-        return $this->adresseComplement;
+        return $this->addressComplement;
     }
 
-    public function setAdresseComplement(?string $adresseComplement): self
+    public function setAddressComplement(?string $addressComplement): self
     {
-        $this->adresseComplement = $adresseComplement;
+        $this->addressComplement = $addressComplement;
 
         return $this;
     }
 
-    public function getAdresseCity(): ?ApplicationAdresseVille
+    public function getAddressCity(): ?ApplicationAddressCity
     {
-        return $this->adresseCity;
+        return $this->addressCity;
     }
 
-    public function setAdresseCity(?ApplicationAdresseVille $adresseCity): self
+    public function setAddressCity(?ApplicationAddressCity $addressCity): self
     {
-        $this->adresseCity = $adresseCity;
+        $this->addressCity = $addressCity;
 
         return $this;
     }
@@ -330,19 +330,19 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getApplicationPlayer(): ?ApplicationPlayer
+    public function getPlayer(): ?ApplicationPlayer
     {
-        return $this->applicationPlayer;
+        return $this->player;
     }
 
-    public function setApplicationPlayer(ApplicationPlayer $applicationPlayer): self
+    public function setPlayer(ApplicationPlayer $player): self
     {
         // set the owning side of the relation if necessary
-        if ($applicationPlayer->getUser() !== $this) {
-            $applicationPlayer->setUser($this);
+        if ($player->getUser() !== $this) {
+            $player->setUser($this);
         }
 
-        $this->applicationPlayer = $applicationPlayer;
+        $this->player = $player;
 
         return $this;
     }

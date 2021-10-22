@@ -36,10 +36,10 @@ class PresentationBlogArticle
     private $content;
 
     /**
-     * @ORM\ManyToOne(targetEntity=PresentationBlogCategorie::class)
+     * @ORM\ManyToOne(targetEntity=presentationBlogCategory::class)
      * @ORM\JoinColumn(nullable=false)
      */
-    private $categorie;
+    private $category;
 
     /**
      * @Vich\UploadableField(mapping="articleIllustrations", fileNameProperty="imageName")
@@ -110,14 +110,14 @@ class PresentationBlogArticle
         return $this;
     }
 
-    public function getCategorie(): ?PresentationBlogCategorie
+    public function getCategory(): ?PresentationBlogCategory
     {
-        return $this->categorie;
+        return $this->category;
     }
 
-    public function setCategorie(?PresentationBlogCategorie $categorie): self
+    public function setCategory(?PresentationBlogCategory $category): self
     {
-        $this->categorie = $categorie;
+        $this->category = $category;
 
         return $this;
     }

@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\ApplicationAdresseRegion;
+use App\Entity\ApplicationPlayerInjuryLocation;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method ApplicationAdresseRegion|null find($id, $lockMode = null, $lockVersion = null)
- * @method ApplicationAdresseRegion|null findOneBy(array $criteria, array $orderBy = null)
- * @method ApplicationAdresseRegion[]    findAll()
- * @method ApplicationAdresseRegion[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method ApplicationPlayerInjuryLocation|null find($id, $lockMode = null, $lockVersion = null)
+ * @method ApplicationPlayerInjuryLocation|null findOneBy(array $criteria, array $orderBy = null)
+ * @method ApplicationPlayerInjuryLocation[]    findAll()
+ * @method ApplicationPlayerInjuryLocation[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ApplicationAdresseRegionRepository extends ServiceEntityRepository
+class ApplicationPlayerInjuryLocationRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, ApplicationAdresseRegion::class);
+        parent::__construct($registry, ApplicationPlayerInjuryLocation::class);
     }
 
     // /**
-    //  * @return ApplicationAdresseRegion[] Returns an array of ApplicationAdresseRegion objects
+    //  * @return ApplicationPlayerInjuryLocation[] Returns an array of ApplicationPlayerInjuryLocation objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class ApplicationAdresseRegionRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?ApplicationAdresseRegion
+    public function findOneBySomeField($value): ?ApplicationPlayerInjuryLocation
     {
         return $this->createQueryBuilder('a')
             ->andWhere('a.exampleField = :val')

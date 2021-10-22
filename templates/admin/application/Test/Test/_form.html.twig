@@ -1,3 +1,4 @@
+{% import _self as formMacro %}
 {{ form_start(form) }}
 <div class="blockForm">
     <div class="labelForm">
@@ -16,7 +17,7 @@
         {{ form_label(form.club) }}
     </div>
     <div class="widgetForm">
-        {{ form_widget(form.forAll) }}{{ form_label(form.forAll) }}  {{ form_widget(form.club) }}
+        {{ form_widget(form.forAll) }}tous les club ou {{ form_widget(form.club) }}
         {% if form_errors(form.forAll) %}
             <div class="alert-message">{{ form_errors(form.forAll) }}</div>
         {% endif %}
@@ -51,21 +52,40 @@
 
 <div class="blockForm">
     {{ form_label(form.applicationTestTestValues) }}
-    <div class="dataValue" id="dataValue" data-index="{{ form.applicationTestTestValues|length > 0 ? form.applicationTestTestValues|last.vars.name + 1 : 0 }}" data-prototype="{{ form_widget(form.applicationTestTestValues.vars.prototype)|e('html_attr') }}">
 
-          {% for data in form.applicationTestTestValues %}
-              {%  block widgetFormData %}
-                    <div class="widgetForm">
-                        {{ form_widget(data.name) }}
-                        {{ form_widget(data.testValue) }}
-                    </div>
-              {% endblock %}
-        {% endfor %}
+    <div>
+        <div class="widgetFormData">
+            <table>
+                <thead>
+                <tr>
+                    <th>nom de la donnés</th>
+                    <th>type de données</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody class="dataValue" id="dataValue" data-index="{{ form.applicationTestTestValues|length > 0 ? form.applicationTestTestValues|last.vars.name + 1 : 0 }}" data-prototype="{{ formMacro.widget_data_value(form.applicationTestTestValues.vars.prototype)|e('html_attr') }}">
+                {% for data in form.applicationTestTestValues %}
+                    <tr>
+                        {{ formMacro.widget_data_value(data) }}
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
+
     <button type="button" class="add_data_link button" data-collection-holder-class="dataValue">Ajouter une données</button>
 
 
 </div>
 
+{{ form_row(form._token) }}
+
 <button class="button">{{ button_label|default('Save') }}</button>
 
+{% macro widget_data_value(data) %}
+    <td>{{ form_widget(data.name) }}</td>
+    <td>{{ form_widget(data.testValue) }}</td>
+    <td><button type="button" class="remove_data_link button" onclick="removeFormToCollection(this)">remove</button></td>
+
+{% endmacro %}

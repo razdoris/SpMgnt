@@ -3,7 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\PresentationBlogArticle;
-use App\Repository\PresentationBlogCategorieRepository;
+use App\Repository\PresentationBlogCategoryRepository;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\ORM\EntityManager;
 use Doctrine\Persistence\ObjectManager;
@@ -12,9 +12,9 @@ use Faker\Factory;
 class PresentationBlogArticleFixture extends Fixture
 {
 
-    private PresentationBlogCategorieRepository $cat;
+    private PresentationBlogCategoryRepository $cat;
 
-    public function __construct(PresentationBlogCategorieRepository $cat)
+    public function __construct(PresentationBlogCategoryRepository $cat)
     {
         $this->cat=$cat;
 

@@ -26,12 +26,12 @@ class ApplicationPlayer
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $postes;
+    private $position;
 
     /**
      * @ORM\Column(type="string", length=20, nullable=true)
      */
-    private $lateralite;
+    private $laterality;
 
     public function getId(): ?int
     {
@@ -50,26 +50,26 @@ class ApplicationPlayer
         return $this;
     }
 
-    public function getPostes(): ?string
+    public function getPosition(): ?string
     {
-        return $this->postes;
+        return $this->position;
     }
 
-    public function setPostes(?string $postes): self
+    public function setPosition(?string $position): self
     {
-        $this->postes = $postes;
+        $this->position = $position;
 
         return $this;
     }
 
-    public function getLateralite(): ?string
+    public function getLaterality(): ?string
     {
-        return $this->lateralite;
+        return $this->laterality;
     }
 
-    public function setLateralite(?string $lateralite): self
+    public function setLaterality(?string $laterality): self
     {
-        $this->lateralite = $lateralite;
+        $this->laterality = $laterality;
 
         return $this;
     }

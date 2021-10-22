@@ -24,10 +24,10 @@ class ApplicationPlayerInjury
     private $player;
 
     /**
-     * @ORM\ManyToOne(targetEntity=ApplicationPlayerInjuryLocalisation::class)
+     * @ORM\ManyToOne(targetEntity=ApplicationPlayerInjuryLocation::class)
      * @ORM\JoinColumn(nullable=false)
      */
-    private $localisation;
+    private $location;
 
     /**
      * @ORM\Column(type="integer")
@@ -71,14 +71,14 @@ class ApplicationPlayerInjury
         return $this;
     }
 
-    public function getLocalisation(): ?ApplicationPlayerInjuryLocalisation
+    public function getLocation(): ?ApplicationPlayerInjuryLocation
     {
-        return $this->localisation;
+        return $this->location;
     }
 
-    public function setLocalisation(?ApplicationPlayerInjuryLocalisation $localisation): self
+    public function setLocation(?ApplicationPlayerInjuryLocation $location): self
     {
-        $this->localisation = $localisation;
+        $this->location = $location;
 
         return $this;
     }

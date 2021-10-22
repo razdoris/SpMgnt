@@ -2,13 +2,13 @@
 
 namespace App\Form;
 
-use App\Entity\ApplicationPlayerInjuryLocalisation;
+use App\Entity\ApplicationPlayerInjuryLocation;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ApplicationPlayerInjuryLocalisationType extends AbstractType
+class ApplicationPlayerInjuryLocationType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -31,7 +31,7 @@ class ApplicationPlayerInjuryLocalisationType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => ApplicationPlayerInjuryLocalisation::class,
+            'data_class' => ApplicationPlayerInjuryLocation::class,
         ]);
     }
 }

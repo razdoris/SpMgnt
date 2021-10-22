@@ -47,35 +47,12 @@ class ApplicationTestType extends AbstractType
                 "allow_add"=>true,
                 "allow_delete"=>true,
                 'attr'=>['class'=>'DataChoice'],
-                'label'=>'données liées au test'
+                'label'=>'données liées au test',
+                'by_reference'=>false,
             ])
 
         ;
-/*
-        $builder->get('numberOfValues')->addEventListener(
-            FormEvents::POST_SUBMIT, function (FormEvent $event){
-                dump($event->getForm());
-                dump($event->getData());
-                $number = $event->getData();
-                $form = $event->getForm()->getParent();
-                for($i=1; $i<=$number; $i++)
-                {
-                    $form->add('data_'.$i,ApplicationTestEmbedTestValueLinkType::class,[
-                        'mapped'=>false,
-                        'required'=>true,
-                        'attr'=>['class'=>'testValue']
-                    ]);
-                }
-                $form->add('createDate',DateType::class,[
-                    'html5'=>true,
-                    'label'=>'date de creation',
-                    'required'=>true,
-                    'widget' => 'single_text',
-                    'attr' => ['value' => date_format((new \DateTime("now")),'Y-m-d')]
-                ]);
 
-        }
-        );*/
     }
 
     public function configureOptions(OptionsResolver $resolver)

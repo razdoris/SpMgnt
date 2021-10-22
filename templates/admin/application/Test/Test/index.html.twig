@@ -13,6 +13,7 @@
                 <th>TestName</th>
                 <th>NumberOfValues</th>
                 <th>Abaque</th>
+                <th>valeur</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -25,13 +26,18 @@
                 <td>{{ application_test.numberOfValues }}</td>
                 <td>{{ application_test.abaqueName }}</td>
                 <td>
+                    {% for testValue in application_test.applicationTestTestValues %}
+                        {{ testValue.name }};
+                    {% endfor %}
+                </td>
+                <td>
                     <a href="{{ path('admin_application_test_test_show', {'id': application_test.id}) }}">show</a>
                     <a href="{{ path('admin_application_test_test_edit', {'id': application_test.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">no records found</td>
+                <td colspan="7">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
