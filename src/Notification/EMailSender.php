@@ -21,6 +21,10 @@ class EMailSender
         $this->mailer = $mailer;
     }
 
+    /**
+     * @param PresentationContactMessage $messageMail
+     * @throws \Symfony\Component\Mailer\Exception\TransportExceptionInterface
+     */
     public function sendContactMailToAdmin(PresentationContactMessage $messageMail): void{
 
         $email = (new TemplatedEmail())

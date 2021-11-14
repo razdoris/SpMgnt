@@ -8,12 +8,10 @@
     <title>{% block title %}SpMgmt{% endblock %}</title>
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}" type="text/css">
     {% block extraStyle %}{% endblock %}
-
 </head>
 <body>
     <header>
         {{ include('admin/_inc/_adminHeader.html.twig') }}
-
     </header>
     {% for label, messages in app.flashes %}
         {% for message in messages %}
@@ -26,16 +24,10 @@
         <h1>{% block pageTitle %}{% endblock %}</h1>
         {% block body %}{% endblock %}
     </main>
-
-
-
     <script src="{{ asset('js/itemNavigationToggle.js') }}"></script>
     {% block javascripts %}
         {#{{ encore_entry_script_tags('app') }}#}
     {% endblock %}
 </body>
-
-
-
 </html>
 

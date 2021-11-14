@@ -51,8 +51,9 @@ class MainController extends AbstractController
         PresentationFaqQuestionRepository $question
     ): Response
     {
+        $questionList = $question->findAll();
         return $this->render('presentation/main/faq.html.twig',[
-            'questionList'=>$question->findAll()
+            'questionList'=>$questionList
         ]);
     }
 
@@ -71,10 +72,9 @@ class MainController extends AbstractController
 
         $form->handleRequest($request);
 
-        if($id != null){
+        if($id != null && !$form->isSubmitted()){
             $mailSubject = $subject->find($id);
             $form->get('subject')->setData($mailSubject);
-            $form->get('firstName')->setData('accueil');
             return $this->render('presentation/main/contact.html.twig',[
                 'formContactMessage' => $form->createView(),
                 'subject'=>$subject
@@ -85,11 +85,12 @@ class MainController extends AbstractController
         {
             $eMailSender->sendContactMailToAdmin($contact);
             $this->addFlash('success', 'Votre email a été envoyé');
-            return $this->redirectToRoute('main_contact');
+            return $this->redirectToRoute('main_index');
         }
 
         return $this->render('presentation/main/contact.html.twig',[
             'formContactMessage' => $form->createView(),
+            'subject'=>null
         ]);
     }
 

@@ -1,9 +1,44 @@
-<h1>Demande de contact</h1>
-
-<p>{{ message.firstName }} {{ message.lastName }} souhaites des informations
-    au sujet de {{ message.subject.subjectText }}</p>
-<h2>la question:</h2>
-<p>{{ message.question | nl2br}}</p>
-<h2>pour le contacter:</h2>
-<p>{{ message.phoneNumber }}</p>
-<p>{{ message.club }}</p><p>{{ message.division }}</p>
+<section style="background-color:rgba(0,211,255,.5); text-align:center;">
+    <h1>SpMgnt - formulaire de contact</h1>
+</section>
+<section style="font-size: 30px">
+    <strong>{{ message.firstName }} {{ message.lastName }}</strong>
+    a fait une demande d'information dont le sujet est
+    <strong>"{{ message.subject.subjectText }}"</strong>
+</section>
+<section>
+    <h2 style="margin: 10px">Sa question est la suivante:</h2>
+    <p style="background-color: rgba(0,211,255,.8)"><i>"{{ message.question | nl2br}}"</i></p>
+</section>
+<section>
+    <h2 style="margin: 10px">information pour lui repondre</h2>
+    <table>
+        <tr>
+            <td>telephone:</td>
+            <td>{{ message.phoneNumber }}</td>
+        </tr>
+        <tr>
+            <td>Adresse mail</td>
+            <td><a HREF="mailto:{{ message.mailAddress }}">{{ message.mailAddress }}</a></td>
+        </tr>
+    </table>
+</section>
+{% if  message.club is not null or message.division is not null %}
+<section>
+    <h2 style="margin: 10px">informations complementaires</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Nom du club</th>
+                <th>Division</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ message.club }}</td>
+            <td>{{ message.division }}</td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+{% endif %}

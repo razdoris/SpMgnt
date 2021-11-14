@@ -3,47 +3,55 @@
 
 *
 {
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
 }
 
 body
 {
-    font-family				: 'Roboto Condensed', Arial, sans-serif;
-    color					: black;
-    height					: 90vh;
-    width               : 100%;
+    font-family: 'Roboto Condensed', Arial, sans-serif;
+    color: black;
+    height: 90vh;
+    width: 100%;
+    background-color: rgba(0,211,255,.5) !important;
+
 }
 
 
 
+header, nav
+{
+    background-color: rgba(0,211,255,1) !important;
+}
 
 
-::-webkit-scrollbar {
+::-webkit-scrollbar
+{
    display: none;
 }
 
 
 
-header{
-    display:flex;
+header
+{
+    display: flex;
     justify-content: space-between;
-    font-size               : 20px;
-    letter-spacing          : 3px;
-    position				: fixed;
-    height					: 100px;
-    width					: 100%;
-    top						: 0px;
-    left					: 0px;
+    font-size: 20px;
+    letter-spacing: 3px;
+    position: fixed;
+    height: 100px;
+    width: 100%;
+    top: 0;
+    left: 0;
     z-index: 100;
 }
 
 header a
 {
     text-decoration: none;
-    color:black;
-    margin:0;
-    padding:0;
+    color: black;
+    margin: 0;
+    padding: 0;
 }
 
 #AppLogo
@@ -55,7 +63,8 @@ header a
 }
 
 
-#titleHeader{
+#titleHeader
+{
     margin: 10px;
     height: 80px;
     width: 180px;
@@ -63,26 +72,26 @@ header a
 
 .headerPrincipal
 {
-    position:relative;
-    top:20px;
-    right:20px;
-    text-align:right;
+    position: relative;
+    top: 20px;
+    right: 20px;
+    text-align: right;
 }
 
 .headerChild
 {
-    border-bottom:2px solid black;
-    border-left:2px solid black;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
     padding: 0 25px;
-    position:absolute;
-    right: 0px;
+    position: absolute;
+    right: 0;
 }
 
 .headerUl, .headerIl
 {
     list-style: none !important;
-    margin:0 !important;
-    padding:0 !important;;
+    margin: 0 !important;
+    padding: 0 !important;;
 }
 
 .burgerMenu
@@ -92,19 +101,19 @@ header a
 
 .hide
 {
-    display:none;
+    display: none;
 }
 
-nav{
-
-    display:flex;
+nav
+{
+    display: flex;
     justify-content: space-between;
-    font-size               : 20px;
-    letter-spacing          : 3px;
-    position				: relative;
-    height					: 30px;
-    width					: 70%;
-    top                     :30px;
+    font-size: 20px;
+    letter-spacing: 3px;
+    position: relative;
+    height: 30px;
+    width: 70%;
+    top:30px;
     margin: 0 !important;
     padding: 0 !important;
 }
@@ -129,8 +138,8 @@ nav{
     margin: 10px;
 }
 
-
-.flash{
+.flash
+{
     padding: 20px;
     font-weight: bold;
     font-size: 1.4rem;
@@ -142,6 +151,7 @@ nav{
     top: 120px;
     width: 80%;
 }
+
 .flash-success
 {
     border: 2px solid green;
@@ -154,7 +164,8 @@ nav{
     color: red;
 }
 
-.alert{
+.alert
+{
     padding: 20px;
     font-weight: bold;
     font-size: 1.4rem;
@@ -162,16 +173,12 @@ nav{
     border-radius: 5px;
     text-align: center;
 }
+
 .alert-danger
 {
     border: 2px solid red;
     color: red;
 }
-
-
-/*
-
- */
 
 .container
 {
@@ -196,7 +203,8 @@ h1
     margin-bottom: 40px;
 }
 
-h2{
+h2
+{
     margin-bottom: 20px;
 }
 
@@ -205,12 +213,16 @@ ul
     text-indent: 20px;
     margin-left: 30px;
 }
-.descriptionText{
+
+.descriptionText
+{
     display: inline-block;
     height: min-content;
     width:40%
 }
-.mainIllustrationContainer{
+
+.mainIllustrationContainer
+{
     display: inline-block;
     height :20%;
     width : 50%;
@@ -226,19 +238,20 @@ ul
 /*
 css page Nos Actus
  */
-
 .blogContainer a,
 .offerContainer a
 {
     color: black;
     text-decoration: none;
 }
+
 .blogContainer
 {
     display:flex;
     justify-content: center;
     flex-wrap: wrap;
 }
+
 .articlePreview
 {
     display: inline-block;
@@ -254,7 +267,8 @@ css page Nos Actus
     transform-origin: bottom left;
 }
 
-.articlePreview:hover{
+.articlePreview:hover
+{
     transform: rotate(-1deg) translateX(-10px) translatey(-15px) scale(1.05);
 }
 
@@ -267,7 +281,6 @@ css page Nos Actus
     background-color: #FFFFFF;
     border-radius: 10px;
     padding: 1px 5px;
-
 }
 
 
@@ -280,9 +293,7 @@ css page Nos Actus
     background-color: #FFFFFF;
 }
 
-
 .articlePreviewBody
-
 {
     text-align: center;
     padding: 30px;
@@ -290,12 +301,14 @@ css page Nos Actus
 }
 
 
-.articleContainer{
+.articleContainer
+{
     width:80%;
     margin: 0 auto;
 }
 
-.articleBody{
+.articleBody
+{
     margin:20px;
     color: black;
 }
@@ -309,7 +322,6 @@ css page Nos Actus
     margin-right: auto;
 }
 
-
 .caroussel
 {
     display: flex;
@@ -320,31 +332,29 @@ css page Nos Actus
     margin: 10px;
 }
 
-
 .carousselItem
 {
     margin-left: 1rem;
     scroll-snap-align: center;
-
 }
 
-.caroussel::-webkit-scrollbar {
+.caroussel::-webkit-scrollbar
+{
     height: 3px;
     background-color: rgba(255,255,255,0.2);
     display: initial;
 }
 
-.caroussel::-webkit-scrollbar-track {
+.caroussel::-webkit-scrollbar-track
+{
     background-color: rgba(0,0,0,0.1);
 }
 
-
-
-.caroussel::-webkit-scrollbar-thumb {
+.caroussel::-webkit-scrollbar-thumb
+{
     background-color: #3d4852;
     border-radius: 3px;
 }
-
 
 .carousselArticlePreview
 {
@@ -358,8 +368,6 @@ css page Nos Actus
     text-decoration: none;
 }
 
-
-
 .carousselArticlePreviewImage
 {
     width: 100%;
@@ -368,9 +376,7 @@ css page Nos Actus
     background-color: #FFFFFF;
 }
 
-
 .carousselArticlePreviewBody
-
 {
     text-align: center;
     top:-20px;
@@ -378,12 +384,9 @@ css page Nos Actus
     Margin: 10px;
 }
 
-
-
-
-
-
-
+/*
+* css page offres
+*/
 .offerContainer
 {
     display: inline-block;
@@ -406,7 +409,6 @@ css page Nos Actus
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-
 }
 
 .offerBody
@@ -432,7 +434,6 @@ css page Nos Actus
     font-size:35px;
     font-weight: bolder;
 }
-
 
 .monthOrYear
 {
@@ -466,19 +467,16 @@ css page Faq
 .gradiantGroup
 {
     background: linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0.2));
-
 }
 
 /*
 css page contact
  */
-
 .blockFormContact
 {
     display: inline-block;
     margin: 20px;
 }
-
 
 .blockForm
 {
@@ -544,19 +542,18 @@ input[type="file"]::-webkit-file-upload-button
 
 }
 
-
 .labelFeatureFormOffer>label
 {
     font-weight: normal;
     display: inline-block;
 }
+
 .labelFeatureFormOffer,
 .widgetFeatureFormOffer,
 .subBlockFormOffer
 {
     display: inline-block;
 }
-
 
 .checkboxLineFormOffer
 {
@@ -579,7 +576,6 @@ input[type="file"]::-webkit-file-upload-button
 {
     width: 660px;
 }
-
 
 .widgetFormNewArticle select
 {
@@ -633,13 +629,13 @@ input[type="file"]::-webkit-file-upload-button
     border-radius: 20px;
 }
 
-
 .notEnable
 {
     color: rgba(255, 255, 255, .2);
 }
 
-.tableAdmin thead{
+.tableAdmin thead
+{
     background-color			: rgb(5, 138, 255);
 }
 
@@ -681,7 +677,6 @@ input[type="file"]::-webkit-file-upload-button
 {
     width: 10%;
 }
-
 
 .tableAdminDetail td:nth-child(even)
 {
@@ -728,7 +723,6 @@ tr, td
     width: 100%;
 }
 
-
 .featureDesc
 {
     text-align	: center;
@@ -744,7 +738,6 @@ tr, td
     height: 70px;
     margin: auto;
 }
-
 
 .pictureFeature:before {
     content: ' ';

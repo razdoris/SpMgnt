@@ -6,6 +6,7 @@ use App\Entity\PresentationContactMessage;
 use App\Entity\PresentationContactSubject;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -23,11 +24,11 @@ class PresentationContactMessageType extends AbstractType
                 'label'=>'Prénom'
             ])
             ->add('phoneNumber', TextType::class, [
-                'label'=>'Téléphone',
-                'required'=>false
+                'label'=>'Téléphone'
             ])
-            ->add('mailAddress', TextType::class, [
-                'label'=>'Addresse électronique'
+            ->add('mailAddress', EmailType::class, [
+                'label'=>'Addresse électronique',
+                'invalid_message'=>'format non valide'
             ])
             ->add('club', TextType::class, [
                 'label'=>'Nom de votre club',
@@ -53,6 +54,9 @@ class PresentationContactMessageType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => PresentationContactMessage::class,
+            'attr' => [
+            'novalidate' => 'novalidate',
+        ]
         ]);
     }
 }

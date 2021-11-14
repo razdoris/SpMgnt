@@ -32,7 +32,7 @@ class ApplicationCalendarEventsSort
     /**
      * @ORM\Column(type="string", length=7)
      * @Assert\Regex(
-     *     pattern="^#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$)",
+     *     pattern="^#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$^",
      *     match=true,
      *     message="ceci n'est pas une couleur valide")
      */
@@ -41,7 +41,7 @@ class ApplicationCalendarEventsSort
     /**
      * @ORM\Column(type="string", length=7)
      * @Assert\Regex(
-     *     pattern="^#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$)",
+     *     pattern="^#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$^",
      *     match=true,
      *     message="ceci n'est pas une couleur valide")
      */
@@ -50,7 +50,7 @@ class ApplicationCalendarEventsSort
     /**
      * @ORM\Column(type="string", length=7)
      * @Assert\Regex(
-     *     pattern="^#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$)",
+     *     pattern="^#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$^",
      *     match=true,
      *     message="ceci n'est pas une couleur valide")
      */

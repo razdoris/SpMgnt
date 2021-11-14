@@ -7,6 +7,11 @@
 {% block body %}
     <div class="contactBody gradiantGroup">
         {{ form_start(formContactMessage) }}
+        {% for item in formContactMessage %}
+            {% if form_errors(item) %}
+                <div class="alert-message">{{ form_errors(item) }}</div>
+            {% endif %}
+        {% endfor %}
         <div class="groupFormContact">
             <div class="blockFormContact">
                 <div class="labelFormContact">
@@ -67,7 +72,11 @@
                     {{ form_label(formContactMessage.subject) }}
                 </div>
                 <div class="widgetFromContact">
-                    {{ form_widget(formContactMessage.subject) }}
+                    {%  if subject %}
+                        {{form_widget(formContactMessage.subject, {'attr' : {'disabled':true}}) }}
+                    {% else %}
+                        {{form_widget(formContactMessage.subject) }}
+                    {% endif %}
                 </div>
             </div>
         </div>

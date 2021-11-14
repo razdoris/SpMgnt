@@ -2,18 +2,20 @@
 
 namespace App\Entity;
 
-use App\Repository\ContactMessageRepository;
 use Symfony\Component\Validator\Constraints as Assert;
 
 
 class PresentationContactMessage
 {
-
-
     /**
      * @var string|null
      * @Assert\NotBlank()
      * @Assert\Length(min=2, max=100)
+     * @Assert\Regex(
+     *     pattern="/\d/",
+     *     match=false,
+     *     message="votre prenom ne doit pas contenir de nombre"
+     * )
      */
     private $firstName;
 
@@ -22,6 +24,11 @@ class PresentationContactMessage
      * @var string|null
      * @Assert\NotBlank()
      * @Assert\Length(min=2, max=100)
+     * @Assert\Regex(
+     *     pattern="/\d/",
+     *     match=false,
+     *     message="votre nom ne doit pas contenir de nombre"
+     * )
      */
     private $lastName;
 
@@ -29,7 +36,9 @@ class PresentationContactMessage
      * @var string|null
      * @Assert\NotBlank()
      * @Assert\Regex(
-     *     pattern="/[0-9]{10}/"
+     *     pattern="/[0-9]{10}/",
+     *     match=true,
+     *     message="veuillez entrer un numero de téléphone valide"
      * )
      */
     private $phoneNumber;
@@ -37,7 +46,9 @@ class PresentationContactMessage
     /**
      * @var string|null
      * @Assert\NotBlank()
-     * @Assert\Email()
+     * @Assert\Email(
+     *     message="veuillez entrer une adresse mail valide"
+     * )
      */
     private $mailAddress;
 

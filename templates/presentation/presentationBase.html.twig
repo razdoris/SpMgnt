@@ -9,19 +9,6 @@
     <link rel="stylesheet" href="{{ asset('css/main.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/mainResponsive.css') }}" type="text/css">
     {% block extraStyle %}{% endblock %}
-        <style>
-        body
-        {
-            background-color		: rgba(0,211,255,.5) !important;
-        }
-        header, nav
-         {
-             background-color		: rgba(0,211,255,1) !important;
-         }
-
-        </style>
-
-
 </head>
 <body>
     <header>
@@ -39,16 +26,10 @@
         <h1>{% block pageTitle %}{% endblock %}</h1>
         {% block body %}{% endblock %}
     </main>
-
-
-
     <script src="{{ asset('js/itemNavigationToggle.js') }}"></script>
     {% block javascripts %}
         {#{{ encore_entry_script_tags('app') }}#}
     {% endblock %}
 </body>
-
-
-
 </html>
 
