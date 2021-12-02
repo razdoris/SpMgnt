@@ -69,25 +69,24 @@ class MainController extends AbstractController
     {
         $contact = new PresentationContactMessage();
         $form = $this->createForm(PresentationContactMessageType::class, $contact);
-
         $form->handleRequest($request);
-
         if($id != null && !$form->isSubmitted()){
             $mailSubject = $subject->find($id);
+            if(!$mailSubject){
+                throw $this->createNotFoundException('sujet de mail inexistant');
+            }
             $form->get('subject')->setData($mailSubject);
             return $this->render('presentation/main/contact.html.twig',[
                 'formContactMessage' => $form->createView(),
                 'subject'=>$subject
             ]);
         }
-
         if($form->isSubmitted() && $form->isValid())
         {
             $eMailSender->sendContactMailToAdmin($contact);
             $this->addFlash('success', 'Votre email a été envoyé');
             return $this->redirectToRoute('main_index');
         }
-
         return $this->render('presentation/main/contact.html.twig',[
             'formContactMessage' => $form->createView(),
             'subject'=>null

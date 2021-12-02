@@ -13,7 +13,6 @@
 <body>
     <header>
         {{ include('presentation/inc/_presentationHeader.html.twig') }}
-
     </header>
     {% for label, messages in app.flashes %}
         {% for message in messages %}
@@ -28,7 +27,6 @@
     </main>
     <script src="{{ asset('js/itemNavigationToggle.js') }}"></script>
     {% block javascripts %}
-        {#{{ encore_entry_script_tags('app') }}#}
     {% endblock %}
 </body>
 </html>
