@@ -24,7 +24,7 @@
     else
     {
         calendar = new FullCalendar.Calendar(calendarDiv2, {
-            initialView: 'dayGridMonth',
+            initialView: 'timeGridWeek',
             locale:"fr",
             timeZone: 'Europe/Paris',
             firstDay: 1,
@@ -36,7 +36,15 @@
             },
             buttonText: {
                 today: 'maintenant'
-            }
+            },
+            events:[
+                {
+                    start:'2022-03-07T18:30:00',
+                    end:'2022-03-07T20:00:00',
+                    display:'background',
+                }
+
+            ]
         })
     }
 
